@@ -7,6 +7,8 @@ public class InteractionControls : MonoBehaviour {
 	public float objectDistance = 1; // distance from camera to carried object
 	public float throwStrength = 100; // how strongly you throw objects away
 
+	public float rotationSpeed = 50; // The speed of the Rotation
+
 	int interactableMask; // the layer of all the objects player can interact with
 	Camera camera;
 	Transform carriedObject = null;
@@ -57,7 +59,23 @@ public class InteractionControls : MonoBehaviour {
 			carriedObject.rigidbody.useGravity = false;
 
 			carriedObject.position = camera.transform.position + camera.transform.forward * objectDistance;
+
+
+			//Interactions possible with the picked Up Object
+			if (Input.GetKey(KeyCode.C)) 
+			{
+				carriedObject.RotateAround(carriedObject.position, carriedObject.transform.up, rotationSpeed*Time.deltaTime);
+			}
+			if (Input.GetKey(KeyCode.V)) 
+			{
+				carriedObject.RotateAround(carriedObject.position, carriedObject.transform.up, -rotationSpeed*Time.deltaTime);
+			}
 		}
+	}
+
+	void RotatePickedUpObject(Transform cObject)
+	{
+
 	}
 
 	/**
