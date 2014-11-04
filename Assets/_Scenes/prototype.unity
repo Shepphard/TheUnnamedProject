@@ -751,6 +751,7 @@ MonoBehaviour:
   objectDistance: 1
   throwStrength: 100
   rotationSpeed: 50
+  rotation: 0
 --- !u!1 &1490752975
 GameObject:
   m_ObjectHideFlags: 0

@@ -61,26 +61,25 @@ public class InteractionControls : MonoBehaviour {
 		{
 			// yes then turn of gravity so it doesnt fall out of your hands!
 			carriedObject.rigidbody.useGravity = false;
-                    
+            
+			//Position of the carriedObject
 			carriedObject.position = camera.transform.position+camera.transform.forward*objectDistance;
-			//carriedObject.
 
 			//Interactions possible with the picked Up Object
+			//calculate the amount to rotate if needed
+			float currentRotation = rotationSpeed*Time.deltaTime;
+			//left turn
 			if (Input.GetKey(KeyCode.C)) 
 			{
-				if(rotation >= 360)
-					rotation -= 360;
-				float currentRotation = rotationSpeed*Time.deltaTime;
-				rotation += currentRotation;
+				//rotate around the up-Vector (positive rotation)
 				carriedObject.Rotate(carriedObject.transform.up, currentRotation);
 			}
+
+			//right turn
 			if (Input.GetKey(KeyCode.V)) 
 			{
-				if(rotation <= -360)
-					rotation += 360;
-				float currentRotation = rotationSpeed*Time.deltaTime;
-				rotation -= currentRotation;
-				carriedObject.Rotate(carriedObject.transform.up, currentRotation);
+				//rotate around the up-Vector (negative rotation)
+				carriedObject.Rotate(carriedObject.transform.up, -currentRotation);
 			}
 		}
 	}
