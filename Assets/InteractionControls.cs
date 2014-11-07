@@ -45,6 +45,10 @@ public class InteractionControls : MonoBehaviour {
 				// turn gravity back on
 				carriedObject.rigidbody.useGravity = true;
 
+				// reset all the forces applied
+				carriedObject.rigidbody.velocity = Vector3.zero;
+				carriedObject.rigidbody.angularVelocity = Vector3.zero;
+				
 				// add force to object
 				carriedObject.rigidbody.AddForce(camera.transform.forward * throwStrength);
 
@@ -62,11 +66,11 @@ public class InteractionControls : MonoBehaviour {
 			// yes then turn of gravity so it doesnt fall out of your hands!
 			carriedObject.rigidbody.useGravity = false;
             
-			//Position of the carriedObject
+			// Position of the carriedObject
 			carriedObject.position = camera.transform.position+camera.transform.forward*objectDistance;
 
-			//Interactions possible with the picked Up Object
-			//calculate the amount to rotate if needed
+			// Interactions possible with the picked Up Object
+			// calculate the amount to rotate if needed
 			float currentRotation = rotationSpeed*Time.deltaTime;
 			//left turn
 			if (Input.GetKey(KeyCode.C)) 
