@@ -87,17 +87,19 @@ public class InteractionControls : MonoBehaviour {
 
 			// Interactions possible with the picked Up Object
 			// calculate the amount to rotate if needed
-			float currentRotation = rotationSpeed*Time.deltaTime;
+			float currentRotationX = -1*rotationSpeed*Time.deltaTime*Input.GetAxis("Mouse X");
+			float currentRotationY = rotationSpeed*Time.deltaTime*Input.GetAxis("Mouse Y");
+		
 			
 			if (Input.GetKey(KeyCode.Mouse1))
 			{
-				/*
-				 * WORK ON THIS SO IT IS INTUITIVE
-				 */
-				carriedObject.Rotate(new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0), currentRotation);
+				carriedObject.RotateAround(carriedObject.position, camera.transform.up, currentRotationX);
+				carriedObject.RotateAround(carriedObject.position, camera.transform.right, currentRotationY);
 			}
 			
 			/*
+			 * OLD TURNING CONTROLS using Keys C and V
+			 *
 			//left turn
 			if (Input.GetKey(KeyCode.C)) 
 			{
