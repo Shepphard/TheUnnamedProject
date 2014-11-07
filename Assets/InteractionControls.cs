@@ -37,6 +37,12 @@ public class InteractionControls : MonoBehaviour {
 				{
 					// pick up object
 					carriedObject = hitObject.collider.transform;
+					// yes then turn of gravity so it doesnt fall out of your hands!
+					carriedObject.rigidbody.useGravity = false;
+					// Position of the carriedObject once
+					carriedObject.position = camera.transform.position+camera.transform.forward*objectDistance;
+					//make player be the parent of the object
+					carriedObject.transform.parent = camera.transform;
 				}
 			}
 			//..DOES carry an object, throw it away
@@ -44,6 +50,9 @@ public class InteractionControls : MonoBehaviour {
 			{
 				// turn gravity back on
 				carriedObject.rigidbody.useGravity = true;
+				
+				// free the object
+				carriedObject.transform.parent = null;
 
 				// reset all the forces applied
 				carriedObject.rigidbody.velocity = Vector3.zero;
@@ -62,11 +71,8 @@ public class InteractionControls : MonoBehaviour {
 
 		// is player carrying an object?
 		if (carriedObject != null)
-		{
-			// yes then turn of gravity so it doesnt fall out of your hands!
-			carriedObject.rigidbody.useGravity = false;
-            
-			// Position of the carriedObject
+		{            
+			// make sure its still in the same position
 			carriedObject.position = camera.transform.position+camera.transform.forward*objectDistance;
 
 			// Interactions possible with the picked Up Object
