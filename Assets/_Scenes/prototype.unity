@@ -754,7 +754,7 @@ MonoBehaviour:
   rayLength: 5
   objectDistance: 1
   throwStrength: 100
-  rotationSpeed: 50
+  rotationSpeed: 200
   rotation: 0
 --- !u!1 &1490752975
 GameObject:

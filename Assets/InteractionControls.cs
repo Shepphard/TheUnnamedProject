@@ -13,11 +13,15 @@ public class InteractionControls : MonoBehaviour {
 	int interactableMask; // the layer of all the objects player can interact with
 	Camera camera;
 	Transform carriedObject = null;
+	MouseLook mouselook_player;
+	MouseLook mouselook_camera;
 
 	void Awake()
 	{
 		interactableMask = LayerMask.GetMask ("Interactable");
 		camera = GetComponentInChildren<Camera> ();
+		mouselook_camera = camera.GetComponent<MouseLook>();
+		mouselook_player = GetComponent<MouseLook>();
 	}
 
 	void FixedUpdate()
@@ -43,11 +47,17 @@ public class InteractionControls : MonoBehaviour {
 					carriedObject.position = camera.transform.position+camera.transform.forward*objectDistance;
 					//make player be the parent of the object
 					carriedObject.transform.parent = camera.transform;
+					
+					mouselook_camera.setCarriesObject(true);
+					mouselook_player.setCarriesObject(true);
 				}
 			}
 			//..DOES carry an object, throw it away
 			else
 			{
+				mouselook_camera.setCarriesObject(false);
+				mouselook_player.setCarriesObject(false);
+				
 				// turn gravity back on
 				carriedObject.rigidbody.useGravity = true;
 				
@@ -78,6 +88,16 @@ public class InteractionControls : MonoBehaviour {
 			// Interactions possible with the picked Up Object
 			// calculate the amount to rotate if needed
 			float currentRotation = rotationSpeed*Time.deltaTime;
+			
+			if (Input.GetKey(KeyCode.Mouse1))
+			{
+				/*
+				 * WORK ON THIS SO IT IS INTUITIVE
+				 */
+				carriedObject.Rotate(new Vector3(Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0), currentRotation);
+			}
+			
+			/*
 			//left turn
 			if (Input.GetKey(KeyCode.C)) 
 			{
@@ -90,7 +110,7 @@ public class InteractionControls : MonoBehaviour {
 			{
 				//rotate around the up-Vector (negative rotation)
 				carriedObject.Rotate(carriedObject.transform.up, -currentRotation);
-			}
+			}*/
 		}
 	}
 	/**
@@ -114,5 +134,10 @@ public class InteractionControls : MonoBehaviour {
 		}
 
 		return objectHit;
+	}
+	
+	public bool playerCarriesObject()
+	{
+		return carriedObject!=null;
 	}
 }
