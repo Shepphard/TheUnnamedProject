@@ -12,7 +12,7 @@ public class InteractionControls : MonoBehaviour {
 
 	int interactableMask; // the layer of all the objects player can interact with
 	Camera camera;
-	Transform carriedObject = null;
+	public Transform carriedObject = null;
 	MouseLook mouselook_player;
 	MouseLook mouselook_camera;
 
@@ -31,54 +31,29 @@ public class InteractionControls : MonoBehaviour {
 		// on left click..
 		if (Input.GetButtonDown ("PickUp"))
 		{
-			//..and player does not carry an object..
-			if (carriedObject == null)
+			//..check if player hits object/npc in reach
+			hitObject = hitsObject ();
+			
+			if (hitObject.collider != null)
 			{
-				//..check if player hits object in reach
-				hitObject = hitsObject ();
-				// if an object is hit
-				if (hitObject.collider != null)
+				// is it an NPC?..
+				if (hitObject.collider.tag == "NPC")
 				{
-					// pick up object
-					carriedObject = hitObject.collider.transform;
-					// yes then turn of gravity so it doesnt fall out of your hands!
-					carriedObject.rigidbody.useGravity = false;
-					// Position of the carriedObject once
-					carriedObject.position = camera.transform.position+camera.transform.forward*objectDistance;
-					//make player be the parent of the object
-					carriedObject.transform.parent = camera.transform;
-					
-					mouselook_camera.setCarriesObject(true);
-					mouselook_player.setCarriesObject(true);
+					// if yes, retrieve NPCInteraction script from the NPC
+					hitObject.collider.gameObject.GetComponent<NPCInteraction>().Interaction();
 				}
+				//..if you hit an pickup object and have no object in your hands yo
+				else if (carriedObject == null && hitObject.collider.tag == "PickUp")
+				{
+				
+					setCarriedObject(hitObject.collider.transform);
+				
+				}
+
 			}
-			//..DOES carry an object, throw it away
-			else
-			{
-				mouselook_camera.setCarriesObject(false);
-				mouselook_player.setCarriesObject(false);
-				
-				// turn gravity back on
-				carriedObject.rigidbody.useGravity = true;
-				
-				// free the object
-				carriedObject.transform.parent = null;
-
-				// reset all the forces applied
-				carriedObject.rigidbody.velocity = Vector3.zero;
-				carriedObject.rigidbody.angularVelocity = Vector3.zero;
-				
-				// add force to object
-				carriedObject.rigidbody.AddForce(camera.transform.forward * throwStrength);
-
-				// set carriedObject to null
-				carriedObject = null;
-
-				// set the rotation to 0
-				rotation = 0;
-			}
+			
 		}
-
+		
 		// is player carrying an object?
 		if (carriedObject != null)
 		{            
@@ -90,11 +65,38 @@ public class InteractionControls : MonoBehaviour {
 			float currentRotationX = -1*rotationSpeed*Time.deltaTime*Input.GetAxis("Mouse X");
 			float currentRotationY = rotationSpeed*Time.deltaTime*Input.GetAxis("Mouse Y");
 		
-			
+			// rotate
 			if (Input.GetKey(KeyCode.Mouse1))
 			{
 				carriedObject.RotateAround(carriedObject.position, camera.transform.up, currentRotationX);
 				carriedObject.RotateAround(carriedObject.position, camera.transform.right, currentRotationY);
+			}
+			
+			// throw away
+			if (Input.GetKeyDown(KeyCode.Q))
+			{
+				Debug.Log("Throw Button pressed");
+				mouselook_camera.setCarriesObject(false);
+				mouselook_player.setCarriesObject(false);
+				
+				// turn gravity back on
+				carriedObject.rigidbody.useGravity = true;
+				
+				// free the object
+				carriedObject.transform.parent = null;
+				
+				// reset all the forces applied
+				carriedObject.rigidbody.velocity = Vector3.zero;
+				carriedObject.rigidbody.angularVelocity = Vector3.zero;
+				
+				// add force to object
+				carriedObject.rigidbody.AddForce(camera.transform.forward * throwStrength);
+				
+				// set carriedObject to null
+				carriedObject = null;
+				
+				// set the rotation to 0
+				rotation = 0;
 			}
 			
 			/*
@@ -141,5 +143,20 @@ public class InteractionControls : MonoBehaviour {
 	public bool playerCarriesObject()
 	{
 		return carriedObject!=null;
+	}
+	
+	public void setCarriedObject (Transform obj)
+	{
+		// pickup object
+		carriedObject = obj;
+		// yes then turn of gravity so it doesnt fall out of your hands!
+		carriedObject.rigidbody.useGravity = false;
+		// Position of the carriedObject once
+		carriedObject.position = camera.transform.position+camera.transform.forward*objectDistance;
+		//make player be the parent of the object
+		carriedObject.transform.parent = camera.transform;
+		
+		mouselook_camera.setCarriesObject(true);
+		mouselook_player.setCarriesObject(true);
 	}
 }
