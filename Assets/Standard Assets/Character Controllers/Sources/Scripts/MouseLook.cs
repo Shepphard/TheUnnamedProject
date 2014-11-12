@@ -34,7 +34,7 @@ public class MouseLook : MonoBehaviour {
 
 	void Update ()
 	{
-		if (!playerCarriesObject || (playerCarriesObject && !Input.GetKey(KeyCode.Mouse1)))
+		if (!playerCarriesObject || (playerCarriesObject && !Input.GetKey(KeyCode.Mouse1))) // used for rotationccode OLD
 		{
 			if (axes == RotationAxes.MouseXAndY)
 			{

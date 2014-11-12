@@ -320,6 +320,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 19800000, guid: d59b5ccb3e318164c89ad3b11cd9c99a, type: 2}
+      propertyPath: ShapeModule.type
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d59b5ccb3e318164c89ad3b11cd9c99a, type: 2}
   m_RootGameObject: {fileID: 1651669982}
@@ -638,6 +642,7 @@ MonoBehaviour:
   activated: 0
   scaleCurrent: {x: .699999988, y: .699999988}
   scaleOriginal: {x: .5, y: .5}
+  activatedTime: 2
 --- !u!95 &762117697
 Animator:
   serializedVersion: 3
@@ -1819,8 +1824,6 @@ MonoBehaviour:
   objectDistance: 1
   throwStrength: 100
   carriedObject: {fileID: 0}
-  rotationSpeed: 200
-  rotation: 0
 --- !u!114 &1364180533
 MonoBehaviour:
   m_ObjectHideFlags: 0

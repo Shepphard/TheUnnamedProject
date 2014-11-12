@@ -9,13 +9,7 @@ AnimatorController:
   serializedVersion: 2
   m_AnimatorParameters:
   - m_Name: activated
-    m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: deactivated
-    m_Type: 9
+    m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -65,7 +59,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: deactivated
+    m_ConditionEvent: activated
     m_EventTreshold: 0
     m_ExitTime: .75
   m_Atomic: 1
@@ -105,7 +99,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: deactivated
+    m_ConditionEvent: activated
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -125,7 +119,7 @@ Transition:
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 5
-    m_ConditionEvent: 
+    m_ConditionEvent: activated
     m_EventTreshold: 0
     m_ExitTime: 1
   m_Atomic: 1
@@ -209,15 +203,6 @@ StateMachine:
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110203171}
-      second:
-      - {fileID: 110197924}
-      - {fileID: 110133922}
-    data:
-      first: {fileID: 110238304}
-      second:
-      - {fileID: 110119745}
-    data:
       first: {fileID: 110278963}
       second:
       - {fileID: 110100000}
@@ -225,6 +210,15 @@ StateMachine:
       first: {fileID: 110200000}
       second:
       - {fileID: 110150474}
+    data:
+      first: {fileID: 110238304}
+      second:
+      - {fileID: 110119745}
+    data:
+      first: {fileID: 110203171}
+      second:
+      - {fileID: 110197924}
+      - {fileID: 110133922}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 24, y: -132, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

@@ -46,6 +46,7 @@ public class Inventory : MonoBehaviour {
 		return tmp;
 	}
 	
+	//doesnt work
 	public GameObject switchItem(GameObject obj)
 	{
 		int cursor = currentItem;

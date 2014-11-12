@@ -9,9 +9,9 @@ public class InventoryBar : MonoBehaviour {
 	public ArrayList iconList;
 	public Vector2 scaleCurrent = new Vector2(0.7f, 0.7f);
 	public Vector2 scaleOriginal = new Vector2(0.5f, 0.5f);
+	public float activatedTime = 2.0f;
 
 	private Inventory _inventory;
-	private float activatedTime = 3.0f;
 	private float timer = 0f;
 	private Animator _anim;
 	
@@ -48,17 +48,24 @@ public class InventoryBar : MonoBehaviour {
 	
 	public void activate()
 	{
-		activated = true;
-		_anim.SetTrigger("activated");
-		// show up
-		// update your info on the items
+		// if its already activated, just reset timer
+		if (!activated)
+		{
+			activated = true;
+			_anim.SetBool("activated", activated);
+		}
+		resetTimer();
 	}
 	
 	public void deactivate()
 	{
-		timer = 0f;
-		activated = false;
-		_anim.SetTrigger("deactivated");
+		//timer=0f wrong?
+		// if already deactivated, leave
+		if (activated)
+		{
+			activated = false;
+			_anim.SetBool("activated", activated);
+		}
 	}
 	
 	public void resetTimer()
