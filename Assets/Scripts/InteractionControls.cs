@@ -6,13 +6,14 @@ public class InteractionControls : MonoBehaviour {
 	public float rayLength = 5;	// length of the raycast to measure if object is close enough
 	public float objectDistance = 1; // distance from camera to carried object
 	public float throwStrength = 100; // how strongly you throw objects away
+	public Transform carriedObject = null;
 
 	public float rotationSpeed = 50; // The speed of the Rotation
 	public float rotation = 0; // The rotation that has already been performed
 
 	int interactableMask; // the layer of all the objects player can interact with
 	Camera camera;
-	public Transform carriedObject = null;
+	Inventory _inventory;
 	MouseLook mouselook_player;
 	MouseLook mouselook_camera;
 
@@ -22,6 +23,7 @@ public class InteractionControls : MonoBehaviour {
 		camera = GetComponentInChildren<Camera> ();
 		mouselook_camera = camera.GetComponent<MouseLook>();
 		mouselook_player = GetComponent<MouseLook>();
+		_inventory = GetComponent<Inventory>();
 	}
 
 	void FixedUpdate()
@@ -45,9 +47,7 @@ public class InteractionControls : MonoBehaviour {
 				//..if you hit an pickup object and have no object in your hands yo
 				else if (carriedObject == null && hitObject.collider.tag == "PickUp")
 				{
-				
 					setCarriedObject(hitObject.collider.transform);
-				
 				}
 
 			}
@@ -60,25 +60,23 @@ public class InteractionControls : MonoBehaviour {
 			// make sure its still in the same position
 			carriedObject.position = camera.transform.position+camera.transform.forward*objectDistance;
 
-			// Interactions possible with the picked Up Object
-			// calculate the amount to rotate if needed
-			float currentRotationX = -1*rotationSpeed*Time.deltaTime*Input.GetAxis("Mouse X");
-			float currentRotationY = rotationSpeed*Time.deltaTime*Input.GetAxis("Mouse Y");
-		
-			// rotate
-			if (Input.GetKey(KeyCode.Mouse1))
-			{
-				carriedObject.RotateAround(carriedObject.position, camera.transform.up, currentRotationX);
-				carriedObject.RotateAround(carriedObject.position, camera.transform.right, currentRotationY);
-			}
+//			// Interactions possible with the picked Up Object
+//			// calculate the amount to rotate if needed
+//			float currentRotationX = -1*rotationSpeed*Time.deltaTime*Input.GetAxis("Mouse X");
+//			float currentRotationY = rotationSpeed*Time.deltaTime*Input.GetAxis("Mouse Y");
+//		
+//			// rotate
+//			if (Input.GetKey(KeyCode.Mouse1))
+//			{
+//				carriedObject.RotateAround(carriedObject.position, camera.transform.up, currentRotationX);
+//				carriedObject.RotateAround(carriedObject.position, camera.transform.right, currentRotationY);
+//			}
 			
 			// throw away
 			if (Input.GetKeyDown(KeyCode.Q))
 			{
 				Debug.Log("Throw Button pressed");
-				mouselook_camera.setCarriesObject(false);
-				mouselook_player.setCarriesObject(false);
-				
+
 				// turn gravity back on
 				carriedObject.rigidbody.useGravity = true;
 				
@@ -92,30 +90,61 @@ public class InteractionControls : MonoBehaviour {
 				// add force to object
 				carriedObject.rigidbody.AddForce(camera.transform.forward * throwStrength);
 				
-				// set carriedObject to null
-				carriedObject = null;
+				//set carried object to null
+				clearCarriedObject();
 				
 				// set the rotation to 0
 				rotation = 0;
 			}
 			
-			/*
-			 * OLD TURNING CONTROLS using Keys C and V
-			 *
-			//left turn
-			if (Input.GetKey(KeyCode.C)) 
+			// right click
+			if (Input.GetKeyUp(KeyCode.Mouse1))
 			{
-				//rotate around the up-Vector (positive rotation)
-				carriedObject.Rotate(carriedObject.transform.up, currentRotation);
+				// is inventory activated?
+				if (_inventory._invBar.activated)
+				{
+					if(_inventory.isInvFull())
+					{
+						// FIX DA SWITCH
+						//setCarriedObject(_inventory.switchItem(carriedObject.gameObject).transform);
+					}
+					else
+					{
+						_inventory.addItem(carriedObject.gameObject);
+						clearCarriedObject();
+					}
+				}
+				else 
+				{
+					_inventory.addItem(carriedObject.gameObject);
+					clearCarriedObject();
+				}
 			}
-
-			//right turn
-			if (Input.GetKey(KeyCode.V)) 
-			{
-				//rotate around the up-Vector (negative rotation)
-				carriedObject.Rotate(carriedObject.transform.up, -currentRotation);
-			}*/
 		}
+		
+		else if (Input.GetKeyUp(KeyCode.Mouse1) && carriedObject == null && !_inventory.isInvEmpty())
+		{
+			setCarriedObject(_inventory.removeItem().transform);
+		}
+		
+		float scrollwheelInput = Input.GetAxis("Mouse ScrollWheel");
+		if (scrollwheelInput != 0)
+		{
+			if (_inventory._invBar.activated)
+			{
+				if(scrollwheelInput>0)
+					_inventory.decrementCurrentItem();
+				else
+					_inventory.incrementCurrentItem();
+				_inventory._invBar.resetTimer();
+			}
+			else
+			{
+				_inventory._invBar.activate();
+			}
+		}
+		
+		
 	}
 	/**
 	 * Checks for an object in range
@@ -158,5 +187,13 @@ public class InteractionControls : MonoBehaviour {
 		
 		mouselook_camera.setCarriesObject(true);
 		mouselook_player.setCarriesObject(true);
+	}
+	
+	void clearCarriedObject()
+	{
+		mouselook_camera.setCarriesObject(false);
+		mouselook_player.setCarriesObject(false);
+		// set carriedObject to null
+		carriedObject = null;
 	}
 }
