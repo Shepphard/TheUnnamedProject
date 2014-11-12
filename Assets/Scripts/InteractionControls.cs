@@ -3,7 +3,7 @@ using System.Collections;
 
 //TODO if Verschachteltungen neu überdenken (mehrere buttons gleichzeitig unterbinden)
 //put in update because of physics (causes lagg?)
-//bug manchmal wenn man rausgenommen hat kannmannich gleihc dasnächste rausnehmen
+//bug manchmal wenn man rausgenommen hat kann man nich gleich das nächste rausnehmen
 //rotation is at the bottom
 
 public class InteractionControls : MonoBehaviour {
@@ -80,6 +80,15 @@ public class InteractionControls : MonoBehaviour {
 				{
 					if(_inventory.isInvFull())
 					{
+						// is there an item on the cursor?
+						if (_inventory.checkCurrentItem())
+						{
+							// then switch it
+							GameObject oldObj = carriedObject.gameObject;
+							clearCarriedObject();
+							GameObject newObj = _inventory.switchItem(oldObj);
+							setCarriedObject(newObj.transform);
+						}
 						// FIX DA SWITCH
 						//setCarriedObject(_inventory.switchItem(carriedObject.gameObject).transform);
 					}

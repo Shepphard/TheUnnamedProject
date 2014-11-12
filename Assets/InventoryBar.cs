@@ -111,4 +111,9 @@ public class InventoryBar : MonoBehaviour {
 			}
 		}
 	}
+	
+	public void triggerUpdateIcons()
+	{
+		updateIcons();
+	}
 }

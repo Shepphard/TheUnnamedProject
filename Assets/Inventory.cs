@@ -46,20 +46,41 @@ public class Inventory : MonoBehaviour {
 		return tmp;
 	}
 	
-	//doesnt work
-	public GameObject switchItem(GameObject obj)
+	// returns null if there is no object to switch (doublechecked)
+	public GameObject switchItem(GameObject newObj)
 	{
-		int cursor = currentItem;
-		GameObject tmp = removeItem();
+		// is there an item?
+		GameObject result = (GameObject) itemsList[currentItem];
 		
-		itemsList.Insert(cursor, obj);
-		_invBar.addIcon((Sprite) obj.GetComponent<item>().icon);
-		currentItem = cursor;
-		_invBar.activate();
-		obj.SetActive(false);
+		if (result != null)
+		{
+			// swich it out
+			itemsList[currentItem] = newObj;
+			_invBar.iconList[currentItem] = (Sprite) newObj.GetComponent<item>().icon;
+			newObj.SetActive(false);
+			
+			_invBar.resetTimer();
+			_invBar.triggerUpdateIcons();
+			result.SetActive(true);
+		}
 		
-		return tmp;
+		return result;
 	}
+	
+//	//doesnt work
+//	public GameObject switchItem(GameObject obj)
+//	{
+//		int cursor = currentItem;
+//		GameObject tmp = removeItem();
+//		
+//		itemsList.Insert(cursor, obj);
+//		_invBar.addIcon((Sprite) obj.GetComponent<item>().icon);
+//		currentItem = cursor;
+//		_invBar.activate();
+//		obj.SetActive(false);
+//		
+//		return tmp;
+//	}
 	
 	public void incrementCurrentItem()
 	{
@@ -86,5 +107,11 @@ public class Inventory : MonoBehaviour {
 	public bool isInvEmpty()
 	{
 		return(itemsList.Count <= 0);
+	}
+	
+	// is there a current item?
+	public bool checkCurrentItem()
+	{
+		return itemsList[currentItem] != null;
 	}
 }
