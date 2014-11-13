@@ -10,12 +10,15 @@ public class AssetSwitchNew : MonoBehaviour {
 	private GameObject instObject2;
 	private ParticleSystem cloudParticles;
 	private InteractionControls _controls;
+	private bool blockSwitching = false;
 	
 	void Awake()
 	{
 		instObject1 = (GameObject) Instantiate(object1, transform.position, transform.rotation);
 		instObject2 = (GameObject) Instantiate(object2, transform.position, transform.rotation);
-
+		
+		instObject1.GetComponent<item>().setAssetSwitcher(this);
+		instObject2.GetComponent<item>().setAssetSwitcher(this);
 		//instObject1.transform.parent = gameObject.transform;
 		//instObject2.transform.parent = gameObject.transform;
 		
@@ -32,7 +35,8 @@ public class AssetSwitchNew : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
-		if (Input.GetKeyDown(KeyCode.J))
+		// triggered and both items have to be outside of the inv
+		if (Input.GetKeyDown(KeyCode.J) && !blockSwitching)
 		{
 			if (instObject1.activeSelf)
 			{
@@ -74,5 +78,11 @@ public class AssetSwitchNew : MonoBehaviour {
 				instObject1.SetActive(true);
 			}
 		}
+	}
+	
+	
+	public void setBlockSwitching(bool b)
+	{
+		blockSwitching = b;
 	}
 }

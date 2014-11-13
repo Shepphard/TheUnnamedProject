@@ -13,15 +13,17 @@ public class Inventory : MonoBehaviour {
 		itemsList = new ArrayList();
 	}
 	
-	public bool addItem(GameObject i)
+	public bool addItem(GameObject obj)
 	{
 		if (!isInvFull())
 		{
-			itemsList.Add(i);
-			_invBar.addIcon((Sprite) i.GetComponent<item>().icon);
-			currentItem = itemsList.IndexOf(i);
+			itemsList.Add(obj);
+			item i_ = obj.GetComponent<item>();
+			i_.setIsInInv(true);
+			_invBar.addIcon((Sprite) i_.icon);
+			currentItem = itemsList.IndexOf(obj);
 			_invBar.activate();
-			i.SetActive(false);
+			obj.SetActive(false);
 			return true;
 		}
 		// select an item to switch out
@@ -36,6 +38,8 @@ public class Inventory : MonoBehaviour {
 		// is there an item on this slot?
 		if (tmp != null)
 		{
+			item i = tmp.GetComponent<item>();
+			i.setIsInInv(false);
 			itemsList.RemoveAt(currentItem);
 			_invBar.removeIconAt(currentItem);
 			tmp.SetActive(true);
@@ -56,12 +60,15 @@ public class Inventory : MonoBehaviour {
 		{
 			// swich it out
 			itemsList[currentItem] = newObj;
-			_invBar.iconList[currentItem] = (Sprite) newObj.GetComponent<item>().icon;
+			item newItem = newObj.GetComponent<item>();
+			newItem.setIsInInv(true);
+			_invBar.iconList[currentItem] = (Sprite) newItem.icon;
 			newObj.SetActive(false);
 			
 			_invBar.resetTimer();
 			_invBar.triggerUpdateIcons();
 			result.SetActive(true);
+			result.GetComponent<item>().setIsInInv(false);
 		}
 		
 		return result;

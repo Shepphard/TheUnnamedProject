@@ -28,6 +28,88 @@ public class InteractionControls : MonoBehaviour {
 		_inventory = GetComponent<Inventory>();
 	}
 
+	void Update()
+	{
+		if (Input.GetKeyUp(KeyCode.Mouse1))
+		{
+			// carrying something?
+			if (carriedObject != null)
+			{
+				// theres space  in the inventory..
+				if(!_inventory.isInvFull())
+				{
+					// put it in your inventory and activate the invbar
+					_inventory.addItem(carriedObject.gameObject);
+					clearCarriedObject();
+				}
+				// its full..
+				else
+				{
+					// invbar is activated
+					if (_inventory._invBar.activated)
+					{
+						// switch it out with current item	
+						// is there an item on the cursor?
+						if (_inventory.checkCurrentItem())
+						{
+							// then switch it
+							GameObject oldObj = carriedObject.gameObject;
+							clearCarriedObject();
+							GameObject newObj = _inventory.switchItem(oldObj);
+							setCarriedObject(newObj.transform);
+						}
+					}
+					// invbar not activated
+					else
+					{
+						//then just activate it, do nothing else
+						_inventory._invBar.activate();
+					}
+				}
+			}
+			// your hand is free
+			else
+			{
+				//inventory is not empty..
+				if (!_inventory.isInvEmpty())
+				{
+					// and is activated..
+					if (_inventory._invBar.activated)
+					{
+						// remove current item and place it in your hand
+						setCarriedObject(_inventory.removeItem().transform);
+					}
+					else
+					{
+						//activate it, nothing else
+						_inventory._invBar.activate();
+					}
+				}
+			}
+		}
+		
+		// scrollwheel is activated
+		float scrollwheelInput = Input.GetAxis("Mouse ScrollWheel");
+		if (scrollwheelInput != 0)
+		{
+			// if inv_bar is already activated..
+			if (_inventory._invBar.activated)
+			{
+				// scroll through the items
+				if(scrollwheelInput>0)
+					_inventory.decrementCurrentItem();
+				else
+					_inventory.incrementCurrentItem();
+				_inventory._invBar.resetTimer();
+			}
+			else //activate the invbar
+			{
+				_inventory._invBar.activate();
+			}
+		}
+		
+	}// update
+
 	void FixedUpdate()
 	{
 		RaycastHit hitObject;
@@ -55,85 +137,27 @@ public class InteractionControls : MonoBehaviour {
 			}
 			
 		}
-		
-		// is player carrying an object?
-		if (carriedObject != null)
-		{            
-			// make sure its still in the same position
-			carriedObject.position = camera.transform.position+camera.transform.forward*objectDistance;
-
-			// throw away
-			if (Input.GetKeyDown(KeyCode.Q))
+		else if (Input.GetKeyDown(KeyCode.Q))
+		{
+			// does player carry an object?
+			if (carriedObject != null)
 			{
+				// throw it out
+				
 				// add force to object
 				carriedObject.rigidbody.AddForce(camera.transform.forward * throwStrength);
 				
 				//set carried object to null
 				clearCarriedObject();
 			}
-			
-			// right click
-			if (Input.GetKeyUp(KeyCode.Mouse1))
-			{
-				// is inventory activated?
-				if (_inventory._invBar.activated)
-				{
-					if(_inventory.isInvFull())
-					{
-						// is there an item on the cursor?
-						if (_inventory.checkCurrentItem())
-						{
-							// then switch it
-							GameObject oldObj = carriedObject.gameObject;
-							clearCarriedObject();
-							GameObject newObj = _inventory.switchItem(oldObj);
-							setCarriedObject(newObj.transform);
-						}
-						// FIX DA SWITCH
-						//setCarriedObject(_inventory.switchItem(carriedObject.gameObject).transform);
-					}
-					else
-					{
-						_inventory.addItem(carriedObject.gameObject);
-						clearCarriedObject();
-					}
-				}
-				else 
-				{
-					_inventory.addItem(carriedObject.gameObject);
-					clearCarriedObject();
-				}
-			}
-		}
-		// not holding an object
-		else if (Input.GetKeyUp(KeyCode.Mouse1) && carriedObject == null && !_inventory.isInvEmpty())
-		{
-			// is the bar activated?
-			if (_inventory._invBar.activated)
-				// then take the current item in your hand
-				setCarriedObject(_inventory.removeItem().transform);
 		}
 		
-		// scrollwheel is activated
-		float scrollwheelInput = Input.GetAxis("Mouse ScrollWheel");
-		if (scrollwheelInput != 0)
-		{
-			// if inv_bar is already activated..
-			if (_inventory._invBar.activated)
-			{
-				// scroll through the items
-				if(scrollwheelInput>0)
-					_inventory.decrementCurrentItem();
-				else
-					_inventory.incrementCurrentItem();
-				_inventory._invBar.resetTimer();
-			}
-			else //activate the invbar
-			{
-				_inventory._invBar.activate();
-			}
+		// is player carrying an object?
+		if (carriedObject != null)
+		{            
+			// make sure its still in the same position
+			carriedObject.position = camera.transform.position+camera.transform.forward*objectDistance;
 		}
-		
 		
 	}
 	/**
