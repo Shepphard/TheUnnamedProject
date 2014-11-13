@@ -9,7 +9,7 @@ using System.Collections;
 public class InteractionControls : MonoBehaviour {
 	
 	public float rayLength = 5;	// length of the raycast to measure if object is close enough
-	public float objectDistance = 1; // distance from camera to carried object
+	//public float objectDistance = 1; // distance from camera to carried object
 	public float throwStrength = 100; // how strongly you throw objects away
 	public Transform carriedObject = null;
 
@@ -18,6 +18,7 @@ public class InteractionControls : MonoBehaviour {
 	Inventory _inventory;
 	MouseLook mouselook_player;
 	MouseLook mouselook_camera;
+	Transform itemPosition; //the gameobj of the hand
 
 	void Awake()
 	{
@@ -26,6 +27,7 @@ public class InteractionControls : MonoBehaviour {
 		mouselook_camera = camera.GetComponent<MouseLook>();
 		mouselook_player = GetComponent<MouseLook>();
 		_inventory = GetComponent<Inventory>();
+		itemPosition = camera.transform.Find("itemPosition");
 	}
 
 	void Update()
@@ -108,6 +110,13 @@ public class InteractionControls : MonoBehaviour {
 			}
 		}
 		
+		//debug itemoffsetcalculation
+		/*if(carriedObject != null)
+		{
+			item i = carriedObject.GetComponent<item>();
+			carriedObject.position = itemPosition.position + i.positionOffset;
+		}*/
+		
 	}// update
 
 	void FixedUpdate()
@@ -152,12 +161,14 @@ public class InteractionControls : MonoBehaviour {
 			}
 		}
 		
-		// is player carrying an object?
-		if (carriedObject != null)
-		{            
-			// make sure its still in the same position
-			carriedObject.position = camera.transform.position+camera.transform.forward*objectDistance;
-		}
+//		// is player carrying an object?
+//		if (carriedObject != null)
+//		{            
+//			// make sure its still in the same position
+//			Vector3 offset = carriedObject.GetComponent<item>().positionOffset;
+//			
+//			carriedObject.position = camera.transform.position+offset;
+//		}
 		
 	}
 	/**
@@ -195,8 +206,18 @@ public class InteractionControls : MonoBehaviour {
 		carriedObject = obj;
 		// yes then turn of gravity so it doesnt fall out of your hands!
 		carriedObject.rigidbody.useGravity = false;
-		// Position of the carriedObject once
-		carriedObject.position = camera.transform.position+camera.transform.forward*objectDistance;
+		carriedObject.rigidbody.isKinematic = true;
+		carriedObject.rigidbody.detectCollisions =false;
+		
+//		// Position of the carriedObject once
+		item i = carriedObject.GetComponent<item>();
+		
+		// works
+		carriedObject.position = itemPosition.position + camera.transform.right*i.positionOffset.x + 
+																	camera.transform.up * i.positionOffset.y +
+																	camera.transform.forward * i.positionOffset.z;
+		carriedObject.rotation = itemPosition.rotation;
+		
 		// make player be the parent of the object
 		carriedObject.transform.parent = camera.transform;
 		
@@ -210,15 +231,18 @@ public class InteractionControls : MonoBehaviour {
 		mouselook_camera.setCarriesObject(false);
 		mouselook_player.setCarriesObject(false);
 		
+		// turn gravity back on
+		carriedObject.rigidbody.useGravity = true;
+		carriedObject.rigidbody.isKinematic = false;
+		carriedObject.rigidbody.detectCollisions =true;
+		
 		// reset all the forces applied
 		carriedObject.rigidbody.velocity = Vector3.zero;
 		carriedObject.rigidbody.angularVelocity = Vector3.zero;
-		
-		// turn gravity back on
-		carriedObject.rigidbody.useGravity = true;
-		
+
 		// set free from camera
 		carriedObject.transform.parent = null;
+		
 		// set carriedObject to null
 		carriedObject = null;
 	}
