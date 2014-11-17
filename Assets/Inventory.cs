@@ -74,21 +74,6 @@ public class Inventory : MonoBehaviour {
 		return result;
 	}
 	
-//	//doesnt work
-//	public GameObject switchItem(GameObject obj)
-//	{
-//		int cursor = currentItem;
-//		GameObject tmp = removeItem();
-//		
-//		itemsList.Insert(cursor, obj);
-//		_invBar.addIcon((Sprite) obj.GetComponent<item>().icon);
-//		currentItem = cursor;
-//		_invBar.activate();
-//		obj.SetActive(false);
-//		
-//		return tmp;
-//	}
-	
 	public void incrementCurrentItem()
 	{
 		if(itemsList.Count>0)

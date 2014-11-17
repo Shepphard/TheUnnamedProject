@@ -30,11 +30,11 @@ public class MouseLook : MonoBehaviour {
 
 	float rotationY = 0F;
 	
-	private bool playerCarriesObject = false;
+	private bool mouselookOn = true;
 
 	void Update ()
 	{
-		if (!playerCarriesObject || (playerCarriesObject && !Input.GetKey(KeyCode.Mouse1))) // used for rotationccode OLD
+		if (mouselookOn) // used for rotationccode OLD
 		{
 			if (axes == RotationAxes.MouseXAndY)
 			{
@@ -66,8 +66,8 @@ public class MouseLook : MonoBehaviour {
 			GetComponent<Rigidbody>().freezeRotation = true;
 	}
 	
-	public void setCarriesObject(bool b)
+	public void setMouselookOn(bool b)
 	{
-		playerCarriesObject = b;
+		mouselookOn = b;
 	}
 }

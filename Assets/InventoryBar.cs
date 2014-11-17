@@ -6,10 +6,13 @@ public class InventoryBar : MonoBehaviour {
 
 	[HideInInspector]
 	public bool activated = false;
+	[HideInInspector]
+	public bool inspecting = false;
 	public ArrayList iconList;
 	public Vector2 scaleCurrent = new Vector2(0.7f, 0.7f);
 	public Vector2 scaleOriginal = new Vector2(0.5f, 0.5f);
 	public float activatedTime = 2.0f;
+	public float alphaInspectCircle = 0f;
 
 	private Inventory _inventory;
 	private float timer = 0f;
@@ -24,7 +27,7 @@ public class InventoryBar : MonoBehaviour {
 	
 	void Update()
 	{
-		if (activated) {
+		if (activated && !inspecting) {
 			timer += Time.deltaTime;
 			if (timer > activatedTime)
 			{
@@ -115,5 +118,18 @@ public class InventoryBar : MonoBehaviour {
 	public void triggerUpdateIcons()
 	{
 		updateIcons();
+	}
+	
+	public void activateInspecting()
+	{
+		inspecting = true;
+		_anim.SetBool("inspecting", inspecting);
+	}
+	
+	public void deactivateInspecting()
+	{
+		inspecting = false;
+		_anim.SetBool("inspecting", inspecting);
+		resetTimer();
 	}
 }

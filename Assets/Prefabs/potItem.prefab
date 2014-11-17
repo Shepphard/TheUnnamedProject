@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 21300002, guid: 4424d4b845f36e249843131298726979, type: 3}
+  positionOffset: {x: -.540000021, y: .0599999987, z: -.0500000007}
+  carriedRotation: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
