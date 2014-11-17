@@ -1,43 +1,45 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-//TODO if Verschachteltungen neu überdenken (mehrere buttons gleichzeitig unterbinden)
-//put in update because of physics (causes lagg?)
-//bug manchmal wenn man rausgenommen hat kann man nich gleich das nächste rausnehmen
-//rotation is at the bottom
-
 public class InteractionControls : MonoBehaviour {
 	
+	/* public */
 	public float rayLength = 5f;	// length of the raycast to measure if object is close enough
 	public float objectDistance = 1f; // distance from camera to carried object
 	public float throwStrength = 100; // how strongly you throw objects away
 	public Transform carriedObject = null;
-	public bool debug = true;
-	public Camera InspectCamera;
-	public float rotationSpeed = 10f;
-	public float zoomFactor = 100f;
-
-	int interactableMask; // the layer of all the objects player can interact with
-	Camera camera;
-	Inventory _inventory;
-	MouseLook mouselook_player;
-	MouseLook mouselook_camera;
-	Transform itemPosition; //the gameobj of the hand
-	Transform inspectingItem;
+	public bool debug = true;	// triggers debug functions to be played
+	public Camera InspectCamera; // a reference to the camera to inspect items
+	public float rotationSpeed = 10f; // speed of rotating in inspection
+	public float zoomFactor = 100f; // speed of zooming in inspection
 	
-
+	/* private */
+	int interactableMask; // the layer of all the objects player can interact with
+	Camera _cam; // reference to the main camera
+	Inventory _inventory; // reference to the players inventory
+	MouseLook mouselook_player; // ref to the mouselook on player
+	MouseLook mouselook_camera; // ref to mouselook on camera
+	Transform itemPosition; //the gameobj of the hand
+	Transform inspectingItem; // the item that is being inspected right now
+	
+	/* setting up references */
 	void Awake()
 	{
 		interactableMask = LayerMask.GetMask ("Interactable");
-		camera = GetComponentInChildren<Camera> ();
-		mouselook_camera = camera.GetComponent<MouseLook>();
+		_cam = GetComponentInChildren<Camera> ();
+		mouselook_camera = _cam.GetComponent<MouseLook>();
 		mouselook_player = GetComponent<MouseLook>();
 		_inventory = GetComponent<Inventory>();
-		itemPosition = camera.transform.Find("itemPosition");
+		itemPosition = _cam.transform.Find("itemPosition");
 	}
-
+	
+	/* update function
+	 *
+	 * dealing with main input functions
+	 */
 	void Update()
 	{
+		/* on right click */
 		if (Input.GetKeyUp(KeyCode.Mouse1) && !_inventory._invBar.inspecting)
 		{
 			// carrying something?
@@ -51,11 +53,9 @@ public class InteractionControls : MonoBehaviour {
 					clearCarriedObject();
 				}
 				// its full..
-				else
-				{
+				else {
 					// invbar is activated
-					if (_inventory._invBar.activated)
-					{
+					if (_inventory._invBar.activated) {
 						// switch it out with current item	
 						// is there an item on the cursor?
 						if (_inventory.checkCurrentItem())
@@ -68,66 +68,57 @@ public class InteractionControls : MonoBehaviour {
 						}
 					}
 					// invbar not activated
-					else
-					{
+					else {
 						//then just activate it, do nothing else
 						_inventory._invBar.activate();
 					}
 				}
 			}
 			// your hand is free
-			else
-			{
+			else {
 				//inventory is not empty..
 				if (!_inventory.isInvEmpty())
 				{
 					// and is activated..
-					if (_inventory._invBar.activated)
-					{
+					if (_inventory._invBar.activated) {
 						// remove current item and place it in your hand
 						setCarriedObject(_inventory.removeItem().transform);
-					}
-					else
-					{
+					} else {
 						//activate it, nothing else
 						_inventory._invBar.activate();
 					}
-					}
-				}
-		}
-		
-		// inspect an item
-		if (Input.GetKeyUp(KeyCode.E))
-		{
-			if (_inventory._invBar.activated && !_inventory.isInvEmpty())
-			{
-				if (!_inventory._invBar.inspecting)
-				{
-					setInspectingObject();
-				}
-				else
-				{
-					clearInspectingObj();
 				}
 			}
 		}
 		
-		// scrollwheel is activated
+		/* Inspect an item */
+		if (Input.GetKeyUp(KeyCode.E))
+		{
+			// is the invbar up and not empty?
+			if (_inventory._invBar.activated && !_inventory.isInvEmpty())
+			{
+				// then toggle inspector
+				if (!_inventory._invBar.inspecting)
+					setInspectingObject();
+				else
+					clearInspectingObj();
+			}
+		}
+		
+		/* Scrollwheel Input */
 		float scrollwheelInput = Input.GetAxis("Mouse ScrollWheel");
 		if (scrollwheelInput != 0)
 		{
+			// not inspecting, just scroll thru
 			if (!_inventory._invBar.inspecting)
 			{
 				// if inv_bar is already activated..
 				if (_inventory._invBar.activated)
-				{
 					scrollInv(scrollwheelInput);
-				}
 				else //activate the invbar
-				{
 					_inventory._invBar.activate();
-				}
 			}
+			// else scroll thru items with inspector on
 			else
 			{
 				scrollInv(scrollwheelInput);
@@ -136,48 +127,36 @@ public class InteractionControls : MonoBehaviour {
 			}
 		}
 		
+		/* is it inspecting? then go move it around */
 		if (_inventory._invBar.inspecting)
 		{
-			float currentRotationX = -1*rotationSpeed*Time.deltaTime*Input.GetAxis("Mouse X");
-			float currentRotationY = rotationSpeed*Time.deltaTime*Input.GetAxis("Mouse Y");
-			float currentZoom = -1*zoomFactor*Time.deltaTime*Input.GetAxis("Mouse Y");
-		
-			// zoom
-			if (Input.GetKey(KeyCode.Mouse0))
-			{
-				inspectingItem.Translate(InspectCamera.transform.forward * currentZoom, Space.World);
-				Vector3 tmp = inspectingItem.position;
-				inspectingItem.position = new Vector3(tmp.x, tmp.y, Mathf.Clamp(tmp.z, 2, 6));
-			}
-			if (Input.GetKey(KeyCode.Mouse1))
-			{
-				inspectingItem.RotateAround(inspectingItem.position, InspectCamera.transform.up, currentRotationX);
-				inspectingItem.RotateAround(inspectingItem.position, InspectCamera.transform.right, currentRotationY);
-			}
+			inspectingMovement();
 		}
 		
-		//debug itemoffsetcalculation
+		/* DEBUG placing item in hands */
 		if(debug && carriedObject != null)
 		{
 			item i = carriedObject.GetComponent<item>();
-			
-			// works
-			carriedObject.position = itemPosition.position + camera.transform.right*i.positionOffset.x + 
-				camera.transform.up * i.positionOffset.y +
-					camera.transform.forward * i.positionOffset.z;
+			carriedObject.position = itemPosition.position + _cam.transform.right*i.positionOffset.x + 
+			_cam.transform.up * i.positionOffset.y +
+			_cam.transform.forward * i.positionOffset.z;
 			carriedObject.rotation = itemPosition.rotation;
-			carriedObject.RotateAround(carriedObject.position, camera.transform.up, i.carriedRotation.y);
-			carriedObject.RotateAround(carriedObject.position, camera.transform.right, i.carriedRotation.x);
-			carriedObject.RotateAround(carriedObject.position, camera.transform.forward, i.carriedRotation.z);
+			carriedObject.RotateAround(carriedObject.position, _cam.transform.up, i.carriedRotation.y);
+			carriedObject.RotateAround(carriedObject.position, _cam.transform.right, i.carriedRotation.x);
+			carriedObject.RotateAround(carriedObject.position, _cam.transform.forward, i.carriedRotation.z);
 		}
 		
 	}// update
 
+	/* FIXED UPDATE
+	 * 
+	 * deals with physics update, raycasting
+	 */
 	void FixedUpdate()
 	{
 		RaycastHit hitObject;
 
-		// on left click..
+		/* Raycast on left click */
 		if (Input.GetButtonDown ("PickUp")  && !_inventory._invBar.inspecting)
 		{
 			//..check if player hits object/npc in reach
@@ -187,44 +166,66 @@ public class InteractionControls : MonoBehaviour {
 			{
 				// is it an NPC?..
 				if (hitObject.collider.tag == "NPC")
-				{
 					// if yes, retrieve NPCInteraction script from the NPC
 					hitObject.collider.gameObject.GetComponent<NPCInteraction>().Interaction();
-				}
 				//..if you hit an pickup object and have no object in your hands yo
 				else if (carriedObject == null && hitObject.collider.tag == "PickUp")
-				{
 					setCarriedObject(hitObject.collider.transform);
-				}
-
 			}
-			
 		}
+		/* throw object */
 		else if (Input.GetKeyDown(KeyCode.Q) && !_inventory._invBar.inspecting)
 		{
-			// does player carry an object?
-			if (carriedObject != null)
-			{
-				// throw it out
-				
-				// add force to object
-				carriedObject.rigidbody.AddForce(camera.transform.forward * throwStrength);
-				
-				//set carried object to null
+			// does player carry an object? then throw
+			if (carriedObject != null) {
+				Transform tmp = carriedObject;
 				clearCarriedObject();
+				tmp.rigidbody.AddForce(_cam.transform.forward * throwStrength);
 			}
 		}
-		
-//		// is player carrying an object?
-//		if (carriedObject != null)
-//		{            
-//			// make sure its still in the same position
-//			Vector3 offset = carriedObject.GetComponent<item>().positionOffset;
-//			
-//			carriedObject.position = camera.transform.position+offset;
-//		}
-		
 	}
+	
+	/*
+	 * PUBLIC FUNCTIONS
+	 */
+	
+	/* SetCarriedObject
+	 *
+	 * Is always used to "put something in your hand"
+	 * It "disables" the rigidbody and places
+	 * the object using the itemPosition GameObj
+	 * and the camera.
+	 */
+	public void setCarriedObject (Transform obj)
+	{
+		// pickup object
+		carriedObject = obj;
+		// deal with the rigidbody
+		carriedObject.rigidbody.useGravity = false;
+		carriedObject.rigidbody.isKinematic = true;
+		carriedObject.rigidbody.detectCollisions =false;
+		
+		// Position of the carriedObject once
+		item i = carriedObject.GetComponent<item>();
+		
+		// reposition item
+		carriedObject.position = itemPosition.position + _cam.transform.right*i.positionOffset.x + 
+			_cam.transform.up * i.positionOffset.y +
+				_cam.transform.forward * i.positionOffset.z;
+		// apply rotation
+		carriedObject.rotation = itemPosition.rotation;
+		carriedObject.RotateAround(carriedObject.position, _cam.transform.up, i.carriedRotation.y);
+		carriedObject.RotateAround(carriedObject.position, _cam.transform.right, i.carriedRotation.x);
+		carriedObject.RotateAround(carriedObject.position, _cam.transform.forward, i.carriedRotation.z);
+		
+		// parent it to the camera
+		carriedObject.transform.parent = _cam.transform;
+	} // setcarriedobject
+	
+	/*
+	 * PRIVATE FUNCTIONS
+	 */
+	
 	/**
 	 * Checks for an object in range
 	 * returns a RaycastHit Object
@@ -233,53 +234,24 @@ public class InteractionControls : MonoBehaviour {
 	 */
 	RaycastHit hitsObject()
 	{
-		Ray ray = camera.ScreenPointToRay(new Vector3(camera.pixelWidth/2, camera.pixelHeight/2, 0));
+		Ray ray = _cam.ScreenPointToRay(new Vector3(_cam.pixelWidth/2, _cam.pixelHeight/2, 0));
 		
 		Debug.DrawRay(ray.origin, ray.direction * rayLength, Color.yellow);
 		
 		RaycastHit objectHit;
 		
-		if (Physics.Raycast (ray, out objectHit, rayLength, interactableMask))
-		{
-				Vector3 playerToMouse = objectHit.point - transform.position;
-				//Debug.Log ("Object is hit"); // works
+		if (Physics.Raycast (ray, out objectHit, rayLength, interactableMask)) {
+			//Vector3 playerToMouse = objectHit.point - transform.position; //not used
 		}
-
+		
 		return objectHit;
 	}
 	
-	public bool playerCarriesObject()
-	{
-		return carriedObject!=null;
-	}
-	
-	// use this to set the carriedobject
-	public void setCarriedObject (Transform obj)
-	{
-		// pickup object
-		carriedObject = obj;
-		// yes then turn of gravity so it doesnt fall out of your hands!
-		carriedObject.rigidbody.useGravity = false;
-		carriedObject.rigidbody.isKinematic = true;
-		carriedObject.rigidbody.detectCollisions =false;
-		
-//		// Position of the carriedObject once
-		item i = carriedObject.GetComponent<item>();
-		
-		// works
-		carriedObject.position = itemPosition.position + camera.transform.right*i.positionOffset.x + 
-																	camera.transform.up * i.positionOffset.y +
-																	camera.transform.forward * i.positionOffset.z;
-		carriedObject.rotation = itemPosition.rotation;
-		carriedObject.RotateAround(carriedObject.position, camera.transform.up, i.carriedRotation.y);
-		carriedObject.RotateAround(carriedObject.position, camera.transform.right, i.carriedRotation.x);
-		carriedObject.RotateAround(carriedObject.position, camera.transform.forward, i.carriedRotation.z);
-		
-		// make player be the parent of the object
-		carriedObject.transform.parent = camera.transform;
-	}
-	
-	// use this to set carriedobject to null
+	/* ClearCarriedObject
+	 * 
+	 * Use always this to "put an item out of your hands"
+	 * deals with the rigidbody, parenting
+	 */
 	void clearCarriedObject()
 	{
 		// turn gravity back on
@@ -298,12 +270,20 @@ public class InteractionControls : MonoBehaviour {
 		carriedObject = null;
 	}
 	
+	/* SetInspetcingObject()
+	 *
+	 * Use this to put the currentselected item
+	 * in the inspector
+	 */
 	void setInspectingObject()
 	{
+		// activate inspecting mode
 		_inventory._invBar.activateInspecting();
+		// turn off the camera movement
 		mouselook_camera.setMouselookOn(false);
 		mouselook_player.setMouselookOn(false);
 		
+		// instantiate the obj to inspect to the inspectcamera and deal with rigidbody and so on
 		GameObject obj = (GameObject) Instantiate ((Object)_inventory.itemsList[_inventory.currentItem]);
 		obj.SetActive(true);
 		obj.rigidbody.useGravity = false;
@@ -313,9 +293,12 @@ public class InteractionControls : MonoBehaviour {
 		inspectingItem.parent = InspectCamera.transform;
 		inspectingItem.gameObject.layer = LayerMask.NameToLayer("Inspect");
 		inspectingItem.position = InspectCamera.transform.position+InspectCamera.transform.forward * objectDistance;
-		
 	}
 	
+	/* ClearInspectingObj
+	 *
+	 * Use this to get out of inspecting mode
+	 */
 	void clearInspectingObj()
 	{
 		Destroy (inspectingItem.gameObject);
@@ -324,6 +307,11 @@ public class InteractionControls : MonoBehaviour {
 		mouselook_player.setMouselookOn(true);
 	}
 	
+	/* Scroll Inventory
+	 *
+	 * Uses Scrollwheel Input and scrolls through
+	 * the inventory
+	 */
 	void scrollInv(float scrollwheelInput)
 	{
 		// scroll through the items
@@ -333,17 +321,29 @@ public class InteractionControls : MonoBehaviour {
 			_inventory.incrementCurrentItem();
 		_inventory._invBar.resetTimer();
 	}
+	
+	/* InspectingMovement
+	 *
+	 * Movement of the item to be inspected
+	 * using left and right holding mousebuttons
+	 */
+	void inspectingMovement()
+	{
+		float currentRotationX = -1*rotationSpeed*Time.deltaTime*Input.GetAxis("Mouse X");
+		float currentRotationY = rotationSpeed*Time.deltaTime*Input.GetAxis("Mouse Y");
+		float currentZoom = -1*zoomFactor*Time.deltaTime*Input.GetAxis("Mouse Y");
+		
+		// zoom
+		if (Input.GetKey(KeyCode.Mouse0))
+		{
+			inspectingItem.Translate(InspectCamera.transform.forward * currentZoom, Space.World);
+			Vector3 tmp = inspectingItem.position;
+			inspectingItem.position = new Vector3(tmp.x, tmp.y, Mathf.Clamp(tmp.z, 2, 6));
+		}
+		if (Input.GetKey(KeyCode.Mouse1))
+		{
+			inspectingItem.RotateAround(inspectingItem.position, InspectCamera.transform.up, currentRotationX);
+			inspectingItem.RotateAround(inspectingItem.position, InspectCamera.transform.right, currentRotationY);
+		}
+	}
 }
-
-
-//			// Interactions possible with the picked Up Object
-//			// calculate the amount to rotate if needed
-//			float currentRotationX = -1*rotationSpeed*Time.deltaTime*Input.GetAxis("Mouse X");
-//			float currentRotationY = rotationSpeed*Time.deltaTime*Input.GetAxis("Mouse Y");
-//		
-//			// rotate
-//			if (Input.GetKey(KeyCode.Mouse1))
-//			{
-//				carriedObject.RotateAround(carriedObject.position, camera.transform.up, currentRotationX);
-//				carriedObject.RotateAround(carriedObject.position, camera.transform.right, currentRotationY);
-//			}
