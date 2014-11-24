@@ -12,6 +12,7 @@ public class InteractionControls : MonoBehaviour {
 	public Camera InspectCamera; // a reference to the camera to inspect items
 	public float rotationSpeed = 10f; // speed of rotating in inspection
 	public float zoomFactor = 100f; // speed of zooming in inspection
+	public GameObject _dialogueCanvas; //reference to DialogueCanvas
 	
 	/* private */
 	int interactableMask; // the layer of all the objects player can interact with
@@ -21,6 +22,8 @@ public class InteractionControls : MonoBehaviour {
 	MouseLook mouselook_camera; // ref to mouselook on camera
 	Transform itemPosition; //the gameobj of the hand
 	Transform inspectingItem; // the item that is being inspected right now
+
+	Animator _dialogueAnimator; //reference to dialogueCanvas->Animator
 	
 	/* setting up references */
 	void Awake()
@@ -31,6 +34,8 @@ public class InteractionControls : MonoBehaviour {
 		mouselook_player = GetComponent<MouseLook>();
 		_inventory = GetComponent<Inventory>();
 		itemPosition = _cam.transform.Find("itemPosition");
+
+		_dialogueAnimator = _dialogueCanvas.GetComponent<Animator>();
 	}
 	
 	/* update function
@@ -40,7 +45,7 @@ public class InteractionControls : MonoBehaviour {
 	void Update()
 	{
 		/* on right click */
-		if (Input.GetKeyUp(KeyCode.Mouse1) && !_inventory._invBar.inspecting)
+		if (Input.GetKeyUp(KeyCode.Mouse1) && !_inventory._invBar.inspecting && !_dialogueAnimator.GetBool("activated"))
 		{
 			// carrying something?
 			if (carriedObject != null)
@@ -107,7 +112,7 @@ public class InteractionControls : MonoBehaviour {
 		
 		/* Scrollwheel Input */
 		float scrollwheelInput = Input.GetAxis("Mouse ScrollWheel");
-		if (scrollwheelInput != 0)
+		if (scrollwheelInput != 0 && !_dialogueAnimator.GetBool("activated"))
 		{
 			// not inspecting, just scroll thru
 			if (!_inventory._invBar.inspecting)
