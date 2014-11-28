@@ -4,8 +4,13 @@ using System.Collections;
 public class item : MonoBehaviour {
 
 	public Sprite icon;
-	public Vector3 positionOffset;
-	public Vector3 carriedRotation;
+	public Vector3 positionOffsetInv;
+	public Vector3 carriedRotationInv;
+	public Vector3 positionOffsetEquip;
+	public Vector3 rotationOffsetEquip;
+	public bool isEmpty = false;
+	public bool isEquipment = false;
+	public int belongsToEquipmentBar = 0;
 	
 	private AssetSwitchNew _assetS;
 	private bool isInInv = false;

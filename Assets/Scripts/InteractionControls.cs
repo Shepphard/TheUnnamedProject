@@ -12,15 +12,19 @@ public class InteractionControls : MonoBehaviour {
 	public Camera InspectCamera; // a reference to the camera to inspect items
 	public float rotationSpeed = 10f; // speed of rotating in inspection
 	public float zoomFactor = 100f; // speed of zooming in inspection
+	public bool enableCtrls = true;
 	
 	/* private */
 	int interactableMask; // the layer of all the objects player can interact with
 	Camera _cam; // reference to the main camera
 	Inventory _inventory; // reference to the players inventory
+	Equipment _equipment; // reference to the players equipment
 	MouseLook mouselook_player; // ref to the mouselook on player
 	MouseLook mouselook_camera; // ref to mouselook on camera
 	Transform itemPosition; //the gameobj of the hand
 	Transform inspectingItem; // the item that is being inspected right now
+	Transform headPosition;
+	Transform lefthandPosition;
 	
 	/* setting up references */
 	void Awake()
@@ -30,7 +34,12 @@ public class InteractionControls : MonoBehaviour {
 		mouselook_camera = _cam.GetComponent<MouseLook>();
 		mouselook_player = GetComponent<MouseLook>();
 		_inventory = GetComponent<Inventory>();
+		_equipment = GetComponent<Equipment>();
 		itemPosition = _cam.transform.Find("itemPosition");
+		headPosition = _cam.transform.Find("headPosition");
+		lefthandPosition = _cam.transform.Find("lefthandPosition");
+		
+		_equipment._equipmentBar.receiveReferences(mouselook_player, mouselook_camera, this);
 	}
 	
 	/* update function
@@ -40,39 +49,53 @@ public class InteractionControls : MonoBehaviour {
 	void Update()
 	{
 		/* on right click */
-		if (Input.GetKeyUp(KeyCode.Mouse1) && !_inventory._invBar.inspecting)
+		if (Input.GetKeyUp(KeyCode.Mouse1) && !_inventory._invBar.inspecting && enableCtrls)
 		{
+			bool isEquipment = carriedObject.GetComponent<item>().isEquipment; //is it equipment?
+		
 			// carrying something?
 			if (carriedObject != null)
 			{
-				// theres space  in the inventory..
-				if(!_inventory.isInvFull())
+				if (!isEquipment)
 				{
-					// put it in your inventory and activate the invbar
-					_inventory.addItem(carriedObject.gameObject);
-					clearCarriedObject();
-				}
-				// its full..
-				else {
-					// invbar is activated
-					if (_inventory._invBar.activated) {
-						// switch it out with current item	
-						// is there an item on the cursor?
-						if (_inventory.checkCurrentItem())
-						{
-							// then switch it
-							GameObject oldObj = carriedObject.gameObject;
-							clearCarriedObject();
-							GameObject newObj = _inventory.switchItem(oldObj);
-							setCarriedObject(newObj.transform);
+					// theres space  in the inventory..
+					if(!_inventory.isInvFull())
+					{
+						// put it in your inventory and activate the invbar
+						_inventory.addItem(carriedObject.gameObject);
+						clearCarriedObject();
+					}
+					// its full..
+					else {
+						// invbar is activated
+						if (_inventory._invBar.activated) {
+							// switch it out with current item	
+							// is there an item on the cursor?
+							if (_inventory.checkCurrentItem())
+							{
+								// then switch it
+								GameObject oldObj = carriedObject.gameObject;
+								clearCarriedObject();
+								GameObject newObj = _inventory.switchItem(oldObj);
+								setCarriedObject(newObj.transform);
+							}
+						}
+						// invbar not activated
+						else {
+							//then just activate it, do nothing else
+							_inventory._invBar.activate();
 						}
 					}
-					// invbar not activated
-					else {
-						//then just activate it, do nothing else
-						_inventory._invBar.activate();
-					}
 				}
+				// PUT INTO EQUIPMENT
+				else
+				{
+					item i = carriedObject.GetComponent<item>();
+					positionEquipmentObject(carriedObject, i.belongsToEquipmentBar);
+					_equipment.addItem(carriedObject.gameObject);
+					carriedObject = null;
+				}
+				
 			}
 			// your hand is free
 			else {
@@ -105,17 +128,26 @@ public class InteractionControls : MonoBehaviour {
 			}
 		}
 		
+		// equipment bar activation
+		if (Input.GetKeyUp(KeyCode.B))
+		{
+			if (!_inventory._invBar.activated)
+				_equipment.ActivateBar();
+		}
+			
+		
 		/* Scrollwheel Input */
 		float scrollwheelInput = Input.GetAxis("Mouse ScrollWheel");
 		if (scrollwheelInput != 0)
 		{
+			/* INVENTORY */
 			// not inspecting, just scroll thru
 			if (!_inventory._invBar.inspecting)
 			{
 				// if inv_bar is already activated..
 				if (_inventory._invBar.activated)
 					scrollInv(scrollwheelInput);
-				else //activate the invbar
+				else if (!_equipment.GetBarActivated()) //activate the invbar when equipment bar is not activated
 					_inventory._invBar.activate();
 			}
 			// else scroll thru items with inspector on
@@ -124,6 +156,28 @@ public class InteractionControls : MonoBehaviour {
 				scrollInv(scrollwheelInput);
 				clearInspectingObj();
 				setInspectingObject();
+			}
+			
+			/* EQUIPMENT */
+			if (_equipment.GetBarActivated())
+			{
+				scrollEquipment(scrollwheelInput, _equipment.barSelected);
+			}
+		}
+		
+		/* LEFT CLICK FOR EQUIPMENT BAR */
+		if (Input.GetButtonDown ("PickUp"))
+		{
+			if (_equipment.GetBarActivated())
+			{
+				if (!_equipment.barSelected)
+					_equipment.SelectCurrentBar();
+				else
+				{
+					
+					_equipment.wearEquipment();
+					_equipment.DeactivateBar();
+				}
 			}
 		}
 		
@@ -137,13 +191,13 @@ public class InteractionControls : MonoBehaviour {
 		if(debug && carriedObject != null)
 		{
 			item i = carriedObject.GetComponent<item>();
-			carriedObject.position = itemPosition.position + _cam.transform.right*i.positionOffset.x + 
-			_cam.transform.up * i.positionOffset.y +
-			_cam.transform.forward * i.positionOffset.z;
+			carriedObject.position = itemPosition.position + _cam.transform.right*i.positionOffsetInv.x + 
+			_cam.transform.up * i.positionOffsetInv.y +
+			_cam.transform.forward * i.positionOffsetInv.z;
 			carriedObject.rotation = itemPosition.rotation;
-			carriedObject.RotateAround(carriedObject.position, _cam.transform.up, i.carriedRotation.y);
-			carriedObject.RotateAround(carriedObject.position, _cam.transform.right, i.carriedRotation.x);
-			carriedObject.RotateAround(carriedObject.position, _cam.transform.forward, i.carriedRotation.z);
+			carriedObject.RotateAround(carriedObject.position, _cam.transform.up, i.carriedRotationInv.y);
+			carriedObject.RotateAround(carriedObject.position, _cam.transform.right, i.carriedRotationInv.x);
+			carriedObject.RotateAround(carriedObject.position, _cam.transform.forward, i.carriedRotationInv.z);
 		}
 		
 	}// update
@@ -157,7 +211,7 @@ public class InteractionControls : MonoBehaviour {
 		RaycastHit hitObject;
 
 		/* Raycast on left click */
-		if (Input.GetButtonDown ("PickUp")  && !_inventory._invBar.inspecting)
+		if (Input.GetButtonDown ("PickUp")  && !_inventory._invBar.inspecting && enableCtrls)
 		{
 			//..check if player hits object/npc in reach
 			hitObject = hitsObject ();
@@ -209,14 +263,14 @@ public class InteractionControls : MonoBehaviour {
 		item i = carriedObject.GetComponent<item>();
 		
 		// reposition item
-		carriedObject.position = itemPosition.position + _cam.transform.right*i.positionOffset.x + 
-			_cam.transform.up * i.positionOffset.y +
-				_cam.transform.forward * i.positionOffset.z;
+		carriedObject.position = itemPosition.position + _cam.transform.right*i.positionOffsetInv.x + 
+			_cam.transform.up * i.positionOffsetInv.y +
+				_cam.transform.forward * i.positionOffsetInv.z;
 		// apply rotation
 		carriedObject.rotation = itemPosition.rotation;
-		carriedObject.RotateAround(carriedObject.position, _cam.transform.up, i.carriedRotation.y);
-		carriedObject.RotateAround(carriedObject.position, _cam.transform.right, i.carriedRotation.x);
-		carriedObject.RotateAround(carriedObject.position, _cam.transform.forward, i.carriedRotation.z);
+		carriedObject.RotateAround(carriedObject.position, _cam.transform.up, i.carriedRotationInv.y);
+		carriedObject.RotateAround(carriedObject.position, _cam.transform.right, i.carriedRotationInv.x);
+		carriedObject.RotateAround(carriedObject.position, _cam.transform.forward, i.carriedRotationInv.z);
 		
 		// parent it to the camera
 		carriedObject.transform.parent = _cam.transform;
@@ -322,6 +376,15 @@ public class InteractionControls : MonoBehaviour {
 		_inventory._invBar.resetTimer();
 	}
 	
+	void scrollEquipment(float scrollwheelInput, bool barSelected)
+	{
+		if(scrollwheelInput>0)
+			_equipment.decrCurrent();
+		else
+			_equipment.incrCurrent();
+		_equipment._equipmentBar.resetTimer();
+	}
+	
 	/* InspectingMovement
 	 *
 	 * Movement of the item to be inspected
@@ -345,5 +408,28 @@ public class InteractionControls : MonoBehaviour {
 			inspectingItem.RotateAround(inspectingItem.position, InspectCamera.transform.up, currentRotationX);
 			inspectingItem.RotateAround(inspectingItem.position, InspectCamera.transform.right, currentRotationY);
 		}
+	}
+	
+	/*
+	 * Use this to position equipment items once
+	 * before adding to equipment
+	 */
+	void positionEquipmentObject(Transform obj, int bar)
+	{
+		item i = obj.GetComponent<item>();
+		Transform component = headPosition; // does it belong to head or hand
+		
+		if (bar==0)
+			component = headPosition;
+		else if (bar==1)
+			component = lefthandPosition;
+		
+		obj.position = component.position + _cam.transform.right*i.positionOffsetEquip.x + 
+				_cam.transform.up * i.positionOffsetEquip.y +
+				_cam.transform.forward * i.positionOffsetEquip.z;
+		obj.rotation = component.rotation;
+		obj.RotateAround(obj.position, _cam.transform.up, i.rotationOffsetEquip.y);
+		obj.RotateAround(obj.position, _cam.transform.right, i.rotationOffsetEquip.x);
+		obj.RotateAround(obj.position, _cam.transform.forward, i.rotationOffsetEquip.z);
 	}
 }

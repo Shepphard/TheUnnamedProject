@@ -10,11 +10,11 @@ GameObject:
   - 4: {fileID: 400000}
   - 33: {fileID: 3300000}
   - 23: {fileID: 2300000}
-  - 114: {fileID: 11400000}
   - 65: {fileID: 6500000}
   - 54: {fileID: 5400000}
-  m_Layer: 8
-  m_Name: potItem
+  - 114: {fileID: 11400000}
+  m_Layer: 0
+  m_Name: knightShield
   m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,8 +27,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.04999995, y: 3.77999997, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 9.60039997, y: 3.24357748, z: -3.36094832}
+  m_LocalScale: {x: .00999999978, y: .00999999978, z: .00999999978}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -44,7 +44,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 95e02b4278858d94b8d5089b196429cd, type: 2}
+  - {fileID: 2100000, guid: c45a7a358e981a84a86d6f139afd982f, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -58,7 +58,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Mesh: {fileID: 4300000, guid: 2570300d69c771e4399cccf288716350, type: 3}
+  m_Mesh: {fileID: 4300000, guid: fb28ca8da1b21df46a595edc77330ebd, type: 3}
 --- !u!54 &5400000
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -84,8 +84,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .389999986, y: .319999993, z: .445352495}
-  m_Center: {x: -1.49011612e-08, y: -.0149564743, z: -.00249811262}
+  m_Size: {x: 89.1991653, y: 127.474854, z: 12.6000004}
+  m_Center: {x: 0, y: -11.8835983, z: -.899999976}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -97,14 +97,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a8bed390696424cb5b045733b8aa93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300002, guid: 4424d4b845f36e249843131298726979, type: 3}
+  icon: {fileID: 21300000, guid: 8917bff1f5cf3f94ab834050b06ca6ca, type: 3}
   positionOffsetInv: {x: 0, y: 0, z: 0}
   carriedRotationInv: {x: 0, y: 0, z: 0}
-  positionOffsetEquip: {x: 0, y: .400000006, z: 0}
-  rotationOffsetEquip: {x: 180, y: 0, z: 0}
+  positionOffsetEquip: {x: 0, y: 0, z: 0}
+  rotationOffsetEquip: {x: 0, y: 0, z: 0}
   isEmpty: 0
   isEquipment: 1
-  belongsToEquipmentBar: 0
+  belongsToEquipmentBar: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
