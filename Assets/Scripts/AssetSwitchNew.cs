@@ -5,6 +5,7 @@ public class AssetSwitchNew : MonoBehaviour {
 
 	public GameObject object1;
 	public GameObject object2;
+	public KeyCode switchKey;
 
 	private GameObject instObject1;
 	private GameObject instObject2;
@@ -36,7 +37,7 @@ public class AssetSwitchNew : MonoBehaviour {
 	void Update ()
 	{
 		// triggered and both items have to be outside of the inv
-		if (Input.GetKeyDown(KeyCode.J) && !blockSwitching)
+		if (Input.GetKeyDown(switchKey) && !blockSwitching)
 		{
 			if (instObject1.activeSelf)
 			{

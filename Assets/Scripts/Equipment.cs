@@ -157,4 +157,41 @@ public class Equipment : MonoBehaviour {
 	{
 		return (GameObject)currentList[currentItem];
 	}
+	
+	// bar == 0 if it is a head item
+	// bar == 1 if it is a left hand item
+	public bool containsItem(string iName, int bar)
+	{
+		bool result = false;
+		ArrayList list = new ArrayList();
+		
+		if (bar == 0)
+			list = bar0list;
+		else if (bar == 1)
+			list = bar1list;
+			
+		foreach (GameObject obj in list) {
+			item i = obj.GetComponent<item>();
+			if (i.itemName == iName)
+			{
+				result = true;
+				break;
+			}
+		}
+		
+		return result;
+	}
+	
+	// bar == 0 if it is a head item
+	// bar == 1 if it is a left hand item
+	public bool wearsItem(string iName, int bar)
+	{
+		bool result = false;
+		if (bar == 0 && currentEquipment0 != null)
+			result = currentEquipment0.GetComponent<item>().itemName == iName;
+		else if (bar == 1 && currentEquipment1 != null)
+			result = currentEquipment1.GetComponent<item>().itemName == iName;
+			
+		return result;
+	}
 }

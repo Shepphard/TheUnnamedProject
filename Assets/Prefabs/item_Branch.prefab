@@ -102,9 +102,12 @@ MonoBehaviour:
   carriedRotationInv: {x: 0, y: 0, z: 0}
   positionOffsetEquip: {x: 0, y: 0, z: 0}
   rotationOffsetEquip: {x: 0, y: 0, z: 0}
+  scaleFactorWhenCarried: .699999988
+  scaleFactorWhenEquipped: .699999988
   isEmpty: 0
   isEquipment: 0
   belongsToEquipmentBar: 0
+  itemName: branch
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

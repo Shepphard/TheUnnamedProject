@@ -98,14 +98,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 21300002, guid: 4424d4b845f36e249843131298726979, type: 3}
-  positionOffsetInv: {x: -.349999994, y: .0900000036, z: -.400000006}
+  positionOffsetInv: {x: .300000012, y: .0299999993, z: -.699999988}
   carriedRotationInv: {x: 0, y: 0, z: 0}
-  positionOffsetEquip: {x: 0, y: .370000005, z: -.699999988}
+  positionOffsetEquip: {x: 0, y: .239999995, z: -.699999988}
   rotationOffsetEquip: {x: 170, y: 0, z: 6}
+  scaleFactorWhenCarried: .699999988
   scaleFactorWhenEquipped: 1
   isEmpty: 0
   isEquipment: 1
   belongsToEquipmentBar: 0
+  itemName: pot
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

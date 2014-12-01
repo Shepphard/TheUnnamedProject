@@ -102,10 +102,12 @@ MonoBehaviour:
   carriedRotationInv: {x: -4.13999987, y: 12.3199997, z: 0}
   positionOffsetEquip: {x: -.25, y: -.419999987, z: .180000007}
   rotationOffsetEquip: {x: 0, y: 0, z: 0}
+  scaleFactorWhenCarried: .699999988
   scaleFactorWhenEquipped: .699999988
   isEmpty: 0
   isEquipment: 1
   belongsToEquipmentBar: 1
+  itemName: shield
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

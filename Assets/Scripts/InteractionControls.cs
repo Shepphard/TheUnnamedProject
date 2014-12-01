@@ -442,4 +442,15 @@ public class InteractionControls : MonoBehaviour {
 		
 		obj.localScale *= i.scaleFactorWhenEquipped;
 	}
+	
+	public bool carriesItem (string iName)
+	{
+		if (carriedObject != null)
+		{
+			item i = carriedObject.GetComponent<item>();
+			return i.itemName == iName;
+		}
+		else
+			return false;
+	}
 }

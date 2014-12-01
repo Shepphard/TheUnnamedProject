@@ -13,6 +13,7 @@ public class item : MonoBehaviour {
 	public bool isEmpty = false;
 	public bool isEquipment = false;
 	public int belongsToEquipmentBar = 0;
+	public string itemName; 
 	
 	private AssetSwitchNew _assetS;
 	private bool isInInv = false;

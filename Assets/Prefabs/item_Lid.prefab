@@ -102,9 +102,12 @@ MonoBehaviour:
   carriedRotationInv: {x: 54.6599998, y: -17.5, z: -67.8000031}
   positionOffsetEquip: {x: 0, y: 0, z: 0}
   rotationOffsetEquip: {x: 0, y: 0, z: 90}
+  scaleFactorWhenCarried: .699999988
+  scaleFactorWhenEquipped: .699999988
   isEmpty: 0
   isEquipment: 1
   belongsToEquipmentBar: 1
+  itemName: lid
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

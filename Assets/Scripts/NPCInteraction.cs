@@ -17,7 +17,9 @@ public class NPCInteraction : MonoBehaviour
 
 	private Text _dialogueText;	
 	private Animator _animator;
-	private Inventory _inventory;
+	//private Inventory _inventory;
+	private Equipment _equipment;
+	private InteractionControls _ctrl;
 
 	// Use this for initialization
 	void Awake () 
@@ -28,12 +30,14 @@ public class NPCInteraction : MonoBehaviour
 		_dialogueText.text = "";
 
 		_animator = dialogueBox.GetComponentInParent<Animator>();
-		_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+		//_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
+		_equipment = GameObject.FindGameObjectWithTag("Player").GetComponent<Equipment>();
+		_ctrl = GameObject.FindGameObjectWithTag("Player").GetComponent<InteractionControls>();
 	}
 	
 	// Update is called once per frame
 	void Update () 
-	{
+	{		
 		//is the textwindow open?
 		if(activated)
 		{
@@ -83,8 +87,8 @@ public class NPCInteraction : MonoBehaviour
 					interactCount = 2;
 					break;
 				case 2:
-					// does the player have the equipment?
-					if(!_inventory.isInvEmpty())
+					// does the player have the right equipment?
+					if(checkEquipment())
 					 {
 					  	//...play audioclip and set interactCount to 3
 						_dialogueText.text = "Alright! That's better.\nBefore you enter our kingdom, \ncould you please tell me your name?";
@@ -150,4 +154,10 @@ public class NPCInteraction : MonoBehaviour
 		audio.Play();
 	}
 	
+	bool checkEquipment()
+	{
+		return (_equipment.wearsItem("pot", 0) &&
+		       (_equipment.wearsItem("lid", 1) || _equipment.wearsItem("shield", 1)) &&
+		       (_ctrl.carriesItem("sword") || _ctrl.carriesItem("branch")));
+	}
 }
