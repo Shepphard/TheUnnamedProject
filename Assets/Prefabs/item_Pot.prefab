@@ -97,11 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a8bed390696424cb5b045733b8aa93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: cf3fd5df87c9ba149a3118f0ff667e8f, type: 3}
-  positionOffsetInv: {x: -35, y: .0900000036, z: -.400000006}
+  icon: {fileID: 21300002, guid: 4424d4b845f36e249843131298726979, type: 3}
+  positionOffsetInv: {x: -.349999994, y: .0900000036, z: -.400000006}
   carriedRotationInv: {x: 0, y: 0, z: 0}
-  positionOffsetEquip: {x: 0, y: .330000013, z: -.699999988}
+  positionOffsetEquip: {x: 0, y: .370000005, z: -.699999988}
   rotationOffsetEquip: {x: 170, y: 0, z: 6}
+  scaleFactorWhenEquipped: 1
   isEmpty: 0
   isEquipment: 1
   belongsToEquipmentBar: 0

@@ -51,11 +51,12 @@ public class InteractionControls : MonoBehaviour {
 		/* on right click */
 		if (Input.GetKeyUp(KeyCode.Mouse1) && !_inventory._invBar.inspecting && enableCtrls)
 		{
-			bool isEquipment = carriedObject.GetComponent<item>().isEquipment; //is it equipment?
-		
+			
 			// carrying something?
 			if (carriedObject != null)
 			{
+				bool isEquipment = carriedObject.GetComponent<item>().isEquipment; //is it equipment?
+				
 				if (!isEquipment)
 				{
 					// theres space  in the inventory..
@@ -271,6 +272,8 @@ public class InteractionControls : MonoBehaviour {
 		carriedObject.RotateAround(carriedObject.position, _cam.transform.up, i.carriedRotationInv.y);
 		carriedObject.RotateAround(carriedObject.position, _cam.transform.right, i.carriedRotationInv.x);
 		carriedObject.RotateAround(carriedObject.position, _cam.transform.forward, i.carriedRotationInv.z);
+		// apply scale
+		carriedObject.localScale *= i.scaleFactorWhenCarried;
 		
 		// parent it to the camera
 		carriedObject.transform.parent = _cam.transform;
@@ -308,6 +311,8 @@ public class InteractionControls : MonoBehaviour {
 	 */
 	void clearCarriedObject()
 	{
+		item i = carriedObject.GetComponent<item>();
+	
 		// turn gravity back on
 		carriedObject.rigidbody.useGravity = true;
 		carriedObject.rigidbody.isKinematic = false;
@@ -316,6 +321,9 @@ public class InteractionControls : MonoBehaviour {
 		// reset all the forces applied
 		carriedObject.rigidbody.velocity = Vector3.zero;
 		carriedObject.rigidbody.angularVelocity = Vector3.zero;
+		
+		// reset scale
+		carriedObject.localScale /= i.scaleFactorWhenCarried;
 
 		// set free from camera
 		carriedObject.transform.parent = null;
@@ -431,5 +439,7 @@ public class InteractionControls : MonoBehaviour {
 		obj.RotateAround(obj.position, _cam.transform.up, i.rotationOffsetEquip.y);
 		obj.RotateAround(obj.position, _cam.transform.right, i.rotationOffsetEquip.x);
 		obj.RotateAround(obj.position, _cam.transform.forward, i.rotationOffsetEquip.z);
+		
+		obj.localScale *= i.scaleFactorWhenEquipped;
 	}
 }

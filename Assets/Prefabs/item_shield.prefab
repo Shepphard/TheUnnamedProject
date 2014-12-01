@@ -26,7 +26,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: -.4981094, y: 0, z: 0, w: .867114186}
+  m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 9.55160046, y: 2.21499991, z: 10.4650002}
   m_LocalScale: {x: .00999999978, y: .00999999978, z: .00999999978}
   m_Children: []
@@ -97,11 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a8bed390696424cb5b045733b8aa93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 57a650d776438d546bd5eed79ae19d90, type: 3}
+  icon: {fileID: 21300000, guid: f022bd94795430849bc32a520cf7ca88, type: 3}
   positionOffsetInv: {x: -.0199999996, y: .0700000003, z: -.730000019}
   carriedRotationInv: {x: -4.13999987, y: 12.3199997, z: 0}
   positionOffsetEquip: {x: -.25, y: -.419999987, z: .180000007}
   rotationOffsetEquip: {x: 0, y: 0, z: 0}
+  scaleFactorWhenEquipped: .699999988
   isEmpty: 0
   isEquipment: 1
   belongsToEquipmentBar: 1

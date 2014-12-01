@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a8bed390696424cb5b045733b8aa93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: ec0a1144e5b6626448bf716e526ab056, type: 3}
+  icon: {fileID: 21300000, guid: 0ee21b8c262c3764497e4a705ef3f954, type: 3}
   positionOffsetInv: {x: 0, y: 0, z: -.519999981}
   carriedRotationInv: {x: 0, y: 0, z: 0}
   positionOffsetEquip: {x: 0, y: 0, z: 0}

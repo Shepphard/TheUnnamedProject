@@ -8,6 +8,8 @@ public class item : MonoBehaviour {
 	public Vector3 carriedRotationInv;
 	public Vector3 positionOffsetEquip;
 	public Vector3 rotationOffsetEquip;
+	public float scaleFactorWhenCarried = 0.7f;
+	public float scaleFactorWhenEquipped = 0.7f;
 	public bool isEmpty = false;
 	public bool isEquipment = false;
 	public int belongsToEquipmentBar = 0;
