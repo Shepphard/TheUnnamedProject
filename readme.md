@@ -1,5 +1,6 @@
-This is the readme for our game!
+This is the readme for "Imagine, Kids...."
+
+The first Demo Level is available! Yay!
 
 by
-Philippe Kayser
-Vivien Baguio
+Vivi, Änni, Maria, Julian and Philippe
