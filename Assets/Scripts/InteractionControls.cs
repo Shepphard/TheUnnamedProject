@@ -61,7 +61,6 @@ public class InteractionControls : MonoBehaviour {
 				isAttacking = carriedObject.GetComponent<Sword>().getIsAttacking();
 				if(isAttacking)
 				{
-					updateCarriedObjectTransform();
 				}
 			}
 
@@ -188,7 +187,7 @@ public class InteractionControls : MonoBehaviour {
 		/* LEFT CLICK FOR EQUIPMENT BAR */
 		if (Input.GetButtonDown ("PickUp"))
 		{
-			if(carriedObject.GetComponent<item>().item_type == "weapon")
+			if(carriedObject != null && carriedObject.GetComponent<item>().item_type == "weapon")
 			{
 				arm_anim.SetTrigger("Slash");
 				carriedObject.GetComponent<Sword>().Attack();
@@ -224,6 +223,7 @@ public class InteractionControls : MonoBehaviour {
 			carriedObject.RotateAround(carriedObject.position, _cam.transform.up, i.carriedRotationInv.y);
 			carriedObject.RotateAround(carriedObject.position, _cam.transform.right, i.carriedRotationInv.x);
 			carriedObject.RotateAround(carriedObject.position, _cam.transform.forward, i.carriedRotationInv.z);
+
 		}
 		
 	}// update
@@ -283,7 +283,9 @@ public class InteractionControls : MonoBehaviour {
 		// deal with the rigidbody
 		carriedObject.rigidbody.useGravity = false;
 		carriedObject.rigidbody.isKinematic = true;
-		carriedObject.rigidbody.detectCollisions =false;
+		//carriedObject.rigidbody.detectCollisions =false;
+
+		carriedObject.collider.isTrigger = true;
 		
 		// Position of the carriedObject once
 		item i = carriedObject.GetComponent<item>();
@@ -297,7 +299,7 @@ public class InteractionControls : MonoBehaviour {
 				_cam.transform.forward * i.positionOffsetInv.z;
 
 		//apply rotation
-		carriedObject.rotation = handle.transform.rotation;
+		carriedObject.rotation = _cam.transform.rotation;
 		carriedObject.RotateAround(carriedObject.position, _cam.transform.up, i.carriedRotationInv.y);
 		carriedObject.RotateAround(carriedObject.position, _cam.transform.right, i.carriedRotationInv.x);
 		carriedObject.RotateAround(carriedObject.position, _cam.transform.forward, i.carriedRotationInv.z);
@@ -320,26 +322,6 @@ public class InteractionControls : MonoBehaviour {
 	 * no object is hit when RaycastHit.collider == null
 	 */
 
-	void updateCarriedObjectTransform()
-	{
-		Debug.Log("update");
-		item i = carriedObject.GetComponent<item>();
-		
-		GameObject handle = GameObject.Find("animation_handle");
-
-		carriedObject.transform.position = handle.transform.position;
-		/*
-		carriedObject.position = handle.transform.position + 
-			_cam.transform.right*i.positionOffsetInv.x + 
-				_cam.transform.up * i.positionOffsetInv.y +
-				_cam.transform.forward * i.positionOffsetInv.z;
-		
-		//apply rotation
-		carriedObject.rotation = handle.transform.rotation;
-		carriedObject.RotateAround(carriedObject.position, _cam.transform.up, i.carriedRotationInv.y);
-		carriedObject.RotateAround(carriedObject.position, _cam.transform.right, i.carriedRotationInv.x);
-		carriedObject.RotateAround(carriedObject.position, _cam.transform.forward, i.carriedRotationInv.z);*/
-	}
 
 
 	RaycastHit hitsObject()
@@ -370,7 +352,7 @@ public class InteractionControls : MonoBehaviour {
 		carriedObject.rigidbody.useGravity = true;
 		carriedObject.rigidbody.isKinematic = false;
 		carriedObject.rigidbody.detectCollisions =true;
-		
+		carriedObject.collider.isTrigger = false;
 		// reset all the forces applied
 		carriedObject.rigidbody.velocity = Vector3.zero;
 		carriedObject.rigidbody.angularVelocity = Vector3.zero;
@@ -402,7 +384,7 @@ public class InteractionControls : MonoBehaviour {
 		GameObject obj = (GameObject) Instantiate ((Object)_inventory.itemsList[_inventory.currentItem]);
 		obj.SetActive(true);
 		obj.rigidbody.useGravity = false;
-		obj.rigidbody.isKinematic = false;
+		obj.rigidbody.isKinematic = true;
 		obj.rigidbody.detectCollisions =false;
 		inspectingItem = obj.transform;
 		inspectingItem.parent = InspectCamera.transform;
