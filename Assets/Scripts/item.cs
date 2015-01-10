@@ -4,6 +4,7 @@ using System.Collections;
 public class item : MonoBehaviour {
 
 	public Sprite icon;
+	public string item_type;
 	public Vector3 positionOffsetInv;
 	public Vector3 carriedRotationInv;
 	public Vector3 positionOffsetEquip;

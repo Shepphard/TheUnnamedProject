@@ -39,14 +39,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a8bed390696424cb5b045733b8aa93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 39f23824b41c41049a35d028c712813e, type: 3}
+  icon: {fileID: 21300000, guid: 8f840233af6b4be43b089732f924974c, type: 3}
   positionOffsetInv: {x: 0, y: 0, z: 0}
   carriedRotationInv: {x: 0, y: 0, z: 0}
   positionOffsetEquip: {x: 0, y: 0, z: 0}
   rotationOffsetEquip: {x: 0, y: 0, z: 0}
+  scaleFactorWhenCarried: .699999988
+  scaleFactorWhenEquipped: .699999988
   isEmpty: 0
   isEquipment: 1
   belongsToEquipmentBar: 0
+  itemName: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -9,13 +9,11 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 33: {fileID: 3300000}
+  - 64: {fileID: 6400000}
   - 23: {fileID: 2300000}
-  - 114: {fileID: 11400000}
-  - 65: {fileID: 6500000}
-  - 54: {fileID: 5400000}
-  m_Layer: 8
-  m_Name: item_Pot
-  m_TagString: PickUp
+  m_Layer: 0
+  m_Name: destructable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,9 +24,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: .992403924, y: -.0868240818, z: .00759612815, w: .0868241489}
-  m_LocalPosition: {x: -.513113379, y: 1.52109981, z: 15.698}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
+  m_LocalPosition: {x: 3.54999995, y: 1.22000003, z: 6.32000017}
+  m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -44,7 +42,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 75530573b7e4ea44fa1b0b7821156540, type: 2}
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -58,24 +56,9 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Mesh: {fileID: 4300000, guid: 2570300d69c771e4399cccf288716350, type: 3}
---- !u!54 &5400000
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: Infinity
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &6500000
-BoxCollider:
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &6400000
+MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -84,31 +67,9 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .389999986, y: .319999993, z: .445352495}
-  m_Center: {x: -1.49011612e-08, y: -.0149564743, z: -.00249811262}
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56a8bed390696424cb5b045733b8aa93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 23bcfc03372b4424ca8f75ced7fd27b7, type: 3}
-  item_type: 
-  positionOffsetInv: {x: .349999994, y: .0299999993, z: -.449999988}
-  carriedRotationInv: {x: 0, y: 0, z: 0}
-  positionOffsetEquip: {x: 0, y: .239999995, z: -.699999988}
-  rotationOffsetEquip: {x: 170, y: 0, z: 6}
-  scaleFactorWhenCarried: .699999988
-  scaleFactorWhenEquipped: 1
-  isEmpty: 0
-  isEquipment: 1
-  belongsToEquipmentBar: 0
-  itemName: pot
+  m_SmoothSphereCollisions: 0
+  m_Convex: 0
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
