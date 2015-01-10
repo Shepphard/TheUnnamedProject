@@ -189,7 +189,11 @@ public class InteractionControls : MonoBehaviour {
 		{
 			if(carriedObject != null && carriedObject.GetComponent<item>().item_type == "weapon")
 			{
-				arm_anim.SetTrigger("Slash");
+				float rnd = Random.value;
+				if(rnd > 0.5f)
+					arm_anim.SetTrigger("Slash");
+				else
+					arm_anim.SetTrigger("Slash2");
 				carriedObject.GetComponent<Sword>().Attack();
 			}
 
