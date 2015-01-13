@@ -25,8 +25,6 @@ public class InteractionControls : MonoBehaviour {
 	MouseLook mouselook_camera; // ref to mouselook on camera
 	Transform itemPosition; //the gameobj of the hand
 	Transform inspectingItem; // the item that is being inspected right now
-	Transform headPosition;
-	Transform lefthandPosition;
 
 	Animator arm_anim;
 
@@ -40,12 +38,8 @@ public class InteractionControls : MonoBehaviour {
 		_inventory = GetComponent<Inventory>();
 		_equipment = GetComponent<Equipment>();
 		itemPosition = _cam.transform.Find("itemPosition");
-		headPosition = _cam.transform.Find("headPosition");
-		lefthandPosition = _cam.transform.Find("lefthandPosition");
 
 		arm_anim = GameObject.Find("Arm").GetComponent<Animator>();
-
-		_equipment._equipmentBar.receiveReferences(mouselook_player, mouselook_camera, this);
 	}
 	
 	/* update function
@@ -110,7 +104,7 @@ public class InteractionControls : MonoBehaviour {
 				else
 				{
 					item i = carriedObject.GetComponent<item>();
-					positionEquipmentObject(carriedObject, i.belongsToEquipmentBar);
+					positionEquipmentObject(carriedObject);
 					_equipment.addItem(carriedObject.gameObject);
 					carriedObject = null;
 				}
@@ -461,23 +455,12 @@ public class InteractionControls : MonoBehaviour {
 	 * Use this to position equipment items once
 	 * before adding to equipment
 	 */
-	void positionEquipmentObject(Transform obj, int bar)
+	void positionEquipmentObject(Transform obj)
 	{
 		item i = obj.GetComponent<item>();
-		Transform component = headPosition; // does it belong to head or hand
-		
-		if (bar==0)
-			component = headPosition;
-		else if (bar==1)
-			component = lefthandPosition;
-		
-		obj.position = component.position + _cam.transform.right*i.positionOffsetEquip.x + 
-				_cam.transform.up * i.positionOffsetEquip.y +
-				_cam.transform.forward * i.positionOffsetEquip.z;
-		obj.rotation = component.rotation;
-		obj.RotateAround(obj.position, _cam.transform.up, i.rotationOffsetEquip.y);
-		obj.RotateAround(obj.position, _cam.transform.right, i.rotationOffsetEquip.x);
-		obj.RotateAround(obj.position, _cam.transform.forward, i.rotationOffsetEquip.z);
+
+		obj.localRotation = Quaternion.Euler(i.rotationOffsetEquip.x, i.rotationOffsetEquip.y, i.rotationOffsetEquip.z);
+		obj.localPosition = i.positionOffsetEquip;
 		
 		obj.localScale *= i.scaleFactorWhenEquipped;
 	}

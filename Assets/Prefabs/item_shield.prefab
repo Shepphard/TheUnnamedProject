@@ -26,8 +26,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 9.55160046, y: 2.21499991, z: 10.4650002}
+  m_LocalRotation: {x: -.152484596, y: -.564156294, z: .172563091, w: .792904913}
+  m_LocalPosition: {x: -1.54999995, y: -.819999993, z: 1.86000001}
   m_LocalScale: {x: .00999999978, y: .00999999978, z: .00999999978}
   m_Children: []
   m_Father: {fileID: 0}
@@ -98,10 +98,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: ac8becc78d5a9cd418c52254bbe98097, type: 3}
+  item_type: 
   positionOffsetInv: {x: -.0199999996, y: .0700000003, z: -.730000019}
   carriedRotationInv: {x: -4.13999987, y: 12.3199997, z: 0}
-  positionOffsetEquip: {x: -.25, y: -.419999987, z: .180000007}
-  rotationOffsetEquip: {x: 0, y: 0, z: 0}
+  positionOffsetEquip: {x: -1.54999995, y: -71.5, z: 26.5}
+  rotationOffsetEquip: {x: -2.70000005, y: .00999999978, z: .00999999978}
   scaleFactorWhenCarried: .699999988
   scaleFactorWhenEquipped: .699999988
   isEmpty: 0

@@ -99,10 +99,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 23bcfc03372b4424ca8f75ced7fd27b7, type: 3}
   item_type: 
-  positionOffsetInv: {x: .349999994, y: .0299999993, z: -.449999988}
-  carriedRotationInv: {x: 0, y: 0, z: 0}
-  positionOffsetEquip: {x: 0, y: .239999995, z: -.699999988}
-  rotationOffsetEquip: {x: 170, y: 0, z: 6}
+  positionOffsetInv: {x: 1.72000003, y: -.639999986, z: 29.9799995}
+  carriedRotationInv: {x: -134.199997, y: 0, z: 0}
+  positionOffsetEquip: {x: -.769999981, y: .0900000036, z: -.140000001}
+  rotationOffsetEquip: {x: 16.3899994, y: -167.399994, z: -189.139999}
   scaleFactorWhenCarried: .699999988
   scaleFactorWhenEquipped: 1
   isEmpty: 0

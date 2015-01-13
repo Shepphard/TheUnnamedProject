@@ -14,9 +14,7 @@ public class EquipmentBar : MonoBehaviour {
 	
 	private float timer = 0f;
 	private Animator _anim;
-	private MouseLook _playerMouselook;
-	private MouseLook _camMouselook;
-	private InteractionControls _playerCtrl;
+	private BlockCTRL _blockCTRL;
 	private Equipment _equip;
 
 	void Awake()
@@ -25,7 +23,7 @@ public class EquipmentBar : MonoBehaviour {
 		iconlist1 = new ArrayList();
 		_anim = GetComponent<Animator>();
 		_equip = (Equipment) GameObject.FindGameObjectWithTag("Player").GetComponent<Equipment>();
-	
+		_blockCTRL = GameObject.FindGameObjectWithTag("Player").GetComponent<BlockCTRL>();
 	}
 	
 	// Update is called once per frame
@@ -54,9 +52,10 @@ public class EquipmentBar : MonoBehaviour {
 		}
 		resetTimer();
 		
-		_playerMouselook.setMouselookOn(false);
-		_camMouselook.setMouselookOn(false);
-		_playerCtrl.enableCtrls = false;
+		// block
+		_blockCTRL.BlockMovement(true);
+		_blockCTRL.BlockLookingaround(true, true);
+		_blockCTRL.BlockInteractionCtrl(true);
 	}
 	
 	/* deactivate equipment bar */
@@ -68,24 +67,19 @@ public class EquipmentBar : MonoBehaviour {
 		{
 			activated = false;
 			_anim.SetBool("activated", activated);
-			_playerMouselook.setMouselookOn(true);
-			_camMouselook.setMouselookOn(true);
-			_playerCtrl.enableCtrls = true;
 			_equip.barSelected = false;
 			_anim.SetInteger("currentBar", 0);
 			_anim.SetInteger("itemCount", 0);
+			
+			// unblock
+			_blockCTRL.BlockMovement(false);
+			_blockCTRL.BlockLookingaround(false, false);
+			_blockCTRL.BlockInteractionCtrl(false);
 		}
 	}
 	
 	public void resetTimer() {
 		timer = 0f;
-	}
-	
-	public void receiveReferences(MouseLook player, MouseLook cam, InteractionControls ctrl)
-	{
-		_playerMouselook = player;
-		_camMouselook = cam;
-		_playerCtrl = ctrl;
 	}
 	
 	// updates the icons from the bars themselves
