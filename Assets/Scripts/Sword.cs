@@ -7,13 +7,7 @@ public class Sword : MonoBehaviour {
 
 	float timer = 0f;
 	float maxTimer = 1f;
-	// Use this for initialization
-	void Start () 
-	{
 	
-	}
-	
-	// Update is called once per frame
 	void Update () 
 	{
 		if(isAttacking)
@@ -45,7 +39,6 @@ public class Sword : MonoBehaviour {
 	public void Attack()
 	{
 		Debug.Log("attack");
-
 		isAttacking = true;
 	}
 

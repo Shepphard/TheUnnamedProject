@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: 22ae0fe5ec284d242953962eb22ac34e, type: 3}
   item_type: weapon
-  positionOffsetInv: {x: .800000012, y: -.550000012, z: 29.6000004}
+  positionOffsetInv: {x: 0, y: 0, z: 0}
   carriedRotationInv: {x: 0, y: 70, z: 5}
   positionOffsetEquip: {x: 0, y: 0, z: 0}
   rotationOffsetEquip: {x: 0, y: 0, z: 0}

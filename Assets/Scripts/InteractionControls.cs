@@ -184,11 +184,19 @@ public class InteractionControls : MonoBehaviour {
 			if(carriedObject != null && carriedObject.GetComponent<item>().item_type == "weapon")
 			{
 				float rnd = Random.value;
-				if(rnd > 0.5f)
-					arm_anim.SetTrigger("Slash");
-				else
-					arm_anim.SetTrigger("Slash2");
-				carriedObject.GetComponent<Sword>().Attack();
+				
+				AnimatorStateInfo state = arm_anim.GetCurrentAnimatorStateInfo(0);
+				bool attacking = state.IsName("Slash") || state.IsName("Slash2");
+				
+				if (!attacking)
+				{
+					if(rnd > 0.5f)
+						arm_anim.SetTrigger("Slash");
+					else
+						arm_anim.SetTrigger("Slash2");
+						
+					carriedObject.GetComponent<Sword>().Attack();
+				}
 			}
 
 			else if (_equipment.GetBarActivated())
