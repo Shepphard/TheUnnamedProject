@@ -328,9 +328,6 @@ public class InteractionControls : MonoBehaviour {
 	 * 
 	 * no object is hit when RaycastHit.collider == null
 	 */
-
-
-
 	RaycastHit hitsObject()
 	{
 		Ray ray = _cam.ScreenPointToRay(new Vector3(_cam.pixelWidth/2, _cam.pixelHeight/2, 0));
