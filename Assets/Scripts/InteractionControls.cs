@@ -311,11 +311,8 @@ public class InteractionControls : MonoBehaviour {
 		// apply scale
 		carriedObject.localScale *= i.scaleFactorWhenCarried;
 		
-		// parent it to the animation_handle if its an inventory item
-		if(!i.isEquipment)
-			carriedObject.SetParent(handle.transform);
-		else
-			carriedObject.SetParent(GameObject.Find("equipment").transform);
+		// parent it to the animation_handle
+		carriedObject.SetParent(handle.transform);
 	} // setcarriedobject
 	
 	/*
