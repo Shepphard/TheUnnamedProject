@@ -19,6 +19,7 @@ GameObject:
   - 114: {fileID: 11499866}
   - 114: {fileID: 11468706}
   - 114: {fileID: 11444880}
+  - 95: {fileID: 9505254}
   m_Layer: 10
   m_Name: player
   m_TagString: Player
@@ -308,7 +309,7 @@ Renderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119854}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
@@ -385,6 +386,21 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 119856}
   m_Enabled: 1
+--- !u!95 &9505254
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 119854}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a8cde5a339eede046b7d285ab707d287, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &9530040
 Animator:
   serializedVersion: 3

@@ -21,10 +21,9 @@ public class InteractionControls : MonoBehaviour {
 	Camera _cam; // reference to the main camera
 	Inventory _inventory; // reference to the players inventory
 	Equipment _equipment; // reference to the players equipment
-	MouseLook mouselook_player; // ref to the mouselook on player
-	MouseLook mouselook_camera; // ref to mouselook on camera
 	Transform itemPosition; //the gameobj of the hand
 	Transform inspectingItem; // the item that is being inspected right now
+	BlockCTRL blockCtrl;
 
 	Animator arm_anim;
 
@@ -33,11 +32,10 @@ public class InteractionControls : MonoBehaviour {
 	{
 		interactableMask = LayerMask.GetMask ("Interactable");
 		_cam = GetComponentInChildren<Camera> ();
-		mouselook_camera = _cam.GetComponent<MouseLook>();
-		mouselook_player = GetComponent<MouseLook>();
 		_inventory = GetComponent<Inventory>();
 		_equipment = GetComponent<Equipment>();
 		itemPosition = _cam.transform.Find("itemPosition");
+		blockCtrl = GetComponent<BlockCTRL>();
 
 		arm_anim = GameObject.Find("Arm").GetComponent<Animator>();
 	}
@@ -383,8 +381,8 @@ public class InteractionControls : MonoBehaviour {
 		// activate inspecting mode
 		_inventory._invBar.activateInspecting();
 		// turn off the camera movement
-		mouselook_camera.setMouselookOn(false);
-		mouselook_player.setMouselookOn(false);
+		
+		blockCtrl.BlockLookingaround(true, true);
 		
 		// instantiate the obj to inspect to the inspectcamera and deal with rigidbody and so on
 		GameObject obj = (GameObject) Instantiate ((Object)_inventory.itemsList[_inventory.currentItem]);
@@ -406,8 +404,8 @@ public class InteractionControls : MonoBehaviour {
 	{
 		Destroy (inspectingItem.gameObject);
 		_inventory._invBar.deactivateInspecting();
-		mouselook_camera.setMouselookOn(true);
-		mouselook_player.setMouselookOn(true);
+		
+		blockCtrl.BlockLookingaround(false, false);
 	}
 	
 	/* Scroll Inventory
