@@ -24,6 +24,7 @@ public class InteractionControls : MonoBehaviour {
 	Transform itemPosition; //the gameobj of the hand
 	Transform inspectingItem; // the item that is being inspected right now
 	BlockCTRL blockCtrl;
+	CutsceneManager cutsceneMgr;
 	
 	Animator arm_anim;
 	
@@ -38,6 +39,7 @@ public class InteractionControls : MonoBehaviour {
 		blockCtrl = GetComponent<BlockCTRL>();
 		
 		arm_anim = GameObject.Find("Arm").GetComponent<Animator>();
+		cutsceneMgr = CutsceneManager.Instance();
 	}
 	
 	/* update function
@@ -178,7 +180,7 @@ public class InteractionControls : MonoBehaviour {
 		/* LEFT CLICK FOR EQUIPMENT BAR */
 		if (Input.GetButtonDown ("PickUp"))
 		{
-			if(carriedObject != null && carriedObject.GetComponent<item>().item_type == "weapon")
+			if(carriedObject != null && carriedObject.GetComponent<item>().item_type == "weapon" && enableCtrls)
 			{
 				float rnd = Random.value;
 				
@@ -315,6 +317,13 @@ public class InteractionControls : MonoBehaviour {
 			carriedObject.SetParent(handle.transform);
 		else
 			carriedObject.SetParent(GameObject.Find("equipment").transform);
+			
+		/* deal with triggering stuff */
+		if (i.TriggerLookatHand)
+		{
+			cutsceneMgr.PlayScene(Cutscenes.lookat_hand);
+			i.TriggerLookatHand = false;
+		}
 	} // setcarriedobject
 	
 	/*
@@ -479,5 +488,12 @@ public class InteractionControls : MonoBehaviour {
 		}
 		else
 			return false;
+	}
+	
+	/* only call from animation! */
+	public void SwitchCarriedItem()
+	{
+		item i = carriedObject.GetComponent<item>();
+		i.Switch();
 	}
 }

@@ -39,45 +39,7 @@ public class AssetSwitchNew : MonoBehaviour {
 		// triggered and both items have to be outside of the inv
 		if (Input.GetKeyDown(switchKey) && !blockSwitching)
 		{
-			if (instObject1.activeSelf)
-			{
-				cloudParticles.transform.position = instObject1.transform.position;
-				cloudParticles.Play();
-				
-				instObject2.transform.position = instObject1.transform.position;
-				instObject2.transform.rotation = instObject1.transform.rotation;
-			
-				if (_controls.carriedObject == instObject1.transform)
-				{
-					_controls.setCarriedObject(instObject2.transform);
-				}
-				instObject2.transform.parent = instObject1.transform.parent;
-				
-				instObject1.rigidbody.useGravity = true;
-				
-				instObject1.SetActive(false);
-				instObject2.SetActive(true);
-				
-			}
-			else
-			{
-				cloudParticles.transform.position = instObject2.transform.position;
-				cloudParticles.Play();
-				
-				instObject1.transform.position = instObject2.transform.position;
-				instObject1.transform.rotation = instObject2.transform.rotation;
-				
-				if (_controls.carriedObject == instObject2.transform)
-				{
-					_controls.setCarriedObject(instObject1.transform);
-				}
-				instObject1.transform.parent = instObject2.transform.parent;
-				
-				instObject2.rigidbody.useGravity = true;
-				
-				instObject2.SetActive(false);
-				instObject1.SetActive(true);
-			}
+			Switch();
 		}
 	}
 	
@@ -85,5 +47,48 @@ public class AssetSwitchNew : MonoBehaviour {
 	public void setBlockSwitching(bool b)
 	{
 		blockSwitching = b;
+	}
+	
+	public void Switch()
+	{
+		if (instObject1.activeSelf)
+		{
+			cloudParticles.transform.position = instObject1.transform.position;
+			cloudParticles.Play();
+			
+			instObject2.transform.position = instObject1.transform.position;
+			instObject2.transform.rotation = instObject1.transform.rotation;
+			
+			if (_controls.carriedObject == instObject1.transform)
+			{
+				_controls.setCarriedObject(instObject2.transform);
+			}
+			instObject2.transform.parent = instObject1.transform.parent;
+			
+			instObject1.rigidbody.useGravity = true;
+			
+			instObject1.SetActive(false);
+			instObject2.SetActive(true);
+			
+		}
+		else
+		{
+			cloudParticles.transform.position = instObject2.transform.position;
+			cloudParticles.Play();
+			
+			instObject1.transform.position = instObject2.transform.position;
+			instObject1.transform.rotation = instObject2.transform.rotation;
+			
+			if (_controls.carriedObject == instObject2.transform)
+			{
+				_controls.setCarriedObject(instObject1.transform);
+			}
+			instObject1.transform.parent = instObject2.transform.parent;
+			
+			instObject2.rigidbody.useGravity = true;
+			
+			instObject2.SetActive(false);
+			instObject1.SetActive(true);
+		}
 	}
 }

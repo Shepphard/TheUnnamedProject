@@ -15,6 +15,7 @@ public class item : MonoBehaviour {
 	public bool isEquipment = false;
 	public int belongsToEquipmentBar = 0;
 	public string itemName; 
+	public bool TriggerLookatHand = false;
 	
 	private AssetSwitchNew _assetS;
 	private bool isInInv = false;
@@ -34,5 +35,10 @@ public class item : MonoBehaviour {
 	public void setAssetSwitcher( AssetSwitchNew a)
 	{
 		_assetS = a;
+	}
+	
+	public void Switch()
+	{
+		_assetS.Switch();
 	}
 }

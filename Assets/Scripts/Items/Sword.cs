@@ -6,7 +6,7 @@ public class Sword : MonoBehaviour {
 	bool isAttacking = false;
 
 	float timer = 0f;
-	float maxTimer = 1f;
+	 float maxTimer = 0.4f;
 	
 	void Update () 
 	{

@@ -66,6 +66,18 @@ public class Speechbubble : MonoBehaviour {
 		return id;
 	}
 	
+	public void Say(string name, string field, float duration)
+	{
+		int currentId = Say (name, field);
+		StartCoroutine(CloseAfter(duration, currentId));
+	}
+	
+	private IEnumerator CloseAfter(float duration, int currentId)
+	{
+		yield return new WaitForSeconds(duration);
+		CloseBubble(currentId);
+	}
+	
 	public void CloseBubble(int new_id)
 	{
 		if (id == new_id)

@@ -87,7 +87,7 @@ State:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: wall_up
-  m_Speed: 1
+  m_Speed: 1.10000002
   m_CycleOffset: 0
   m_Motions:
   - {fileID: 7400000, guid: a5d47aef2ce7c3044ab23683ad7be720, type: 2}
