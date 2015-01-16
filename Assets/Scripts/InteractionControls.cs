@@ -252,7 +252,7 @@ public class InteractionControls : MonoBehaviour {
 				// is it an NPC?..
 				if (hitObject.collider.tag == "NPC")
 					// if yes, retrieve NPCInteraction script from the NPC
-					hitObject.collider.gameObject.GetComponent<NPCInteraction>().Interaction();
+					hitObject.collider.gameObject.GetComponent<NPCKnight>().Interaction();
 				//..if you hit an pickup object and have no object in your hands yo
 				else if (carriedObject == null && hitObject.collider.tag == "PickUp")
 					setCarriedObject(hitObject.collider.transform);

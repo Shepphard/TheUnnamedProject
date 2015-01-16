@@ -5092,8 +5092,8 @@ GameObject:
   - 65: {fileID: 451465924}
   - 23: {fileID: 451465923}
   - 82: {fileID: 451465922}
-  - 114: {fileID: 451465921}
   - 135: {fileID: 451465920}
+  - 114: {fileID: 451465927}
   m_Layer: 8
   m_Name: InteractableNPC
   m_TagString: NPC
@@ -5114,20 +5114,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.27999997
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &451465921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11400006, guid: 2103513af8e460f41935e758a59ea0e2,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 451465919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de232641f86ac7e47a1fd50f1f5e80eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueBox: {fileID: 1466711980}
-  activatedTime: 5
 --- !u!82 &451465922
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5137,7 +5123,7 @@ AudioSource:
   m_GameObject: {fileID: 451465919}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: f1cc54004baf9034ca0bd35b70b64a52, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -5243,6 +5229,28 @@ Transform:
   - {fileID: 482133734}
   m_Father: {fileID: 1894497429}
   m_RootOrder: 0
+--- !u!114 &451465927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 451465919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3906975c2e794894d9e5e02a14562703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 2b372f1b6a2f1794cb5e0cab2ce86086, type: 3}
+  - {fileID: 8300000, guid: 8f8c83426076cd549a7d240bd25489d6, type: 3}
+  - {fileID: 8300000, guid: 05434e6dd396e6f49a11f61e936b627c, type: 3}
+  - {fileID: 8300000, guid: b5e86bd6333c2e14cae444f2c3616a36, type: 3}
+  - {fileID: 8300000, guid: ef5eb981bc7a1c44ab0ad8e88c5a12f2, type: 3}
+  - {fileID: 8300000, guid: cb7f307b5a7db3f44981848f02663974, type: 3}
+  - {fileID: 8300000, guid: 3eba23fa490f83943a8fdec8f118c052, type: 3}
+  - {fileID: 8300000, guid: c42c30a6bbcfa4540bdb6c75bda32d24, type: 3}
+  animWall: {fileID: 874187284}
+  interactionStatus: 0
 --- !u!1 &467568248
 GameObject:
   m_ObjectHideFlags: 0
@@ -7002,7 +7010,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 5b6d945e70db5ec41a1a90f39ae3bbd0, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .600000024
+  m_Volume: .0430000015
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -7069,7 +7077,7 @@ MonoBehaviour:
   sfx:
   - {fileID: 8300000, guid: 22a7af62fc0d2884f88eddf9e79f2fbd, type: 3}
   fadeSpeed: 2
-  maxVol: .400000006
+  maxVol: .100000001
 --- !u!1 &661407406
 GameObject:
   m_ObjectHideFlags: 0
@@ -10359,8 +10367,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.7700005, y: 7.15999985, z: 1}
-  m_Center: {x: 0, y: 3.56999993, z: 0}
+  m_Size: {x: 14.6499996, y: 17.9699993, z: 1}
+  m_Center: {x: 0, y: 7.32999992, z: 0}
 --- !u!114 &874187286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22081,7 +22089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195d8bb83ea26d44aa7aca946289d980, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animWall: {fileID: 874187284}
+  npc: {fileID: 451465927}
 --- !u!1 &1827086372
 GameObject:
   m_ObjectHideFlags: 0
