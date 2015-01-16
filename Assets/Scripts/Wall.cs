@@ -2,17 +2,24 @@
 using System.Collections;
 
 public class Wall : MonoBehaviour {
-
+	
 	public ParticleSystem clouds;
+	
+	private CutsceneManager mgr;
 	
 	public void PlayClouds()
 	{
 		clouds.Play();
+		mgr = CutsceneManager.Instance();
+		mgr.PlayScene(Cutscenes.wall_rising);
+		BlockCTRL blocker = GameObject.FindGameObjectWithTag(Tags.player).GetComponent<BlockCTRL>();
+		blocker.BlockLookingaround(false, false);
 	}
 	
 	public void DetroyClouds()
 	{
 		StartCoroutine("disableClouds");
+		mgr.StopScene();
 	}
 	
 	IEnumerator disableClouds()

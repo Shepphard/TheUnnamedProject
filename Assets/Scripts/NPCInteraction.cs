@@ -20,6 +20,9 @@ public class NPCInteraction : MonoBehaviour
 	//private Inventory _inventory;
 	private Equipment _equipment;
 	private InteractionControls _ctrl;
+	
+	private Speechbubble bubble;
+	private int bubbleID = -1;
 
 	// Use this for initialization
 	void Awake () 
@@ -27,12 +30,15 @@ public class NPCInteraction : MonoBehaviour
 		interactCount = 0;
 		activated = false;
 		_dialogueText = dialogueBox.GetComponentInChildren<Text>();
-		_dialogueText.text = "";
+		
+		//_dialogueText.text = "";
 
 		_animator = dialogueBox.GetComponentInParent<Animator>();
 		//_inventory = GameObject.FindGameObjectWithTag("Player").GetComponent<Inventory>();
 		_equipment = GameObject.FindGameObjectWithTag("Player").GetComponent<Equipment>();
 		_ctrl = GameObject.FindGameObjectWithTag("Player").GetComponent<InteractionControls>();
+		
+		bubble = Speechbubble.Instance();
 	}
 	
 	// Update is called once per frame
@@ -55,7 +61,10 @@ public class NPCInteraction : MonoBehaviour
 
 		//is the audios current time beyond the targettime?
 		if(audio.time >= audioEndtime)
+		{
 			audio.Stop();
+			bubble.CloseBubble(bubbleID);
+		}
 	}
 	
 	public void Interaction()
@@ -74,8 +83,9 @@ public class NPCInteraction : MonoBehaviour
 				//first interaction
 				case 0:
 					//set the dialogueText
-					_dialogueText.text = "STOP!!! \nOnly Knights can enter our kingdom!";
+					//_dialogueText.text = "STOP!!! \nOnly Knights can enter our kingdom!";
 					//set the start and end of the audioclip (in seconds from start of audio)
+					bubbleID = bubble.Say("Knight", "STOP!!! \nOnly Knights can enter our kingdom!");
 					playFromTo(0f, 5f);
 					//set the next level of interaction
 					interactCount = 1;

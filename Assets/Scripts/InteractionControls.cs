@@ -12,10 +12,10 @@ public class InteractionControls : MonoBehaviour {
 	public Camera InspectCamera; // a reference to the camera to inspect items
 	public float rotationSpeed = 10f; // speed of rotating in inspection
 	public float zoomFactor = 100f; // speed of zooming in inspection
-
+	
 	public bool enableCtrls = true;
 	public bool isAttacking = false;
-
+	
 	/* private */
 	int interactableMask; // the layer of all the objects player can interact with
 	Camera _cam; // reference to the main camera
@@ -24,9 +24,9 @@ public class InteractionControls : MonoBehaviour {
 	Transform itemPosition; //the gameobj of the hand
 	Transform inspectingItem; // the item that is being inspected right now
 	BlockCTRL blockCtrl;
-
+	
 	Animator arm_anim;
-
+	
 	/* setting up references */
 	void Awake()
 	{
@@ -36,7 +36,7 @@ public class InteractionControls : MonoBehaviour {
 		_equipment = GetComponent<Equipment>();
 		itemPosition = _cam.transform.Find("itemPosition");
 		blockCtrl = GetComponent<BlockCTRL>();
-
+		
 		arm_anim = GameObject.Find("Arm").GetComponent<Animator>();
 	}
 	
@@ -55,9 +55,9 @@ public class InteractionControls : MonoBehaviour {
 				{
 				}
 			}
-
+			
 		}
-
+		
 		/* on right click */
 		if (Input.GetKeyUp(KeyCode.Mouse1) && !_inventory._invBar.inspecting && enableCtrls)
 		{
@@ -101,7 +101,6 @@ public class InteractionControls : MonoBehaviour {
 				// PUT INTO EQUIPMENT
 				else
 				{
-					item i = carriedObject.GetComponent<item>();
 					positionEquipmentObject(carriedObject);
 					_equipment.addItem(carriedObject.gameObject);
 					carriedObject = null;
@@ -145,7 +144,7 @@ public class InteractionControls : MonoBehaviour {
 			if (!_inventory._invBar.activated)
 				_equipment.ActivateBar();
 		}
-			
+		
 		
 		/* Scrollwheel Input */
 		float scrollwheelInput = Input.GetAxis("Mouse ScrollWheel");
@@ -192,11 +191,11 @@ public class InteractionControls : MonoBehaviour {
 						arm_anim.SetTrigger("Slash");
 					else
 						arm_anim.SetTrigger("Slash2");
-						
+					
 					carriedObject.GetComponent<Sword>().Attack();
 				}
 			}
-
+			
 			else if (_equipment.GetBarActivated())
 			{
 				if (!_equipment.barSelected)
@@ -221,17 +220,17 @@ public class InteractionControls : MonoBehaviour {
 		{
 			item i = carriedObject.GetComponent<item>();
 			carriedObject.position = itemPosition.position + _cam.transform.right*i.positionOffsetInv.x + 
-			_cam.transform.up * i.positionOffsetInv.y +
-			_cam.transform.forward * i.positionOffsetInv.z;
+				_cam.transform.up * i.positionOffsetInv.y +
+					_cam.transform.forward * i.positionOffsetInv.z;
 			carriedObject.rotation = itemPosition.rotation;
 			carriedObject.RotateAround(carriedObject.position, _cam.transform.up, i.carriedRotationInv.y);
 			carriedObject.RotateAround(carriedObject.position, _cam.transform.right, i.carriedRotationInv.x);
 			carriedObject.RotateAround(carriedObject.position, _cam.transform.forward, i.carriedRotationInv.z);
-
+			
 		}
 		
 	}// update
-
+	
 	/* FIXED UPDATE
 	 * 
 	 * deals with physics update, raycasting
@@ -239,7 +238,7 @@ public class InteractionControls : MonoBehaviour {
 	void FixedUpdate()
 	{
 		RaycastHit hitObject;
-
+		
 		/* Raycast on left click */
 		if (Input.GetButtonDown ("PickUp")  && !_inventory._invBar.inspecting && enableCtrls)
 		{
@@ -288,26 +287,26 @@ public class InteractionControls : MonoBehaviour {
 		carriedObject.rigidbody.useGravity = false;
 		carriedObject.rigidbody.isKinematic = true;
 		//carriedObject.rigidbody.detectCollisions =false;
-
+		
 		carriedObject.collider.isTrigger = true;
 		
 		// Position of the carriedObject once
 		item i = carriedObject.GetComponent<item>();
-
+		
 		GameObject handle = GameObject.Find("animation_handle");
-
+		
 		//set position
 		carriedObject.position = handle.transform.position + 
-				_cam.transform.right*i.positionOffsetInv.x + 
+			_cam.transform.right*i.positionOffsetInv.x + 
 				_cam.transform.up * i.positionOffsetInv.y +
 				_cam.transform.forward * i.positionOffsetInv.z;
-
+		
 		//apply rotation
 		carriedObject.rotation = _cam.transform.rotation;
 		carriedObject.RotateAround(carriedObject.position, _cam.transform.up, i.carriedRotationInv.y);
 		carriedObject.RotateAround(carriedObject.position, _cam.transform.right, i.carriedRotationInv.x);
 		carriedObject.RotateAround(carriedObject.position, _cam.transform.forward, i.carriedRotationInv.z);
-
+		
 		// apply scale
 		carriedObject.localScale *= i.scaleFactorWhenCarried;
 		
@@ -351,7 +350,7 @@ public class InteractionControls : MonoBehaviour {
 	void clearCarriedObject()
 	{
 		item i = carriedObject.GetComponent<item>();
-	
+		
 		// turn gravity back on
 		carriedObject.rigidbody.useGravity = true;
 		carriedObject.rigidbody.isKinematic = false;
@@ -363,7 +362,7 @@ public class InteractionControls : MonoBehaviour {
 		
 		// reset scale
 		carriedObject.localScale /= i.scaleFactorWhenCarried;
-
+		
 		// set free from camera
 		carriedObject.transform.parent = null;
 		
@@ -464,7 +463,7 @@ public class InteractionControls : MonoBehaviour {
 	void positionEquipmentObject(Transform obj)
 	{
 		item i = obj.GetComponent<item>();
-
+		
 		obj.localRotation = Quaternion.Euler(i.rotationOffsetEquip.x, i.rotationOffsetEquip.y, i.rotationOffsetEquip.z);
 		obj.localPosition = i.positionOffsetEquip;
 		

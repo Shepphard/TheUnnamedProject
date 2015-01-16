@@ -8,6 +8,7 @@ public class BlockCTRL : MonoBehaviour
 	private SimpleMouseRotator mouseRotaterX;
 	private SimpleMouseRotator mouseRotaterY;
 	private InteractionControls interactionCtrl;
+	private Rigidbody rigid;
 	
 	private Vector2 rotationrangeX;
 	private Vector2 rotationrangeY;
@@ -21,11 +22,14 @@ public class BlockCTRL : MonoBehaviour
 		
 		rotationrangeX = mouseRotaterX.rotationRange;
 		rotationrangeY = mouseRotaterY.rotationRange;
+		
+		rigid = rigidbody;
 	}
 	
 	// 	do you want to block the movement? (walking, jumping)
 	public void BlockMovement(bool block)
 	{
+		rigid.velocity = Vector3.zero;
 		fpcharacter.enabled = !block;
 	}
 	

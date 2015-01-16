@@ -2,8 +2,9 @@
 using System.Collections;
 
 public class CutsceneManager : MonoBehaviour {
-
+	
 	private Animator animPlayer;
+	private BlockCTRL blockPlayer;
 	
 	// singleton
 	private static CutsceneManager cutsceneManager;
@@ -20,11 +21,20 @@ public class CutsceneManager : MonoBehaviour {
 	void Awake()
 	{
 		animPlayer = GameObject.FindGameObjectWithTag(Tags.player).GetComponent<Animator>();
+		blockPlayer = animPlayer.GetComponent<BlockCTRL>();
 	}
 	
-	void PlayScene(int scene)
+	public void PlayScene(int scene)
 	{
+		blockPlayer.BlockForCutscene();
 		animPlayer.SetInteger("Scene", scene);
 		animPlayer.SetTrigger("Play");
+	}
+	
+	/* stops current scene,not neccessary for all scenes */
+	public void StopScene()
+	{
+		animPlayer.SetTrigger("Stop");
+		blockPlayer.UnblockForCutscene();
 	}
 }

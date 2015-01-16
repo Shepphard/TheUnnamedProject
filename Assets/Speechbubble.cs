@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class Speechbubble : MonoBehaviour {
-
+	
 	// singleton
 	private static Speechbubble speechbubble;
 	public static Speechbubble Instance() {
@@ -17,11 +17,11 @@ public class Speechbubble : MonoBehaviour {
 	}
 	
 	public GameObject speechbubbleObject;
-	public Text name;
-	public Text field;
+	public Text txt_name;
+	public Text txt_field;
 	public float fadeSpeed = 1f;
 	
-	private bool enabling = true;
+	private bool enabling = false;
 	private bool disabling = false;
 	private Image img;
 	
@@ -55,38 +55,41 @@ public class Speechbubble : MonoBehaviour {
 		if (speechbubbleObject.activeSelf) // is it already active?
 			id++;
 		else
+		{
 			speechbubbleObject.SetActive(true);
+			enabling = true;
+		}
 		
-		this.name.text = name;
-		this.field.text = field;
+		txt_name.text = name;
+		txt_field.text = field;
 		
 		return id;
 	}
 	
-	public void CloseBubble(int id)
+	public void CloseBubble(int new_id)
 	{
-		if (this.id == id)
+		if (id == new_id)
 			disabling = true;
 	}
-	
+	/*
 	void OnEnable()
 	{
 		enabling = true;
-	}
+	}*/
 	
 	void FadeToSolid()
 	{
 		img.color = Color.Lerp (img.color, Color.white, fadeSpeed * Time.deltaTime);
-		name.color = img.color;
-		field.color = img.color;
+		txt_name.color = img.color;
+		txt_field.color = img.color;
 		Debug.Log ("Fading to Solid!");
 	}
 	
 	void FadeToClear()
 	{
 		img.color = Color.Lerp (img.color, Color.clear, fadeSpeed * Time.deltaTime);
-		name.color = img.color;
-		field.color = img.color;
+		txt_name.color = img.color;
+		txt_field.color = img.color;
 	}
 	
 	void FadingIn()
@@ -97,8 +100,8 @@ public class Speechbubble : MonoBehaviour {
 		{
 			enabling = false;
 			img.color = Color.white;
-			name.color = img.color;
-			field.color = img.color;
+			txt_name.color = img.color;
+			txt_field.color = img.color;
 			Debug.Log("Fading in complete");
 		}
 	}
@@ -111,8 +114,8 @@ public class Speechbubble : MonoBehaviour {
 		{
 			disabling = false;
 			img.color = Color.clear;
-			name.color = img.color;
-			field.color = img.color;
+			txt_name.color = img.color;
+			txt_field.color = img.color;
 			speechbubbleObject.SetActive(false);
 		}
 	}
