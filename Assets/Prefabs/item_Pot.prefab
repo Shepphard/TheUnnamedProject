@@ -13,9 +13,10 @@ GameObject:
   - 114: {fileID: 11400000}
   - 65: {fileID: 6500000}
   - 54: {fileID: 5400000}
+  - 114: {fileID: 11482234}
   m_Layer: 8
   m_Name: item_Pot
-  m_TagString: PickUp
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,6 +110,19 @@ MonoBehaviour:
   isEquipment: 1
   belongsToEquipmentBar: 0
   itemName: pot
+  TriggerLookatHand: 0
+--- !u!114 &11482234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b4ad9ad740253942b8d7bf737d6a541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerName: pot
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

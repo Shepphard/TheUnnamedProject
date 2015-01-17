@@ -256,6 +256,10 @@ public class InteractionControls : MonoBehaviour {
 				//..if you hit an pickup object and have no object in your hands yo
 				else if (carriedObject == null && hitObject.collider.tag == "PickUp")
 					setCarriedObject(hitObject.collider.transform);
+				else if (hitObject.collider.CompareTag(Tags.trigger))
+				{
+					hitObject.collider.GetComponent<Trigger>().Triggered();
+				}
 			}
 		}
 		/* throw object */

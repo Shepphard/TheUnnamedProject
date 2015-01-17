@@ -10,4 +10,5 @@ public class Tags : MonoBehaviour
 	public const string npc = "NPC";
 	public const string inventory = "Inventory";
 	public const string destructable = "destructable";
+	public const string trigger = "Trigger";
 }

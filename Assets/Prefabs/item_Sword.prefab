@@ -8,12 +8,12 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  - 33: {fileID: 3300000}
-  - 23: {fileID: 2300000}
   - 114: {fileID: 11400000}
   - 54: {fileID: 5400000}
-  - 65: {fileID: 6500000}
   - 114: {fileID: 11400002}
+  - 33: {fileID: 3389804}
+  - 23: {fileID: 2389804}
+  - 65: {fileID: 6547192}
   m_Layer: 8
   m_Name: item_Sword
   m_TagString: PickUp
@@ -28,12 +28,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .00999999978, y: .00999999978, z: .00999999978}
+  m_LocalPosition: {x: 18.0884628, y: 7.62613297, z: 32.50597}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2300000
+--- !u!23 &2389804
 Renderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -45,7 +45,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 75530573b7e4ea44fa1b0b7821156540, type: 2}
+  - {fileID: 2100000, guid: 84c987635cbad9841ab4204eaed935ca, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -53,13 +53,13 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3300000
+--- !u!33 &3389804
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Mesh: {fileID: 4300000, guid: 7cc38c83416995e45852896b714cfeb2, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 87dabe2518367a5499096ac4324ee70b, type: 3}
 --- !u!54 &5400000
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -75,7 +75,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &6500000
+--- !u!65 &6547192
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -85,8 +85,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 26.7999992, y: 160.419998, z: 13}
-  m_Center: {x: 0, y: 59.5357552, z: 0}
+  m_Size: {x: .519999981, y: 1.63857985, z: .0696871951}
+  m_Center: {x: -2.07126141e-06, y: .595357537, z: 0}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,6 +110,7 @@ MonoBehaviour:
   isEquipment: 0
   belongsToEquipmentBar: 0
   itemName: sword
+  TriggerLookatHand: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,13 +1,24 @@
 fileFormatVersion: 2
-guid: 98902d393fce2464c95f01d453e9d86a
+guid: fb28ca8da1b21df46a595edc77330ebd
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
     100000: //RootNode
+    100002: pCube7
+    100004: pCube8
+    100006: pCube9
+    100008: transform10
+    100010: transform9
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
+    400002: pCube7
+    400004: pCube8
+    400006: pCube9
+    400008: transform10
+    400010: transform9
+    2300000: pCube9
+    3300000: pCube9
     4300000: pCube9
+    6400000: pCube9
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -28,9 +39,9 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .00999999978
+    globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -46,7 +57,7 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 1
+  importAnimation: 0
   copyAvatar: 0
   humanDescription:
     human: []

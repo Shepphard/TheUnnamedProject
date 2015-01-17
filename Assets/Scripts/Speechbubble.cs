@@ -94,7 +94,7 @@ public class Speechbubble : MonoBehaviour {
 		img.color = Color.Lerp (img.color, Color.white, fadeSpeed * Time.deltaTime);
 		txt_name.color = img.color;
 		txt_field.color = img.color;
-		Debug.Log ("Fading to Solid!");
+		//Debug.Log ("Fading to Solid!");
 	}
 	
 	void FadeToClear()
@@ -114,7 +114,7 @@ public class Speechbubble : MonoBehaviour {
 			img.color = Color.white;
 			txt_name.color = img.color;
 			txt_field.color = img.color;
-			Debug.Log("Fading in complete");
+			//Debug.Log("Fading in complete");
 		}
 	}
 	

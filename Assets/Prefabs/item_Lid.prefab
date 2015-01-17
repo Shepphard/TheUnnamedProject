@@ -8,14 +8,15 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  - 33: {fileID: 3300000}
-  - 23: {fileID: 2300000}
   - 54: {fileID: 5400000}
-  - 65: {fileID: 6500000}
   - 114: {fileID: 11400000}
+  - 114: {fileID: 11403394}
+  - 33: {fileID: 3366282}
+  - 23: {fileID: 2366282}
+  - 65: {fileID: 6593180}
   m_Layer: 8
   m_Name: item_Lid
-  m_TagString: PickUp
+  m_TagString: Trigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,12 +28,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: .589913964, y: -.383612305, z: .479282409, w: .524529874}
-  m_LocalPosition: {x: -1.25999999, y: -.660000026, z: 1.34000003}
-  m_LocalScale: {x: .0199999996, y: .0199999996, z: .0199999996}
+  m_LocalPosition: {x: 4.76000023, y: 1.63, z: 12.5299997}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2300000
+--- !u!23 &2366282
 Renderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -44,7 +45,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 75530573b7e4ea44fa1b0b7821156540, type: 2}
+  - {fileID: 2100000, guid: 5e70d45998938504d9eb8a121b553802, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -52,13 +53,13 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3300000
+--- !u!33 &3366282
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Mesh: {fileID: 4300000, guid: ac488234a61825642919b1082e751856, type: 3}
+  m_Mesh: {fileID: 4300000, guid: bde7fe928a70cc34d8981d1e9cdbbd51, type: 3}
 --- !u!54 &5400000
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -74,7 +75,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &6500000
+--- !u!65 &6593180
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -84,8 +85,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 44.6456833, y: 8.27999973, z: 44.5352478}
-  m_Center: {x: 0, y: 7.5, z: 0}
+  m_Size: {x: .446456969, y: .128116548, z: .445352644}
+  m_Center: {x: 1.24797044e-08, y: .0526066162, z: -.00249815895}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -109,6 +110,19 @@ MonoBehaviour:
   isEquipment: 1
   belongsToEquipmentBar: 1
   itemName: lid
+  TriggerLookatHand: 0
+--- !u!114 &11403394
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b4ad9ad740253942b8d7bf737d6a541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerName: lid
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

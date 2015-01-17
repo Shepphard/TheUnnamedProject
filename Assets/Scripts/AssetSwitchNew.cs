@@ -90,5 +90,6 @@ public class AssetSwitchNew : MonoBehaviour {
 			instObject2.SetActive(false);
 			instObject1.SetActive(true);
 		}
+		audio.Play();
 	}
 }
