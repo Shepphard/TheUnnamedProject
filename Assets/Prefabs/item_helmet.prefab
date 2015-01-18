@@ -1,51 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &105302
+--- !u!1 &104774
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 405302}
-  - 33: {fileID: 3305302}
-  - 23: {fileID: 2305302}
-  - 65: {fileID: 6505302}
-  - 114: {fileID: 11405302}
-  - 54: {fileID: 5431130}
-  - 114: {fileID: 11434776}
+  - 4: {fileID: 404774}
+  - 114: {fileID: 11404772}
+  - 54: {fileID: 5404774}
+  - 33: {fileID: 3325856}
+  - 23: {fileID: 2325856}
+  - 65: {fileID: 6554898}
   m_Layer: 8
-  m_Name: item_dagger
+  m_Name: item_helmet
   m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &405302
+--- !u!4 &404774
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 105302}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.13, y: 2.49499989, z: -.697000027}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 104774}
+  m_LocalRotation: {x: .992403924, y: -.0868240818, z: .00759612815, w: .0868241489}
+  m_LocalPosition: {x: 5.25, y: 2.43000007, z: 18.2600002}
+  m_LocalScale: {x: .0199999996, y: .0199999996, z: .0199999996}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2305302
+--- !u!23 &2325856
 Renderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 105302}
+  m_GameObject: {fileID: 104774}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: dfc88ac4a5292754f87deb9c2056f7b5, type: 2}
+  - {fileID: 2100000, guid: 58e494aeecb9d8344a8c9e407777c8d6, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -53,19 +52,19 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3305302
+--- !u!33 &3325856
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 105302}
-  m_Mesh: {fileID: 4300000, guid: ab59cd92a07759240bbf96093dded33a, type: 3}
---- !u!54 &5431130
+  m_GameObject: {fileID: 104774}
+  m_Mesh: {fileID: 4300000, guid: a14a59c6d548a2a41a5e1b30628b538b, type: 3}
+--- !u!54 &5404774
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 105302}
+  m_GameObject: {fileID: 104774}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -75,54 +74,42 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &6505302
+--- !u!65 &6554898
 BoxCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 105302}
+  m_GameObject: {fileID: 104774}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .183168635, y: .53887856, z: .0696871951}
-  m_Center: {x: 0, y: .178623199, z: 0}
---- !u!114 &11405302
+  m_Size: {x: 69.1450729, y: 60.4553337, z: 71.3054276}
+  m_Center: {x: .354629636, y: 3.81079006, z: 2.59623027}
+--- !u!114 &11404772
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 105302}
+  m_GameObject: {fileID: 104774}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56a8bed390696424cb5b045733b8aa93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 7d09b804adb9ade4fa6086ff81e0b9c0, type: 3}
-  item_type: weapon
-  positionOffsetInv: {x: 0, y: 0, z: 0}
-  carriedRotationInv: {x: 0, y: 70, z: 5}
-  positionOffsetEquip: {x: 0, y: 0, z: 0}
-  rotationOffsetEquip: {x: 0, y: 0, z: 0}
-  scaleFactorWhenCarried: 1.29999995
-  scaleFactorWhenEquipped: .699999988
+  icon: {fileID: 21300000, guid: 4424d4b845f36e249843131298726979, type: 3}
+  item_type: 
+  positionOffsetInv: {x: .349999994, y: .0299999993, z: .449999988}
+  carriedRotationInv: {x: 0, y: 0, z: 0}
+  positionOffsetEquip: {x: -.5, y: -.140000001, z: -.200000003}
+  rotationOffsetEquip: {x: 346.700012, y: 356.299988, z: 23.2000008}
+  scaleFactorWhenCarried: .699999988
+  scaleFactorWhenEquipped: 1
   isEmpty: 0
-  isEquipment: 0
+  isEquipment: 1
   belongsToEquipmentBar: 0
-  itemName: dagger
+  itemName: helmet
   TriggerLookatHand: 0
---- !u!114 &11434776
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 105302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 619197e6272830b4e8dad9f9dcf80ebf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  strength: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -132,6 +119,6 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 105302}
+  m_RootGameObject: {fileID: 104774}
   m_IsPrefabParent: 1
   m_IsExploded: 1

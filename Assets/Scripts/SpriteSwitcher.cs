@@ -5,6 +5,7 @@ public class SpriteSwitcher : MonoBehaviour
 {
 	public Sprite sprite0;
 	public Sprite sprite1;
+	public int strengthNeeded;
 
 	bool active0 = true;
 	SpriteRenderer _render;
@@ -46,6 +47,19 @@ public class SpriteSwitcher : MonoBehaviour
 		foreach (Transform child in transform)
 		{
 			child.GetComponent<SpriteSwitcher>().Switch();
+		}
+	}
+	
+	public void AttemptBreak(int strength)
+	{
+		if (strength >= strengthNeeded)
+		{
+			Switch ();
+			Debug.Log("Break!");
+		}
+		else
+		{
+			Debug.Log("TOO WEAK");
 		}
 	}
 }

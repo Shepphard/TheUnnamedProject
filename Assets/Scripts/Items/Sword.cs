@@ -3,10 +3,11 @@ using System.Collections;
 
 public class Sword : MonoBehaviour {
 
-	bool isAttacking = false;
+	public int strength;
 
+	bool isAttacking = false;
 	float timer = 0f;
-	 float maxTimer = 0.4f;
+	float maxTimer = 0.4f;
 	
 	void Update () 
 	{
@@ -24,13 +25,11 @@ public class Sword : MonoBehaviour {
 
 	void OnTriggerEnter(Collider c)
 	{	
-		Debug.Log("trigger");
 		if(isAttacking)
 		{
 			if(c.gameObject.tag == "destructable")
 			{
-				c.GetComponent<SpriteSwitcher>().Switch();
-				Debug.Log("break1");
+				c.GetComponent<SpriteSwitcher>().AttemptBreak(strength);
 				isAttacking = false;
 			}
 		}
@@ -38,7 +37,6 @@ public class Sword : MonoBehaviour {
 
 	public void Attack()
 	{
-		Debug.Log("attack");
 		isAttacking = true;
 	}
 

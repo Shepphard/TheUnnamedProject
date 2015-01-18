@@ -10,12 +10,27 @@ GameObject:
   - 4: {fileID: 400000}
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400000}
-  - 23: {fileID: 2359686}
-  - 33: {fileID: 3359686}
   - 65: {fileID: 6505936}
   m_Layer: 8
   m_Name: item_shield
   m_TagString: PickUp
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &101708
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 401708}
+  - 23: {fileID: 2301708}
+  - 33: {fileID: 3301708}
+  m_Layer: 8
+  m_Name: meshes
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,18 +41,31 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 1.91975462, y: 2.41361642, z: 33.3485146}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .294, y: 1.40400004, z: -.185000002}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 401708}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2359686
+--- !u!4 &401708
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101708}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400000}
+  m_RootOrder: 0
+--- !u!23 &2301708
 Renderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
+  m_GameObject: {fileID: 101708}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -52,12 +80,12 @@ Renderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3359686
+--- !u!33 &3301708
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
+  m_GameObject: {fileID: 101708}
   m_Mesh: {fileID: 4300000, guid: 98902d393fce2464c95f01d453e9d86a, type: 3}
 --- !u!54 &5400000
 Rigidbody:
@@ -84,8 +112,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: .891991615, y: 1.27474856, z: .27126205}
-  m_Center: {x: 0, y: -.118835956, z: .0229733065}
+  m_Size: {x: .910000026, y: .289999992, z: 1.14999998}
+  m_Center: {x: 0, y: .0299999993, z: -.0500000007}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,9 +128,9 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: f022bd94795430849bc32a520cf7ca88, type: 3}
   item_type: 
   positionOffsetInv: {x: -.0199999996, y: .0700000003, z: 0}
-  carriedRotationInv: {x: -4.13999987, y: 12.3199997, z: 0}
+  carriedRotationInv: {x: -94.1399994, y: 12.3199997, z: 0}
   positionOffsetEquip: {x: -1, y: -.428000003, z: .652999997}
-  rotationOffsetEquip: {x: 6.80000019, y: 270, z: 31.2000008}
+  rotationOffsetEquip: {x: -83.1999969, y: 270, z: 31.2000008}
   scaleFactorWhenCarried: .699999988
   scaleFactorWhenEquipped: .699999988
   isEmpty: 0
