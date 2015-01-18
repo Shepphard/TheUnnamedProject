@@ -1,0 +1,91 @@
+fileFormatVersion: 2
+guid: 0286f14d90959d949a7fb84317f28688
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: body:polySurface33
+    100002: knightnpc:body:body:knightnpc:body:body:knightnpc:body:body:knightnpc:body:body:polySurface36
+    100004: knightnpc:body:body:knightnpc:body:body:knightnpc:body:body:knightnpc:body:body:transform1
+    100006: knightnpc:body:body:knightnpc:body:body:knightnpc:body:body:knightnpc:body:body:transform2
+    100008: knightnpc:body:body:knightnpc:body:body:polySurface35
+    100010: knightnpc:body:body:knightnpc:body:body:polySurface36
+    100012: knightnpc:body:body:knightnpc:body:body:transform1
+    100014: knightnpc:body:body:knightnpc:body:body:transform2
+    100016: knightnpc:body:body:polySurface33
+    100018: knightnpc:body:body:polySurface34
+    100020: knightnpc:body:body:polySurface35
+    100022: knightnpc:body:body:transform1
+    100024: knightnpc:body:body:transform2
+    100026: //RootNode
+    400000: body:polySurface33
+    400002: knightnpc:body:body:knightnpc:body:body:knightnpc:body:body:knightnpc:body:body:polySurface36
+    400004: knightnpc:body:body:knightnpc:body:body:knightnpc:body:body:knightnpc:body:body:transform1
+    400006: knightnpc:body:body:knightnpc:body:body:knightnpc:body:body:knightnpc:body:body:transform2
+    400008: knightnpc:body:body:knightnpc:body:body:polySurface35
+    400010: knightnpc:body:body:knightnpc:body:body:polySurface36
+    400012: knightnpc:body:body:knightnpc:body:body:transform1
+    400014: knightnpc:body:body:knightnpc:body:body:transform2
+    400016: knightnpc:body:body:polySurface33
+    400018: knightnpc:body:body:polySurface34
+    400020: knightnpc:body:body:polySurface35
+    400022: knightnpc:body:body:transform1
+    400024: knightnpc:body:body:transform2
+    400026: //RootNode
+    2300000: knightnpc:body:body:knightnpc:body:body:knightnpc:body:body:knightnpc:body:body:polySurface36
+    3300000: knightnpc:body:body:knightnpc:body:body:knightnpc:body:body:knightnpc:body:body:polySurface36
+    4300000: knightnpc:body:body:knightnpc:body:body:knightnpc:body:body:knightnpc:body:body:polySurface36
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

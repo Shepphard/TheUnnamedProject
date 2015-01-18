@@ -1,20 +1,13 @@
 fileFormatVersion: 2
-guid: f70d197709942544098b78a8498ccf61
+guid: 954f9b57eb190b846bb222c69ba87f7e
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: Cylinder
-    100002: //RootNode
-    100004: Mball.005
-    400000: Cylinder
-    400002: //RootNode
-    400004: Mball.005
-    2300000: Cylinder
-    2300002: Mball.005
-    3300000: Cylinder
-    3300002: Mball.005
-    4300000: Mball.005
-    4300002: Cylinder
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pCone2
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -35,7 +28,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 2
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
