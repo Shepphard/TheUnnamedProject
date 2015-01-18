@@ -64,8 +64,9 @@ public class AssetSwitchNew : MonoBehaviour {
 				_controls.setCarriedObject(instObject2.transform);
 			}
 			instObject2.transform.parent = instObject1.transform.parent;
-			
-			instObject1.rigidbody.useGravity = true;
+
+			if(instObject1.rigidbody != null)
+				instObject1.rigidbody.useGravity = true;
 			
 			instObject1.SetActive(false);
 			instObject2.SetActive(true);
@@ -84,8 +85,9 @@ public class AssetSwitchNew : MonoBehaviour {
 				_controls.setCarriedObject(instObject1.transform);
 			}
 			instObject1.transform.parent = instObject2.transform.parent;
-			
-			instObject2.rigidbody.useGravity = true;
+
+			if(instObject1.rigidbody != null)
+				instObject2.rigidbody.useGravity = true;
 			
 			instObject2.SetActive(false);
 			instObject1.SetActive(true);
