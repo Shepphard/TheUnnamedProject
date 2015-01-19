@@ -5,7 +5,7 @@ public class NPCKnight : MonoBehaviour
 {
 	public AudioClip[] clips;
 	public Animator animWall;
-	public int interactionStatus = 0;
+	public int interactionStatus = -1;
 	
 	private AudioSource aux;
 	private Speechbubble speech;
@@ -14,6 +14,7 @@ public class NPCKnight : MonoBehaviour
 	
 	private Equipment _equip;
 	private InteractionControls _ctrl;
+	private AssetSwitchNew _assetSwitcher;
 	
 	void Awake()
 	{
@@ -24,6 +25,7 @@ public class NPCKnight : MonoBehaviour
 		GameObject player = GameObject.FindGameObjectWithTag(Tags.player);
 		_equip = player.GetComponent<Equipment>();
 		_ctrl = player.GetComponent<InteractionControls>();
+		_assetSwitcher = GetComponent<AssetSwitchNew>();
 	}
 	
 	public void Interaction()
@@ -33,6 +35,13 @@ public class NPCKnight : MonoBehaviour
 	
 		switch(interactionStatus)
 		{
+		case -1:
+			// introducing himself, then switching to knight
+			StartCoroutine(Talking (8));
+			_assetSwitcher.Invoke("Switch", 3f);
+			interactionStatus++;
+			Invoke("Interaction", clips[8].length+0.1f);
+			break;
 		case 0:
 			StartCoroutine(Talking (0));
 			Invoke("riseWall", 7f);
@@ -116,13 +125,14 @@ public class NPCKnight : MonoBehaviour
 	void InitText()
 	{
 		text = new string[clips.Length];
-		text[0] = "Willkommen buddy, darfst hier leider net rein, sowwy. Jungs, Tore hoch!";
-		text[1] = "Nur richtige Ritter haben Zutritt! Also rüste dich aus wie einer!";
-		text[2] = "Du brauchst noch nen Helm!";
-		text[3] = "Du brauchst ein Schild!";
-		text[4] = "Du brauchst ein Schwert";
-		text[5] = "Sagmal, mit so einem kleinen Schwert kommst du nirgends rein!";
-		text[6] = "Willkommen, wie ist denn ihr Name?";
-		text[7] = "Treten Sie ein, Sir bla!";
+		text[8] = "Hey, I’m Sir Parcifoul and I’m the guard on this playground…. I mean, kingdom!";
+		text[0] = "*Gasp* you’re not a knight! CLOSE THE GATES!!!!";
+		text[1] = "Only real knights can enter our kingdom! Go get some armour!";
+		text[2] = "You need a helmet!";
+		text[3] = "Where’s your shield? You need to defend yourself!";
+		text[4] = "Knights use swords you know? Go get one!!";
+		text[5] = "Haha, that tiny thing is useless! Get a SWORD, crybaby!";
+		text[6] = "That’s better! You can enter our play…. kingdom now! Oh wait, what’s your name?";
+		text[7] = "Open the gates! King Lancafew awaits his youngest knight!";
 	}
 }

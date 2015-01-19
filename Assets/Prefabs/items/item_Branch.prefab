@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a8bed390696424cb5b045733b8aa93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 22ae0fe5ec284d242953962eb22ac34e, type: 3}
+  icon: {fileID: 21300000, guid: 0ee21b8c262c3764497e4a705ef3f954, type: 3}
   item_type: weapon
   positionOffsetInv: {x: 0, y: 0, z: 0}
   carriedRotationInv: {x: 0, y: 70, z: 5}
@@ -123,6 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strength: 0
+  sfx_swordSlash: {fileID: 0}
+  sfx_Volume: .800000012
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -13,6 +13,8 @@ public class BlockCTRL : MonoBehaviour
 	private Vector2 rotationrangeX;
 	private Vector2 rotationrangeY;
 	
+	private bool movementBlocked = false;
+	
 	void Awake()
 	{
 		fpcharacter = GetComponent<FirstPersonCharacter>();
@@ -26,11 +28,20 @@ public class BlockCTRL : MonoBehaviour
 		rigid = rigidbody;
 	}
 	
+	void Update()
+	{
+		if (movementBlocked)
+		{
+			rigid.velocity = Vector3.zero;
+			rigid.angularVelocity = Vector3.zero;
+		}
+	}
+	
 	// 	do you want to block the movement? (walking, jumping)
 	public void BlockMovement(bool block)
 	{
-		rigid.velocity = Vector3.zero;
 		fpcharacter.enabled = !block;
+		movementBlocked = block;
 	}
 	
 	//	block or unblock x and y axis mouse rotator scripts

@@ -263,7 +263,7 @@ public class InteractionControls : MonoBehaviour {
 			}
 		}
 		/* throw object */
-		else if (Input.GetKeyDown(KeyCode.Q) && !_inventory._invBar.inspecting)
+		else if (Input.GetKeyDown(KeyCode.Q) && !_inventory._invBar.inspecting && enableCtrls)
 		{
 			// does player carry an object? then throw
 			if (carriedObject != null) {
@@ -325,8 +325,16 @@ public class InteractionControls : MonoBehaviour {
 		/* deal with triggering stuff */
 		if (i.TriggerLookatHand)
 		{
-			cutsceneMgr.PlayScene(Cutscenes.lookat_hand);
-			i.TriggerLookatHand = false;
+			// only trigger one of a kind!
+			bool result;
+			item.TriggerDict.TryGetValue(i.itemName, out result);
+			if (!result)
+			{
+				cutsceneMgr.PlayScene(Cutscenes.lookat_hand);
+				i.TriggerLookatHand = false;
+				item.TriggerDict.Remove(i.itemName);
+				item.TriggerDict.Add(i.itemName, true);
+			}
 		}
 	} // setcarriedobject
 	

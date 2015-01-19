@@ -6,6 +6,7 @@ public class Trigger : MonoBehaviour
 	public string triggerName;
 	
 	private Speechbubble speech;
+	
 	private bool triggered = false;
 	
 	void Awake()

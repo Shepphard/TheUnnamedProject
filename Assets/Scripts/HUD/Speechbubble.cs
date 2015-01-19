@@ -55,11 +55,9 @@ public class Speechbubble : MonoBehaviour {
 		if (speechbubbleObject.activeSelf) // is it already active?
 			id++;
 		else
-		{
 			speechbubbleObject.SetActive(true);
-			enabling = true;
-		}
 		
+		enabling = true;
 		txt_name.text = name;
 		txt_field.text = field;
 		

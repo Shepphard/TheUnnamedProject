@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class item : MonoBehaviour {
 
@@ -15,7 +16,9 @@ public class item : MonoBehaviour {
 	public bool isEquipment = false;
 	public int belongsToEquipmentBar = 0;
 	public string itemName; 
+	
 	public bool TriggerLookatHand = false;
+	static public Dictionary<string, bool> TriggerDict = new Dictionary<string, bool>();
 	
 	private AssetSwitchNew _assetS;
 	private bool isInInv = false;
@@ -25,6 +28,10 @@ public class item : MonoBehaviour {
 		if (_assetS != null)
 			_assetS.setBlockSwitching(b);
 		isInInv = b;
+		
+		// Makes sure that only one dagger of allthe branches gets swapped
+		if (!TriggerDict.ContainsKey(itemName))
+			TriggerDict.Add(itemName, false);
 	}
 	
 	public bool getIsInInv()
