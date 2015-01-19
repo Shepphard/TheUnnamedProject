@@ -13111,6 +13111,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .208358973
       objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: 7c37bde9b2f437b4b97baeb306944187, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 67eacbe31bd2ba847810d816cadcb50e, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7c37bde9b2f437b4b97baeb306944187, type: 2}
   m_RootGameObject: {fileID: 664181089}
@@ -24885,6 +24889,10 @@ Prefab:
       propertyPath: strengthNeeded
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 19900000, guid: 7c37bde9b2f437b4b97baeb306944187, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 62c5f2b4d74e1f740b1d9e9f1690724c, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7c37bde9b2f437b4b97baeb306944187, type: 2}
   m_RootGameObject: {fileID: 109198828}
@@ -43019,7 +43027,7 @@ ParticleSystemRenderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 67eacbe31bd2ba847810d816cadcb50e, type: 2}
+  - {fileID: 2100000, guid: 62c5f2b4d74e1f740b1d9e9f1690724c, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
