@@ -15,6 +15,7 @@ public class NPCKnight : MonoBehaviour
 	private Equipment _equip;
 	private InteractionControls _ctrl;
 	private AssetSwitchNew _assetSwitcher;
+	private MusicController musicController;
 	
 	void Awake()
 	{
@@ -26,6 +27,7 @@ public class NPCKnight : MonoBehaviour
 		_equip = player.GetComponent<Equipment>();
 		_ctrl = player.GetComponent<InteractionControls>();
 		_assetSwitcher = GetComponent<AssetSwitchNew>();
+		musicController = MusicController.Instance();
 	}
 	
 	public void Interaction()
@@ -44,7 +46,7 @@ public class NPCKnight : MonoBehaviour
 			break;
 		case 0:
 			StartCoroutine(Talking (0));
-			Invoke("riseWall", 7f);
+			Invoke("riseWall", 5f);
 			break;
 		case 1:
 			StartCoroutine(Talking(1));
@@ -94,8 +96,8 @@ public class NPCKnight : MonoBehaviour
 		case 3: 
 			// now lets you in
 			StartCoroutine(Talking(7));
-			animWall.SetTrigger("Open");
-			animWall.collider.enabled = false;
+			Invoke ("openWall", 2f);
+			musicController.PlaySFX(1);
 			break;
 		default: Debug.LogError("Interaction Status is not in switch statement"); break;
 		}
@@ -111,11 +113,17 @@ public class NPCKnight : MonoBehaviour
 		Invoke ("Interaction", 11f);
 	}
 	
+	void openWall()
+	{
+		animWall.SetTrigger("Open");
+		animWall.collider.enabled = false;
+	}
+	
 	IEnumerator Talking(int index)
 	{
 		speaking = true;
 		float duration = clips[index].length;
-		speech.Say("Knight Raphi", text[index], duration);
+		speech.Say("Sir Parcifoul", text[index], duration);
 		aux.PlayOneShot(clips[index]);
 		yield return new WaitForSeconds(duration);
 		

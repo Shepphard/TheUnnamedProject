@@ -166,15 +166,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 2b372f1b6a2f1794cb5e0cab2ce86086, type: 3}
-  - {fileID: 8300000, guid: 8f8c83426076cd549a7d240bd25489d6, type: 3}
-  - {fileID: 8300000, guid: 05434e6dd396e6f49a11f61e936b627c, type: 3}
-  - {fileID: 8300000, guid: b5e86bd6333c2e14cae444f2c3616a36, type: 3}
-  - {fileID: 8300000, guid: ef5eb981bc7a1c44ab0ad8e88c5a12f2, type: 3}
-  - {fileID: 8300000, guid: cb7f307b5a7db3f44981848f02663974, type: 3}
-  - {fileID: 8300000, guid: 3eba23fa490f83943a8fdec8f118c052, type: 3}
-  - {fileID: 8300000, guid: c42c30a6bbcfa4540bdb6c75bda32d24, type: 3}
-  - {fileID: 8300000, guid: 5bc82e3801b8c35459902cd57892e01c, type: 3}
+  - {fileID: 8300000, guid: b0484692b6285cc47a1d2130222846a9, type: 3}
+  - {fileID: 8300000, guid: 6035c9c6a241d484c9e3fa8fba9334a6, type: 3}
+  - {fileID: 8300000, guid: b155aa7e5091b354e9a06c33f9e3105e, type: 3}
+  - {fileID: 8300000, guid: fec7a9c467577b548ac0d5761668b4e5, type: 3}
+  - {fileID: 8300000, guid: 12704ce27ae92fe4fa008b72f5bd1a8a, type: 3}
+  - {fileID: 8300000, guid: 7bba13aa9d67c8c47bb223cfdb363595, type: 3}
+  - {fileID: 8300000, guid: e4eb3c491c7eafa46864712b24afc8c4, type: 3}
+  - {fileID: 8300000, guid: 00210e4b3cee0a54b9519215461379af, type: 3}
+  - {fileID: 8300000, guid: d56639f5bdfb9934bb3a576d01814862, type: 3}
   animWall: {fileID: 0}
   interactionStatus: -1
 --- !u!135 &13536334

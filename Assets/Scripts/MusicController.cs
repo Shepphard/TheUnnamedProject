@@ -59,6 +59,9 @@ public class MusicController : MonoBehaviour
 	
 	public void PlaySFX(int index)
 	{
+		if (index == 1)
+			fadeSpeed = 5f;
+	
 		xfade = true;
 		sfxSource.clip = sfx[index];
 		sfxSource.Play();

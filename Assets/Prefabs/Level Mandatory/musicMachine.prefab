@@ -192,6 +192,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e91dbf7731732994a814b335a664fb92, type: 3}
   sfx:
   - {fileID: 8300000, guid: 3cfc3a5755a30464a8d22665239b1885, type: 3}
+  - {fileID: 8300000, guid: 687dbe1dffcfc0643acab03836d42731, type: 3}
   fadeSpeed: 2
   maxVol: .200000003
 --- !u!1001 &100100000
