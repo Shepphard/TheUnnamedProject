@@ -139,6 +139,7 @@ GameObject:
   - 114: {fileID: 11459810}
   - 114: {fileID: 11459808}
   - 82: {fileID: 8210040}
+  - 114: {fileID: 11432256}
   m_Layer: 10
   m_Name: player
   m_TagString: Player
@@ -491,6 +492,34 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11432256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7e7ac6d5b7f2f4495edf6ab40b4faf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stoneSounds:
+  - {fileID: 8300000, guid: e9714160ce34f2b4ab63ff8c27bd68e1, type: 3}
+  - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
+  - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
+  - {fileID: 8300000, guid: 5a9383dda6cabc047b7a297602e93eb4, type: 3}
+  stoneJump: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
+  stoneLand: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+  grassSounds:
+  - {fileID: 8300000, guid: b3c753671015c2641ae2574c9dbfba4d, type: 3}
+  - {fileID: 8300000, guid: b3c753671015c2641ae2574c9dbfba4d, type: 3}
+  grassJump: {fileID: 8300000, guid: b3c753671015c2641ae2574c9dbfba4d, type: 3}
+  grassLand: {fileID: 8300000, guid: b3c753671015c2641ae2574c9dbfba4d, type: 3}
+  woodSounds:
+  - {fileID: 8300000, guid: 9e19535b9e619b546a44c5e741f3b9c6, type: 3}
+  - {fileID: 8300000, guid: 9e19535b9e619b546a44c5e741f3b9c6, type: 3}
+  woodJump: {fileID: 8300000, guid: 9e19535b9e619b546a44c5e741f3b9c6, type: 3}
+  woodLand: {fileID: 8300000, guid: 9e19535b9e619b546a44c5e741f3b9c6, type: 3}
 --- !u!114 &11459806
 MonoBehaviour:
   m_ObjectHideFlags: 1

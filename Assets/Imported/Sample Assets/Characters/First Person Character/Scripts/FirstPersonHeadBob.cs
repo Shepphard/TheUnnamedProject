@@ -166,4 +166,14 @@ public class FirstPersonHeadBob : MonoBehaviour {
 			prevGrounded = false;
 		}
 	}
+
+    /* Newly added footsteps function.
+     * Switches out the footsteps array
+     */
+    public void SwitchFootstepsArray(AudioClip[] newFootsteps, AudioClip land, AudioClip jump)
+    {
+        footstepSounds = newFootsteps;
+        landSound = land;
+        jumpSound = jump;
+    }
 }
