@@ -6,6 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/prototype.unity
-  - enabled: 1
     path: Assets/_Scenes/pregame.unity
+  - enabled: 1
+    path: Assets/_Scenes/startmenu.unity
+  - enabled: 1
+    path: Assets/_Scenes/prototype.unity
