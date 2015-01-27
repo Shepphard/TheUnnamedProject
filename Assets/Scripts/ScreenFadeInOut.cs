@@ -9,11 +9,12 @@ public class ScreenFadeInOut : MonoBehaviour
     private bool sceneStarting = true;
     private bool sceneEnding = false;
     private Image img;
-    private int sceneToEndTo;
+    private int sceneToEndTo; // is set to -1 to QUIT
 
     void Awake()
     {
         img = GetComponent<Image>();
+        img.color = Color.black;
     }
 
     void Update()
@@ -56,6 +57,8 @@ public class ScreenFadeInOut : MonoBehaviour
 
         if (img.color.a >= 0.95f)
         {
+            if (sceneToEndTo < 0)
+                Application.Quit();
             Application.LoadLevel(sceneToEndTo);
         }
 
