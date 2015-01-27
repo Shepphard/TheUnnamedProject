@@ -8,6 +8,7 @@ public class SwitchLetter : MonoBehaviour {
 
     private ParticleSystem cloud;
     private SpriteRenderer render;
+    private WiggleLetter wiggleScript;
 
     void Awake()
     {
@@ -26,4 +27,8 @@ public class SwitchLetter : MonoBehaviour {
         cloud.Play();
     }
 
+    public void TurnOnWiggle()
+    {
+        wiggleScript.enabled = true;
+    }
 }
