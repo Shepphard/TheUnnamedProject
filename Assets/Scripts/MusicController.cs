@@ -13,8 +13,10 @@ public class MusicController : MonoBehaviour
 	private AudioClip lastTheme;
 	private AudioSource _audio;
 	private AudioSource sfxSource;
+    private AudioSource sfxPause;
 	
 	private bool xfade = false;
+    private float audioLastTime = 0f;
 	
 	// singleton
 	private static MusicController musicController;
@@ -35,6 +37,7 @@ public class MusicController : MonoBehaviour
 		lastTheme = maintheme;
 		sfxSource = transform.Find("sfx").GetComponent<AudioSource>();
 		_audio.volume = maxVol;
+        sfxPause = transform.Find("pause").GetComponent<AudioSource>();
 	}
 	
 	void Update()
@@ -86,4 +89,26 @@ public class MusicController : MonoBehaviour
 			sfxSource.volume = Mathf.Lerp(sfxSource.volume, 0f, fadeSpeed * Time.deltaTime);
 		}
 	}
+
+    /* takes care of playing the pause music
+     * appropriately! */
+    public void PauseUnpauseMusic(bool paused, float speed)
+    {
+        if (paused)
+        {
+            if (!sfxPause.isPlaying)
+                sfxPause.Play();
+
+            audio.volume = Mathf.Lerp(audio.volume, 0f, speed * 1/60);
+            sfxPause.volume = Mathf.Lerp(sfxPause.volume, maxVol, speed * 1 / 60);
+        }
+        else
+        {
+            audio.volume = Mathf.Lerp(audio.volume, maxVol, speed * 1 / 60);
+            sfxPause.volume = Mathf.Lerp(sfxPause.volume, 0f, speed * 1 / 60);
+
+            if (sfxPause.isPlaying && sfxPause.volume <= 0.05f)
+                sfxPause.Stop();
+        }
+    }
 }
