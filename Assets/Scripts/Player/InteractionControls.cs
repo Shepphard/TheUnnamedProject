@@ -197,6 +197,11 @@ public class InteractionControls : MonoBehaviour {
 					carriedObject.GetComponent<Sword>().Attack();
 				}
 			}
+
+			if(carriedObject != null && carriedObject.GetComponent<item>().item_type == "gun" && enableCtrls)
+			{
+				carriedObject.GetComponent<Gun>().Shoot();
+			}
 			
 			else if (_equipment.GetBarActivated())
 			{
