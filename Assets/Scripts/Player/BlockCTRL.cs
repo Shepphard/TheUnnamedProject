@@ -8,6 +8,7 @@ public class BlockCTRL : MonoBehaviour
 	private SimpleMouseRotator mouseRotaterX;
 	private SimpleMouseRotator mouseRotaterY;
 	private InteractionControls interactionCtrl;
+    private NewEquipMenu equipmenu;
 	private Rigidbody rigid;
 	
 	private Vector2 rotationrangeX;
@@ -21,6 +22,7 @@ public class BlockCTRL : MonoBehaviour
 		mouseRotaterX = GetComponent<SimpleMouseRotator>();
 		mouseRotaterY = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<SimpleMouseRotator>();
 		interactionCtrl = GetComponent<InteractionControls>();
+        equipmenu = GameObject.FindGameObjectWithTag(Tags.controller).GetComponent<NewEquipMenu>();
 		
 		rotationrangeX = mouseRotaterX.rotationRange;
 		rotationrangeY = mouseRotaterY.rotationRange;
@@ -77,6 +79,7 @@ public class BlockCTRL : MonoBehaviour
 	public void BlockInteractionCtrl(bool block)
 	{
 		interactionCtrl.enableCtrls = !block;
+        equipmenu.enabled = !block;
 	}
 	
 	public void BlockForCutscene()

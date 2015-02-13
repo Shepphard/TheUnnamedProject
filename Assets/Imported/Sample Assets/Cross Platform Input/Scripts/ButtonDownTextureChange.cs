@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(Button))]
+[RequireComponent(typeof(Button1))]
 [RequireComponent(typeof(GUITexture))]
 public class ButtonDownTextureChange : MonoBehaviour {
 
-    private Button m_Button;
+    private Button1 m_Button;
     private new GUITexture guiTexture;
     public Texture idleTexture;
     public Texture activeTexture;
@@ -12,7 +12,7 @@ public class ButtonDownTextureChange : MonoBehaviour {
     private bool down;
 
     void OnEnable() {
-        m_Button = GetComponent<Button> ();
+        m_Button = GetComponent<Button1> ();
         guiTexture = GetComponent<GUITexture> ();
     }
 

@@ -8,13 +8,17 @@ public class Pauser : MonoBehaviour
     public float musicFadeSpeed = 3f;
 
     private InteractionControls playerCtrl;
+    private BlockCTRL blocker;
     private MusicController music;
 
     private bool paused = false;
+    private NewEquipMenu equipmenu;
 
     void Awake()
     {
         playerCtrl = GameObject.FindGameObjectWithTag(Tags.player).GetComponent<InteractionControls>();
+        equipmenu = GetComponent<NewEquipMenu>();
+        blocker = playerCtrl.GetComponent<BlockCTRL>();
         music = MusicController.Instance();
     }
 
@@ -42,21 +46,21 @@ public class Pauser : MonoBehaviour
 
     void Pause()
     {
+        equipmenu.Disable();
+        equipmenu.enabled = false;
         pausePanel.SetActive(true);
         Time.timeScale = 0;
         playerCtrl.enabled = false;
         paused = true;
-
-        Debug.Log("Paused Game");
     }
 
     void Unpause()
     {
+        equipmenu.enabled = true;
+        equipmenu.Enable();
         playerCtrl.enabled = true;
         Time.timeScale = 1;
         paused = false;
         pausePanel.SetActive(false);
-
-        Debug.Log("Unpaused Game");
     }
 }

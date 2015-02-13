@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(GUIElement))]
-public class Button : MonoBehaviour
+public class Button1 : MonoBehaviour
 {
 
     public string buttonName = "Fire1";                     // The name used for the button
