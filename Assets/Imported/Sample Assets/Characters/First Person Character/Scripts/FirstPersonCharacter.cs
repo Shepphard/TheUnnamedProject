@@ -25,14 +25,20 @@ public class FirstPersonCharacter : MonoBehaviour
 	private CapsuleCollider capsule;                                                    // The capsule collider for the first person character
 	private const float jumpRayLength = 0.7f;                                           // The length of the ray used for testing against the ground when jumping
 	public bool grounded { get; private set; }
+	private float jumpTimer;															//timer to determine jumpcapability
+	private float jumpMaxTimer = 1f;
+	private bool canJump = true;
 	private Vector2 input;
 	private IComparer rayHitComparer;
 	
+	private float speed;
+
 	void Awake ()
 	{
 		// Set up a reference to the capsule collider.
 		capsule = collider as CapsuleCollider;
 		grounded = true;
+		speed = walkSpeed;
 		Screen.lockCursor = lockCursor;
 		rayHitComparer = new RayHitComparer();
 	}
@@ -53,7 +59,6 @@ public class FirstPersonCharacter : MonoBehaviour
 	
 	public void FixedUpdate ()
 	{
-		float speed = runSpeed;
 
 		// Read input
 		/*
@@ -71,8 +76,9 @@ public class FirstPersonCharacter : MonoBehaviour
 		
 		// On standalone builds, walk/run speed is modified by a key press.
 		// We select appropriate speed based on whether we're walking by default, and whether the walk/run toggle button is pressed:
-		bool walkOrRun =  Input.GetKey(KeyCode.LeftShift);
-		speed = walkByDefault ? (walkOrRun ? runSpeed : walkSpeed) : (walkOrRun ? walkSpeed : runSpeed);
+		bool walkOrRun =  grounded && Input.GetKey(KeyCode.LeftShift);
+		if(grounded)
+			speed = walkByDefault ? (walkOrRun ? runSpeed : walkSpeed) : (walkOrRun ? walkSpeed : runSpeed);
 		
 		// On mobile, it's controlled in analogue fashion by the v input value, and therefore needs no special handling.
 		
@@ -89,9 +95,20 @@ public class FirstPersonCharacter : MonoBehaviour
 		
 		// preserving current y velocity (for falling, gravity)
 		float yv = rigidbody.velocity.y;
-		
+
+		if(jumpTimer < jumpMaxTimer)
+		{
+			jumpTimer += Time.fixedDeltaTime;
+			canJump = false;
+		}
+		else
+		{
+			canJump = true;
+		}
+
 		// add jump power
-		if (grounded && jump) {
+		if (grounded && jump && jumpTimer >= jumpMaxTimer) {
+			jumpTimer = 0.0f;
 			yv += jumpPower;
 			grounded = false;
 		}
@@ -130,7 +147,7 @@ public class FirstPersonCharacter : MonoBehaviour
 				{
 					// The character is grounded, and we store the ground angle (calculated from the normal)
 					grounded = true;
-					
+
 					// stick to surface - helps character stick to ground - specially when running down slopes
 					//if (rigidbody.velocity.y <= 0) {
 					rigidbody.position = Vector3.MoveTowards (rigidbody.position, hits[i].point + Vector3.up * capsule.height*.5f, Time.deltaTime * advanced.groundStickyEffect);
