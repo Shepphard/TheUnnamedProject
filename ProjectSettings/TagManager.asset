@@ -8,6 +8,7 @@ TagManager:
   - Inventory
   - destructable
   - Trigger
+  - Target
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
