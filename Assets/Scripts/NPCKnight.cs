@@ -45,7 +45,7 @@ public class NPCKnight : MonoBehaviour
 		case -1:
 			// introducing himself, then switching to knight
 			StartCoroutine(Talking (8));
-			_assetSwitcher.Invoke("Switch", 7.1f);
+			_assetSwitcher.Invoke("Switch", 7.00f);
 			interactionStatus++;
 			Invoke("Interaction", clips[8].length+0.1f);
 			animNPC1.SetTrigger("intro");
