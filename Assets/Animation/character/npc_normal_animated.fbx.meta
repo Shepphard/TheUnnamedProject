@@ -1,0 +1,1215 @@
+fileFormatVersion: 2
+guid: 93766c2c8ea36cd4caee1cb992620010
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Bone
+    100004: bone.calf.L
+    100006: bone.calf.R
+    100008: bone.chest
+    100010: bone.finger0.L
+    100012: bone.finger0.R
+    100014: bone.finger1.L
+    100016: bone.finger1.R
+    100018: bone.foot.L
+    100020: bone.foot.R
+    100022: bone.hand.L
+    100024: bone.hand.R
+    100026: bone.head
+    100028: bone.hip
+    100030: bone.lowArm.L
+    100032: bone.lowArm.R
+    100034: bone.lowArm.R.002
+    100036: bone.neck
+    100038: bone.poletarget.L
+    100040: bone.poletarget.R
+    100042: bone.thigh.L
+    100044: bone.thigh.R
+    100046: bone.thumb.L
+    100048: bone.thumb.R
+    100050: bone.toes.L
+    100052: bone.toes.R
+    100054: bone.upArm.L
+    100056: bone.upArm.R
+    100058: broom
+    100060: control.footRoll.L
+    100062: control.footRoll.R
+    100064: control.Leg.L
+    100066: control.Leg.R
+    100068: control.toes.L
+    100070: control.toes.R
+    100072: ik.leg.L
+    100074: ik.leg.R
+    100076: mesh_npc
+    100078: //RootNode
+    400000: Armature
+    400002: Bone
+    400004: bone.calf.L
+    400006: bone.calf.R
+    400008: bone.chest
+    400010: bone.finger0.L
+    400012: bone.finger0.R
+    400014: bone.finger1.L
+    400016: bone.finger1.R
+    400018: bone.foot.L
+    400020: bone.foot.R
+    400022: bone.hand.L
+    400024: bone.hand.R
+    400026: bone.head
+    400028: bone.hip
+    400030: bone.lowArm.L
+    400032: bone.lowArm.R
+    400034: bone.lowArm.R.002
+    400036: bone.neck
+    400038: bone.poletarget.L
+    400040: bone.poletarget.R
+    400042: bone.thigh.L
+    400044: bone.thigh.R
+    400046: bone.thumb.L
+    400048: bone.thumb.R
+    400050: bone.toes.L
+    400052: bone.toes.R
+    400054: bone.upArm.L
+    400056: bone.upArm.R
+    400058: broom
+    400060: control.footRoll.L
+    400062: control.footRoll.R
+    400064: control.Leg.L
+    400066: control.Leg.R
+    400068: control.toes.L
+    400070: control.toes.R
+    400072: ik.leg.L
+    400074: ik.leg.R
+    400076: mesh_npc
+    400078: //RootNode
+    2300000: broom
+    3300000: broom
+    4300000: broom
+    4300002: mesh_npc
+    7400000: Armature|idle
+    7400002: Armature|idle_name
+    7400004: Armature|idle_stop
+    7400006: Armature|intro
+    7400008: Armature|name
+    7400010: Armature|nope
+    7400012: Armature|open
+    7400014: Armature|stop
+    7400016: Armature|stop_Motionless
+    7400018: mesh_npc|stop_Motionless
+    9500000: //RootNode
+    13700000: mesh_npc
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|idle
+      takeName: Armature|idle
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/bone.hip
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.neck
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.neck/bone.head
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.finger0.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.finger0.L/bone.finger1.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.thumb.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.finger0.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.finger0.R/bone.finger1.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.lowArm.R.002
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.thumb.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.L/bone.calf.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.R/bone.calf.R
+        weight: 1
+      - path: Armature/Bone/bone.poletarget.L
+        weight: 1
+      - path: Armature/Bone/bone.poletarget.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/bone.foot.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/bone.foot.L/bone.toes.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.footRoll.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.footRoll.L/ik.leg.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.toes.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/bone.foot.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/bone.foot.R/bone.toes.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.footRoll.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.footRoll.R/ik.leg.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.toes.R
+        weight: 1
+      - path: Armature/broom
+        weight: 1
+      - path: mesh_npc
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|idle_name
+      takeName: Armature|idle_name
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/bone.hip
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.neck
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.neck/bone.head
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.finger0.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.finger0.L/bone.finger1.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.thumb.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.finger0.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.finger0.R/bone.finger1.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.lowArm.R.002
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.thumb.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.L/bone.calf.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.R/bone.calf.R
+        weight: 1
+      - path: Armature/Bone/bone.poletarget.L
+        weight: 1
+      - path: Armature/Bone/bone.poletarget.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/bone.foot.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/bone.foot.L/bone.toes.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.footRoll.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.footRoll.L/ik.leg.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.toes.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/bone.foot.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/bone.foot.R/bone.toes.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.footRoll.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.footRoll.R/ik.leg.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.toes.R
+        weight: 1
+      - path: Armature/broom
+        weight: 1
+      - path: mesh_npc
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|idle_stop
+      takeName: Armature|idle_stop
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/bone.hip
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.neck
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.neck/bone.head
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.finger0.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.finger0.L/bone.finger1.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.thumb.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.finger0.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.finger0.R/bone.finger1.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.lowArm.R.002
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.thumb.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.L/bone.calf.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.R/bone.calf.R
+        weight: 1
+      - path: Armature/Bone/bone.poletarget.L
+        weight: 1
+      - path: Armature/Bone/bone.poletarget.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/bone.foot.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/bone.foot.L/bone.toes.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.footRoll.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.footRoll.L/ik.leg.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.toes.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/bone.foot.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/bone.foot.R/bone.toes.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.footRoll.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.footRoll.R/ik.leg.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.toes.R
+        weight: 1
+      - path: Armature/broom
+        weight: 1
+      - path: mesh_npc
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|intro
+      takeName: Armature|intro
+      firstFrame: 0
+      lastFrame: 152
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/bone.hip
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.neck
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.neck/bone.head
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.finger0.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.finger0.L/bone.finger1.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.thumb.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.finger0.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.finger0.R/bone.finger1.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.lowArm.R.002
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.thumb.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.L/bone.calf.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.R/bone.calf.R
+        weight: 1
+      - path: Armature/Bone/bone.poletarget.L
+        weight: 1
+      - path: Armature/Bone/bone.poletarget.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/bone.foot.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/bone.foot.L/bone.toes.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.footRoll.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.footRoll.L/ik.leg.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.toes.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/bone.foot.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/bone.foot.R/bone.toes.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.footRoll.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.footRoll.R/ik.leg.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.toes.R
+        weight: 1
+      - path: Armature/broom
+        weight: 1
+      - path: mesh_npc
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|name
+      takeName: Armature|name
+      firstFrame: 0
+      lastFrame: 167
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/bone.hip
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.neck
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.neck/bone.head
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.finger0.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.finger0.L/bone.finger1.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.thumb.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.finger0.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.finger0.R/bone.finger1.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.lowArm.R.002
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.thumb.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.L/bone.calf.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.R/bone.calf.R
+        weight: 1
+      - path: Armature/Bone/bone.poletarget.L
+        weight: 1
+      - path: Armature/Bone/bone.poletarget.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/bone.foot.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/bone.foot.L/bone.toes.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.footRoll.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.footRoll.L/ik.leg.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.toes.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/bone.foot.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/bone.foot.R/bone.toes.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.footRoll.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.footRoll.R/ik.leg.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.toes.R
+        weight: 1
+      - path: Armature/broom
+        weight: 1
+      - path: mesh_npc
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|nope
+      takeName: Armature|nope
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/bone.hip
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.neck
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.neck/bone.head
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.finger0.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.finger0.L/bone.finger1.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.thumb.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.finger0.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.finger0.R/bone.finger1.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.lowArm.R.002
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.thumb.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.L/bone.calf.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.R/bone.calf.R
+        weight: 1
+      - path: Armature/Bone/bone.poletarget.L
+        weight: 1
+      - path: Armature/Bone/bone.poletarget.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/bone.foot.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/bone.foot.L/bone.toes.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.footRoll.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.footRoll.L/ik.leg.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.toes.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/bone.foot.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/bone.foot.R/bone.toes.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.footRoll.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.footRoll.R/ik.leg.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.toes.R
+        weight: 1
+      - path: Armature/broom
+        weight: 1
+      - path: mesh_npc
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|open
+      takeName: Armature|open
+      firstFrame: 0
+      lastFrame: 129
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/bone.hip
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.neck
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.neck/bone.head
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.finger0.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.finger0.L/bone.finger1.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.thumb.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.finger0.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.finger0.R/bone.finger1.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.lowArm.R.002
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.thumb.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.L/bone.calf.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.R/bone.calf.R
+        weight: 1
+      - path: Armature/Bone/bone.poletarget.L
+        weight: 1
+      - path: Armature/Bone/bone.poletarget.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/bone.foot.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/bone.foot.L/bone.toes.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.footRoll.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.footRoll.L/ik.leg.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.toes.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/bone.foot.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/bone.foot.R/bone.toes.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.footRoll.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.footRoll.R/ik.leg.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.toes.R
+        weight: 1
+      - path: Armature/broom
+        weight: 1
+      - path: mesh_npc
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|stop
+      takeName: Armature|stop
+      firstFrame: 0
+      lastFrame: 96
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/bone.hip
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.neck
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.neck/bone.head
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.finger0.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.finger0.L/bone.finger1.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.thumb.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.finger0.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.finger0.R/bone.finger1.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.lowArm.R.002
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.thumb.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.L/bone.calf.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.R/bone.calf.R
+        weight: 1
+      - path: Armature/Bone/bone.poletarget.L
+        weight: 1
+      - path: Armature/Bone/bone.poletarget.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/bone.foot.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/bone.foot.L/bone.toes.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.footRoll.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.footRoll.L/ik.leg.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.toes.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/bone.foot.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/bone.foot.R/bone.toes.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.footRoll.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.footRoll.R/ik.leg.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.toes.R
+        weight: 1
+      - path: Armature/broom
+        weight: 1
+      - path: mesh_npc
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Armature|stop_Motionless
+      takeName: Armature|stop_Motionless
+      firstFrame: 0
+      lastFrame: 52
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/bone.hip
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.neck
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.neck/bone.head
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.finger0.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.finger0.L/bone.finger1.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.thumb.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.finger0.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.finger0.R/bone.finger1.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.lowArm.R.002
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.thumb.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.L/bone.calf.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.R/bone.calf.R
+        weight: 1
+      - path: Armature/Bone/bone.poletarget.L
+        weight: 1
+      - path: Armature/Bone/bone.poletarget.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/bone.foot.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/bone.foot.L/bone.toes.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.footRoll.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.footRoll.L/ik.leg.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.toes.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/bone.foot.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/bone.foot.R/bone.toes.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.footRoll.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.footRoll.R/ik.leg.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.toes.R
+        weight: 1
+      - path: Armature/broom
+        weight: 1
+      - path: mesh_npc
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: mesh_npc|stop_Motionless
+      takeName: mesh_npc|stop_Motionless
+      firstFrame: 0
+      lastFrame: 52
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Bone
+        weight: 1
+      - path: Armature/Bone/bone.hip
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.neck
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.neck/bone.head
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.finger0.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.finger0.L/bone.finger1.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.L/bone.lowArm.L/bone.hand.L/bone.thumb.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.finger0.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.finger0.R/bone.finger1.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.lowArm.R.002
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.chest/bone.upArm.R/bone.lowArm.R/bone.hand.R/bone.thumb.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.L/bone.calf.L
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.R
+        weight: 1
+      - path: Armature/Bone/bone.hip/bone.thigh.R/bone.calf.R
+        weight: 1
+      - path: Armature/Bone/bone.poletarget.L
+        weight: 1
+      - path: Armature/Bone/bone.poletarget.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/bone.foot.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/bone.foot.L/bone.toes.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.footRoll.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.footRoll.L/ik.leg.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.L/control.toes.L
+        weight: 1
+      - path: Armature/Bone/control.Leg.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/bone.foot.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/bone.foot.R/bone.toes.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.footRoll.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.footRoll.R/ik.leg.R
+        weight: 1
+      - path: Armature/Bone/control.Leg.R/control.toes.R
+        weight: 1
+      - path: Armature/broom
+        weight: 1
+      - path: mesh_npc
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

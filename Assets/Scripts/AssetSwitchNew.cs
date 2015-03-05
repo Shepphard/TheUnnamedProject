@@ -7,8 +7,8 @@ public class AssetSwitchNew : MonoBehaviour {
 	public GameObject object2;
 	public KeyCode switchKey;
 
-	private GameObject instObject1;
-	private GameObject instObject2;
+	public GameObject instObject1;
+	public GameObject instObject2;
 	private ParticleSystem cloudParticles;
 	private InteractionControls _controls;
 	private bool blockSwitching = false;

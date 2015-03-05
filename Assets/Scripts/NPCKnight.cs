@@ -16,6 +16,9 @@ public class NPCKnight : MonoBehaviour
 	private InteractionControls _ctrl;
 	private AssetSwitchNew _assetSwitcher;
 	private MusicController musicController;
+
+	private Animator animNPC1;
+	private Animator animNPC2;
 	
 	void Awake()
 	{
@@ -28,6 +31,8 @@ public class NPCKnight : MonoBehaviour
 		_ctrl = player.GetComponent<InteractionControls>();
 		_assetSwitcher = GetComponent<AssetSwitchNew>();
 		musicController = MusicController.Instance();
+		animNPC1 = _assetSwitcher.instObject1.GetComponent<Animator>();
+		animNPC2 = _assetSwitcher.instObject2.GetComponent<Animator>();
 	}
 	
 	public void Interaction()
@@ -40,13 +45,17 @@ public class NPCKnight : MonoBehaviour
 		case -1:
 			// introducing himself, then switching to knight
 			StartCoroutine(Talking (8));
-			_assetSwitcher.Invoke("Switch", 3f);
+			_assetSwitcher.Invoke("Switch", 7.3f);
 			interactionStatus++;
 			Invoke("Interaction", clips[8].length+0.1f);
+			animNPC1.SetTrigger("intro");
+			animNPC2.SetTrigger("intro");
 			break;
 		case 0:
 			StartCoroutine(Talking (0));
 			Invoke("riseWall", 5f);
+			animNPC1.SetTrigger("stop");
+			animNPC2.SetTrigger("stop");
 			break;
 		case 1:
 			StartCoroutine(Talking(1));
@@ -64,6 +73,8 @@ public class NPCKnight : MonoBehaviour
 				// you have all the equiptment, should ask for name
 				StartCoroutine(Talking(6));
 				interactionStatus++;
+				animNPC1.SetTrigger("name");
+				animNPC2.SetTrigger("name");
 			}
 			// at least one is missing
 			else
@@ -91,6 +102,8 @@ public class NPCKnight : MonoBehaviour
 				
 				int picked = Random.Range(0, count);
 				StartCoroutine(Talking(possible[picked]));
+				animNPC1.SetTrigger("nope");
+				animNPC2.SetTrigger("nope");
 				}
 			break;
 		case 3: 
@@ -98,6 +111,8 @@ public class NPCKnight : MonoBehaviour
 			StartCoroutine(Talking(7));
 			Invoke ("openWall", 2f);
 			musicController.PlaySFX(1);
+			animNPC1.SetTrigger("open");
+			animNPC2.SetTrigger("open");
 			break;
 		default: Debug.LogError("Interaction Status is not in switch statement"); break;
 		}
