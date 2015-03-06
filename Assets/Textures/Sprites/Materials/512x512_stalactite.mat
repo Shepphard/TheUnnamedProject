@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: New Material
+  m_Name: 512x512_stalactite
   m_Shader: {fileID: 4800000, guid: 48dca5b99d113b8d11006bab44295342, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
@@ -17,14 +17,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: 2105e6e90cebf3e43b471c4ee6e6f9a8, type: 3}
-          m_Scale: {x: 2, y: 2}
+          m_Texture: {fileID: 2800000, guid: 2427e641dee9ef24c83d7e195e1f3b05, type: 3}
+          m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _Ramp
         second:
-          m_Texture: {fileID: 2800000, guid: 741d36cf2a0ddce4c8781d0c29ad092d, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats: {}
@@ -32,4 +32,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .410294145, g: .358672172, b: .45588237, a: 1}
+        second: {r: .5, g: .5, b: .5, a: 1}

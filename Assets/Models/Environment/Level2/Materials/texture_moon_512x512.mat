@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: New Material 1
-  m_Shader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
+  m_Name: texture_moon_512x512
+  m_Shader: {fileID: 4800000, guid: 48dca5b99d113b8d11006bab44295342, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
   m_SavedProperties:
@@ -17,7 +17,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: a64b3cfc60d1f7844ac3195d3b0f6091, type: 3}
+          m_Texture: {fileID: 2800000, guid: 866ce72fa4ba709439283499256f6f10, type: 3}
           m_Scale: {x: 4, y: 4}
           m_Offset: {x: 0, y: 0}
       data:
@@ -27,17 +27,9 @@ Material:
           m_Texture: {fileID: 2800000, guid: 741d36cf2a0ddce4c8781d0c29ad092d, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
-    m_Floats:
-      data:
-        first:
-          name: _Shininess
-        second: .078125
+    m_Floats: {}
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: .418685108, g: .470588207, b: .444815636, a: 1}
-      data:
-        first:
-          name: _SpecColor
-        second: {r: .5, g: .5, b: .5, a: 1}
+        second: {r: .678931534, g: .561634898, b: .720588207, a: 1}
