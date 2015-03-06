@@ -12,6 +12,7 @@ public class InteractionControls : MonoBehaviour {
 	public Camera InspectCamera; // a reference to the camera to inspect items
 	public float rotationSpeed = 10f; // speed of rotating in inspection
 	public float zoomFactor = 100f; // speed of zooming in inspection
+    public bool useOldEquipment = false;
 	
 	public bool enableCtrls = true;
 	public bool isAttacking = false;
@@ -141,7 +142,7 @@ public class InteractionControls : MonoBehaviour {
 		}
 		
 		// equipment bar activation
-		if (Input.GetKeyUp(KeyCode.B))
+		if (Input.GetKeyUp(KeyCode.B) && useOldEquipment)
 		{
 			if (!_inventory._invBar.activated)
 				_equipment.ActivateBar();
