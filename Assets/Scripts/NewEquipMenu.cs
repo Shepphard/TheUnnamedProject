@@ -82,4 +82,9 @@ public class NewEquipMenu : MonoBehaviour
 
         itemlist.Clear();
     }
+
+    public void AddItem(item i)
+    {
+        itemlist.Add(i);
+    }
 }

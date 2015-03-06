@@ -677,15 +677,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a4c0c8fa5dcbd469c6dc9c18e6cf63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stoneSounds: []
-  stoneJump: {fileID: 0}
-  stoneLand: {fileID: 0}
-  grassSounds: []
-  grassJump: {fileID: 0}
-  grassLand: {fileID: 0}
-  woodSounds: []
-  woodJump: {fileID: 0}
-  woodLand: {fileID: 0}
+  stoneSounds:
+  - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
+  - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
+  - {fileID: 8300000, guid: 5a9383dda6cabc047b7a297602e93eb4, type: 3}
+  - {fileID: 8300000, guid: e9714160ce34f2b4ab63ff8c27bd68e1, type: 3}
+  stoneJump: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
+  stoneLand: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+  grassSounds:
+  - {fileID: 8300000, guid: b3c753671015c2641ae2574c9dbfba4d, type: 3}
+  - {fileID: 8300000, guid: b3c753671015c2641ae2574c9dbfba4d, type: 3}
+  - {fileID: 8300000, guid: b3c753671015c2641ae2574c9dbfba4d, type: 3}
+  grassJump: {fileID: 8300000, guid: b3c753671015c2641ae2574c9dbfba4d, type: 3}
+  grassLand: {fileID: 8300000, guid: b3c753671015c2641ae2574c9dbfba4d, type: 3}
+  woodSounds:
+  - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
+  - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
+  - {fileID: 8300000, guid: 5a9383dda6cabc047b7a297602e93eb4, type: 3}
+  - {fileID: 8300000, guid: e9714160ce34f2b4ab63ff8c27bd68e1, type: 3}
+  woodJump: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
+  woodLand: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
 --- !u!114 &11464392
 MonoBehaviour:
   m_ObjectHideFlags: 1
