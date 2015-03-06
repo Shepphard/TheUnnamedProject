@@ -50,7 +50,8 @@ MonoBehaviour:
   isEmpty: 0
   isEquipment: 1
   belongsToEquipmentBar: 1
-  itemName: 
+  itemName: empty
+  TriggerLookatHand: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
