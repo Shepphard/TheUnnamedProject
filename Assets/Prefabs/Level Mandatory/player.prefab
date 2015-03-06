@@ -243,8 +243,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 159824}
-  m_LocalRotation: {x: 0, y: .660656989, z: 0, w: .750687897}
-  m_LocalPosition: {x: -12.46, y: 1.84000003, z: 8.67000008}
+  m_LocalRotation: {x: 0, y: .988454878, z: 0, w: -.151515454}
+  m_LocalPosition: {x: 1.70000005, y: 11.5, z: 17.2000008}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 459812}
@@ -696,6 +696,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e9714160ce34f2b4ab63ff8c27bd68e1, type: 3}
   woodJump: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
   woodLand: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+  moonSounds:
+  - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
+  - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
+  - {fileID: 8300000, guid: 5a9383dda6cabc047b7a297602e93eb4, type: 3}
+  - {fileID: 8300000, guid: e9714160ce34f2b4ab63ff8c27bd68e1, type: 3}
+  moonJump: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
+  moonLand: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
 --- !u!124 &12459822
 Behaviour:
   m_ObjectHideFlags: 1

@@ -13,6 +13,9 @@ public class DifferentFootsteps : MonoBehaviour
     public AudioClip[] woodSounds;
     public AudioClip woodJump;
     public AudioClip woodLand;
+    public AudioClip[] moonSounds;
+    public AudioClip moonJump;
+    public AudioClip moonLand;
 
     private FirstPersonHeadBob headbobScript;
     private string lastSounds = "";
@@ -71,6 +74,14 @@ public class DifferentFootsteps : MonoBehaviour
                         Debug.Log("Switched to woodSounds");
                     }
                     lastSounds = "wood";
+                    break;
+                case "moon_ground (Instance)":
+                    if (lastSounds != "moon")
+                    {
+                        headbobScript.SwitchFootstepsArray(moonSounds, moonLand, moonJump);
+                        Debug.Log("Switched to moonSounds");
+                    }
+                    lastSounds = "moon";
                     break;
                 default:
                     if (lastSounds == materialName)
