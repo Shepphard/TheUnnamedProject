@@ -122,6 +122,21 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
+--- !u!1102 &110278862
+State:
+  m_ObjectHideFlags: 3
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: wall_opened
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Motions:
+  - {fileID: 7400000, guid: 2e969bff53270ef42a0267dd63ef560f, type: 2}
+  m_ParentStateMachine: {fileID: 110775822}
+  m_Position: {x: 216, y: -96, z: 0}
+  m_IKOnFeet: 0
+  m_Mirror: 0
+  m_Tag: 
 --- !u!1102 &110279234
 State:
   m_ObjectHideFlags: 3
@@ -159,18 +174,16 @@ StateMachine:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Base Layer
-  m_DefaultState: {fileID: 110218220}
+  m_DefaultState: {fileID: 110279234}
   m_States:
   - {fileID: 110241228}
   - {fileID: 110218220}
   - {fileID: 110279234}
   - {fileID: 110286440}
+  - {fileID: 110278862}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
-    data:
-      first: {fileID: 110286440}
-      second: []
     data:
       first: {fileID: 0}
       second:
@@ -185,6 +198,9 @@ StateMachine:
       - {fileID: 110117898}
     data:
       first: {fileID: 110279234}
+      second: []
+    data:
+      first: {fileID: 110286440}
       second: []
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 36, y: -24, z: 0}
