@@ -155,6 +155,7 @@ MonoBehaviour:
   projectile: {fileID: 100000, guid: bcb34a4a8c3eddb48aa088fc50e1214c, type: 2}
   muzzleOffset: {x: 0, y: .200000003, z: .699999988}
   strength: 400
+  sfx_Volume: .600000024
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1

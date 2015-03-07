@@ -4,6 +4,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - projectile: {fileID: 100000, guid: bcb34a4a8c3eddb48aa088fc50e1214c, type: 2}
+  - sfx_laser: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
