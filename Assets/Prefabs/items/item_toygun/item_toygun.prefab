@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,7 +45,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .133000001, y: 11.0939999, z: 16.6149998}
+  m_LocalPosition: {x: 2.24000001, y: 10.9399996, z: 6.6500001}
   m_LocalScale: {x: .00161990139, y: .00161990139, z: .00227855006}
   m_Children:
   - {fileID: 400002}
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56a8bed390696424cb5b045733b8aa93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 0a450f6f55003ea4fa565bc92626108d, type: 3}
+  icon: {fileID: 21300000, guid: 6c1882edd6d81034f858d66e8e92ccc6, type: 3}
   item_type: gun
   positionOffsetInv: {x: 0, y: 0, z: 0}
   carriedRotationInv: {x: 0, y: 0, z: 0}
