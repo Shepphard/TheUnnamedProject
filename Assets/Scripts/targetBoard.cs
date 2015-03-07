@@ -7,6 +7,7 @@ public class targetBoard : MonoBehaviour
 
 	public Transform fixatorT;
 
+
 	// Use this for initialization
 	void Awake() 
 	{
