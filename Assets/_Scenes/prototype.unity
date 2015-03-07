@@ -21005,9 +21005,9 @@ GameObject:
   m_Component:
   - 224: {fileID: 542740707}
   - 223: {fileID: 542740711}
+  - 95: {fileID: 542740708}
   - 114: {fileID: 542740710}
   - 114: {fileID: 542740709}
-  - 95: {fileID: 542740708}
   m_Layer: 5
   m_Name: DialogueCanvas
   m_TagString: Untagged
@@ -21055,30 +21055,13 @@ Animator:
 --- !u!114 &542740709
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11433504, guid: 1dad3bdb21f46624989ec77805636c9c,
+  m_PrefabParentObject: {fileID: 11411702, guid: 1dad3bdb21f46624989ec77805636c9c,
     type: 2}
   m_PrefabInternal: {fileID: 728532492}
   m_GameObject: {fileID: 542740706}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1413817254}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ignoreReversedGraphics: 1
-  blockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &542740710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11433506, guid: 1dad3bdb21f46624989ec77805636c9c,
-    type: 2}
-  m_PrefabInternal: {fileID: 728532492}
-  m_GameObject: {fileID: 542740706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1336960012}
+  m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
@@ -21091,6 +21074,23 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &542740710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11411704, guid: 1dad3bdb21f46624989ec77805636c9c,
+    type: 2}
+  m_PrefabInternal: {fileID: 728532492}
+  m_GameObject: {fileID: 542740706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ignoreReversedGraphics: 1
+  blockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!223 &542740711
 Canvas:
   m_ObjectHideFlags: 0
@@ -48490,22 +48490,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1335426907}
   m_Mesh: {fileID: 4300000, guid: 2b6872af113e1ac488020b466e36947b, type: 3}
---- !u!115 &1336960012
-MonoScript:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  serializedVersion: 4
-  m_Script: 
-  m_DefaultReferences: {}
-  m_Icon: {fileID: 0}
-  m_EditorGraphData: {fileID: 0}
-  m_ExecutionOrder: 0
-  m_ClassName: CanvasScaler
-  m_Namespace: UnityEngine.UI
-  m_AssemblyName: UnityEngine.UI.dll
-  m_IsEditorScript: 0
 --- !u!1 &1337521663
 GameObject:
   m_ObjectHideFlags: 0
@@ -50943,22 +50927,6 @@ Prefab:
   m_RootGameObject: {fileID: 1975009330}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!115 &1413817254
-MonoScript:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  serializedVersion: 4
-  m_Script: 
-  m_DefaultReferences: {}
-  m_Icon: {fileID: 0}
-  m_EditorGraphData: {fileID: 0}
-  m_ExecutionOrder: 0
-  m_ClassName: GraphicRaycaster
-  m_Namespace: UnityEngine.UI
-  m_AssemblyName: UnityEngine.UI.dll
-  m_IsEditorScript: 0
 --- !u!1 &1416090238
 GameObject:
   m_ObjectHideFlags: 0
@@ -55740,6 +55708,10 @@ Prefab:
       propertyPath: pausePanel
       value: 
       objectReference: {fileID: 1966872330}
+    - target: {fileID: 11488124, guid: 37068aa08f200a8418d0c401628119c9, type: 2}
+      propertyPath: equipmenuCanvas
+      value: 
+      objectReference: {fileID: 572700071}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 37068aa08f200a8418d0c401628119c9, type: 2}
   m_RootGameObject: {fileID: 1736732551}
@@ -60709,6 +60681,7 @@ MonoBehaviour:
   key_pause: 27
   pausePanel: {fileID: 1966872330}
   musicFadeSpeed: 3
+  equipmenuCanvas: {fileID: 572700071}
 --- !u!114 &1736732556
 MonoBehaviour:
   m_ObjectHideFlags: 0
