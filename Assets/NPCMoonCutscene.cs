@@ -12,7 +12,7 @@ public class NPCMoonCutscene : MonoBehaviour {
     {
         if (started)
         {
-            if (!audio.isPlaying)
+            if (audio.time > audio.clip.length - 0.01f)
                 Application.LoadLevel(5);
         }
     }

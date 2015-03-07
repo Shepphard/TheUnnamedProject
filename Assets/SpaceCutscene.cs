@@ -7,6 +7,7 @@ public class SpaceCutscene : MonoBehaviour {
     public Image img;
     public float fadeSpeed = 0.05f;
     public bool endingLevel = false;
+    public CutsceneScript scener;
 
     public void EnterShip()
     {
@@ -42,5 +43,10 @@ public class SpaceCutscene : MonoBehaviour {
     void FadeToBlack()
     {
         img.color = Color.Lerp(img.color, Color.black, fadeSpeed * Time.deltaTime);
+    }
+
+    public void Pause()
+    {
+        scener.StopAll();
     }
 }
