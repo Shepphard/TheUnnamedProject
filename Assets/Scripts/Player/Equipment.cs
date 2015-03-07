@@ -20,11 +20,13 @@ public class Equipment : MonoBehaviour {
 	private bool init = false;
 	private GameObject currentEquipment0 = null;
 	private GameObject currentEquipment1 = null;
+    private NewEquipMenu equipMenu;
 
 	void Awake()
 	{
 		bar0list = new ArrayList();
 		bar1list = new ArrayList();
+        equipMenu = GameObject.FindGameObjectWithTag(Tags.controller).GetComponent<NewEquipMenu>();
 	}
 	
 	void Update()
@@ -111,14 +113,17 @@ public class Equipment : MonoBehaviour {
 				bar1list.Add(obj);
 				_equipmentBar.addIcon((Sprite) i_.icon, 1);
 			}
-			
+
+            equipMenu.AddItem(i_);
+
 			/* set off */
 			if (obj.collider != null)
 				obj.collider.enabled = false;
 			obj.SetActive(false);
 		}
 	}
-	
+
+    /* used by the old equipment bar */
 	public void wearEquipment()
 	{
 		// head bar 0
@@ -152,7 +157,52 @@ public class Equipment : MonoBehaviour {
 			}
 		}
 	}
-	
+
+    /* used by the new equipment menu! */
+    public void wearEquipment(string itemname, int bar)
+    {
+        bool head = true;
+        if (bar == 1)
+            head = false;
+
+        // unequip current item if not empty
+        if (head)
+            if (currentEquipment0 != null)
+                currentEquipment0.SetActive(false);
+        if (!head)
+            if (currentEquipment1 != null)
+                currentEquipment1.SetActive(false);
+
+        // selected empty item?
+        if (itemname == "empty")
+        {
+            if (head)
+                currentEquipment0 = null;
+            else
+                currentEquipment1 = null;
+        }
+        else
+        {
+            int index = containsItem(itemname, bar);
+
+            if (index < 0)
+                Debug.LogError("The item to this Button is not in your Equipment!!!");
+
+            if (head)
+            {
+                GameObject obj = (GameObject)bar0list[index];
+                currentEquipment0 = obj;
+                obj.SetActive(true);
+            }
+            else
+            {
+                GameObject obj = (GameObject)bar1list[index];
+                currentEquipment1 = obj;
+                obj.SetActive(true);
+            }
+        }
+    }
+
 	public GameObject getCurrentItem()
 	{
 		return (GameObject)currentList[currentItem];
@@ -160,24 +210,32 @@ public class Equipment : MonoBehaviour {
 	
 	// bar == 0 if it is a head item
 	// bar == 1 if it is a left hand item
-	public bool containsItem(string iName, int bar)
-	{
-		bool result = false;
+     /* Returns -1 if it does not contain specific item in this bar
+     * based on the item name.
+     * Returns the index of the item else!
+     */
+    public int containsItem(string iName, int bar)
+    {
+        int result = -1;
+
 		ArrayList list = new ArrayList();
 		
 		if (bar == 0)
 			list = bar0list;
 		else if (bar == 1)
 			list = bar1list;
-			
-		foreach (GameObject obj in list) {
-			item i = obj.GetComponent<item>();
-			if (i.itemName == iName)
-			{
-				result = true;
-				break;
-			}
-		}
+
+
+        for (int i = 0; i < list.Count; i++)
+        {
+            GameObject obj = (GameObject)list[i];
+            item it = obj.GetComponent<item>();
+            if (it.itemName == iName)
+            {
+                result = i;
+                break;
+            }
+        }
 		
 		return result;
 	}
