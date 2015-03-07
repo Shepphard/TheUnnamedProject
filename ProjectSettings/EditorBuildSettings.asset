@@ -13,3 +13,7 @@ EditorBuildSettings:
     path: Assets/_Scenes/loadToKnightLevel.unity
   - enabled: 1
     path: Assets/_Scenes/prototype.unity
+  - enabled: 1
+    path: Assets/_Scenes/cutscene.unity
+  - enabled: 1
+    path: Assets/_Scenes/spacelevel.unity

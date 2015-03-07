@@ -1,41 +1,41 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &100000
+--- !u!1 &123688
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 400000}
-  - 198: {fileID: 19800000}
-  - 199: {fileID: 19900000}
+  - 4: {fileID: 423688}
+  - 198: {fileID: 19823688}
+  - 199: {fileID: 19923688}
   m_Layer: 0
-  m_Name: clouds
+  m_Name: spaceshipClouds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &400000
+--- !u!4 &423688
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
+  m_GameObject: {fileID: 123688}
   m_LocalRotation: {x: -.707106829, y: 0, z: 0, w: .707106829}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 39.2799988, y: 2.25999999, z: 73.8700027}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!198 &19800000
+--- !u!198 &19823688
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  lengthInSec: 2.1400001
+  m_GameObject: {fileID: 123688}
+  lengthInSec: .239999995
   startDelay: 0
   speed: 1
   randomSeed: 0
@@ -46,7 +46,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: 2
+      scalar: 2.18000007
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -258,8 +258,8 @@ ParticleSystem:
     serializedVersion: 2
     enabled: 1
     type: 0
-    radius: 1
-    angle: 90
+    radius: 2.1500001
+    angle: 2.44000006
     length: 5
     boxX: 0
     boxY: 1
@@ -271,7 +271,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 1000
+      scalar: 13000
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1056,12 +1056,12 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &19900000
+--- !u!199 &19923688
 ParticleSystemRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
+  m_GameObject: {fileID: 123688}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -1097,6 +1097,6 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 100000}
+  m_RootGameObject: {fileID: 123688}
   m_IsPrefabParent: 1
   m_IsExploded: 1
