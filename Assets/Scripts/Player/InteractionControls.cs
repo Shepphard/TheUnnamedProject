@@ -258,9 +258,16 @@ public class InteractionControls : MonoBehaviour {
 				if (hitObject.collider.tag == "NPC")
 					// if yes, retrieve NPCInteraction script from the NPC
 					hitObject.collider.gameObject.GetComponent<NPCKnight>().Interaction();
+
+				//is it a Spaceship?..
+				else if (hitObject.collider.tag == "Spaceship")
+					// if yes, retrieve Spaceshipscript and interact
+					hitObject.collider.gameObject.GetComponent<Spaceship>().Interaction();
+
 				//..if you hit an pickup object and have no object in your hands yo
 				else if (carriedObject == null && hitObject.collider.tag == "PickUp")
 					setCarriedObject(hitObject.collider.transform);
+
 				else if (hitObject.collider.CompareTag(Tags.trigger))
 				{
 					hitObject.collider.GetComponent<Trigger>().Triggered();
@@ -373,7 +380,7 @@ public class InteractionControls : MonoBehaviour {
 	 * Use always this to "put an item out of your hands"
 	 * deals with the rigidbody, parenting
 	 */
-	void clearCarriedObject()
+	public void clearCarriedObject()
 	{
 		item i = carriedObject.GetComponent<item>();
 		
