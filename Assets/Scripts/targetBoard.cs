@@ -7,11 +7,13 @@ public class targetBoard : MonoBehaviour
 
 	public Transform fixatorT;
 
+	private AI_gun gun;
 
 	// Use this for initialization
 	void Awake() 
 	{
 		rigidbody.centerOfMass = new Vector3(0f, 0.2f, 0f);
+		gun = GetComponentInChildren<AI_gun>();
 
 	}
 
@@ -26,6 +28,11 @@ public class targetBoard : MonoBehaviour
 			j.min = 80f;
 			hingeJoint.limits = j;
 			hingeJoint.useSpring = false;
+			gameObject.collider.enabled = false;
+			if(gun)
+			{
+				gun.enabled = false;
+			}
 		}
 	}
 }

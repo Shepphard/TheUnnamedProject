@@ -40,10 +40,11 @@ public class AI_gun : MonoBehaviour
 
 			//shoot Ray to check if the player is visible
 			RaycastHit hit;
-			Physics.Raycast(transform.position, transform.forward, out hit);
+			LayerMask noBarrierMask = LayerMask.GetMask("barrier");
+			noBarrierMask = ~noBarrierMask;
+			Physics.Raycast(transform.position, transform.forward, out hit, maxDistance, noBarrierMask);
 			if(hit.collider.CompareTag("Player") && timer > maxTimer)
 			{
-				Debug.Log(d/maxDistance);
 				transform.LookAt(playerT.position + (playerR.velocity * d/maxDistance * Random.Range(0.5f, 2f)));
 				timer = 0f;
 				gun.Shoot();
