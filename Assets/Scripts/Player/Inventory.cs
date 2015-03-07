@@ -106,4 +106,17 @@ public class Inventory : MonoBehaviour {
 	{
 		return itemsList[currentItem] != null;
 	}
+
+    // is certain item in inventory
+    public bool carriesItem(string iname)
+    {
+        bool result = false;
+        foreach (GameObject obj in itemsList)
+        {
+            if (obj.GetComponent<item>().name == iname)
+                result = true;
+        }
+
+        return result;
+    }
 }
