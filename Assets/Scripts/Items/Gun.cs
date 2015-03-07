@@ -10,7 +10,7 @@ public class Gun : MonoBehaviour
 	public float strength = 10f;
 
 	
-	public static AudioClip sfx_laser;
+	public AudioClip sfx_laser;
 	public float sfx_Volume = 0.8f;
 
 	private float timer;

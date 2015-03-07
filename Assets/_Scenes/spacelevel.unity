@@ -3230,6 +3230,7 @@ MonoBehaviour:
   projectile: {fileID: 100000, guid: bcb34a4a8c3eddb48aa088fc50e1214c, type: 2}
   muzzleOffset: {x: 0, y: .200000003, z: .699999988}
   strength: 400
+  sfx_laser: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
   sfx_Volume: .600000024
 --- !u!54 &90555096
 Rigidbody:
@@ -5640,6 +5641,7 @@ MonoBehaviour:
   projectile: {fileID: 100002, guid: 5ae57372d211d234795da86adc4601fc, type: 2}
   muzzleOffset: {x: 0, y: .200000003, z: .699999988}
   strength: 400
+  sfx_laser: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
   sfx_Volume: .800000012
 --- !u!114 &142022226
 MonoBehaviour:
@@ -6008,6 +6010,7 @@ MonoBehaviour:
   projectile: {fileID: 100002, guid: 5ae57372d211d234795da86adc4601fc, type: 2}
   muzzleOffset: {x: 0, y: .200000003, z: .699999988}
   strength: 400
+  sfx_laser: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
   sfx_Volume: .800000012
 --- !u!114 &189483033
 MonoBehaviour:
@@ -9072,6 +9075,7 @@ MonoBehaviour:
   projectile: {fileID: 100002, guid: 5ae57372d211d234795da86adc4601fc, type: 2}
   muzzleOffset: {x: 0, y: .200000003, z: .699999988}
   strength: 400
+  sfx_laser: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
   sfx_Volume: .800000012
 --- !u!114 &378455267
 MonoBehaviour:
@@ -15390,6 +15394,7 @@ MonoBehaviour:
   projectile: {fileID: 100002, guid: 5ae57372d211d234795da86adc4601fc, type: 2}
   muzzleOffset: {x: 0, y: .200000003, z: .699999988}
   strength: 400
+  sfx_laser: {fileID: 0}
   sfx_Volume: .800000012
 --- !u!114 &489269499
 MonoBehaviour:
@@ -15637,6 +15642,7 @@ MonoBehaviour:
   projectile: {fileID: 100002, guid: 5ae57372d211d234795da86adc4601fc, type: 2}
   muzzleOffset: {x: 0, y: .200000003, z: .699999988}
   strength: 400
+  sfx_laser: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
   sfx_Volume: .800000012
 --- !u!114 &495253856
 MonoBehaviour:
@@ -23529,6 +23535,7 @@ MonoBehaviour:
   projectile: {fileID: 100002, guid: 5ae57372d211d234795da86adc4601fc, type: 2}
   muzzleOffset: {x: 0, y: .200000003, z: .699999988}
   strength: 400
+  sfx_laser: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
   sfx_Volume: .800000012
 --- !u!114 &720242599
 MonoBehaviour:
@@ -25070,6 +25077,42 @@ Prefab:
       value: 
       objectReference: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
     - target: {fileID: 11400048, guid: c0418fcab4e0ec949a9aaa21a7a6f4ad, type: 2}
+      propertyPath: sfx_laser
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
+    - target: {fileID: 11400010, guid: c0418fcab4e0ec949a9aaa21a7a6f4ad, type: 2}
+      propertyPath: sfx_laser
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
+    - target: {fileID: 11400014, guid: c0418fcab4e0ec949a9aaa21a7a6f4ad, type: 2}
+      propertyPath: sfx_laser
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
+    - target: {fileID: 11400036, guid: c0418fcab4e0ec949a9aaa21a7a6f4ad, type: 2}
+      propertyPath: sfx_laser
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
+    - target: {fileID: 11400004, guid: c0418fcab4e0ec949a9aaa21a7a6f4ad, type: 2}
+      propertyPath: sfx_laser
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
+    - target: {fileID: 11400030, guid: c0418fcab4e0ec949a9aaa21a7a6f4ad, type: 2}
+      propertyPath: sfx_laser
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
+    - target: {fileID: 11400024, guid: c0418fcab4e0ec949a9aaa21a7a6f4ad, type: 2}
+      propertyPath: sfx_laser
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
+    - target: {fileID: 11400080, guid: c0418fcab4e0ec949a9aaa21a7a6f4ad, type: 2}
+      propertyPath: sfx_laser
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
+    - target: {fileID: 11400092, guid: c0418fcab4e0ec949a9aaa21a7a6f4ad, type: 2}
+      propertyPath: sfx_laser
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
+    - target: {fileID: 11400084, guid: c0418fcab4e0ec949a9aaa21a7a6f4ad, type: 2}
       propertyPath: sfx_laser
       value: 
       objectReference: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
@@ -39188,6 +39231,7 @@ MonoBehaviour:
   projectile: {fileID: 100002, guid: 5ae57372d211d234795da86adc4601fc, type: 2}
   muzzleOffset: {x: 0, y: .200000003, z: .699999988}
   strength: 400
+  sfx_laser: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
   sfx_Volume: .800000012
 --- !u!114 &1254453249
 MonoBehaviour:
@@ -44780,6 +44824,7 @@ MonoBehaviour:
   projectile: {fileID: 100002, guid: 5ae57372d211d234795da86adc4601fc, type: 2}
   muzzleOffset: {x: 0, y: .200000003, z: .699999988}
   strength: 400
+  sfx_laser: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
   sfx_Volume: .800000012
 --- !u!114 &1361994009
 MonoBehaviour:
@@ -51941,6 +51986,7 @@ MonoBehaviour:
   projectile: {fileID: 100002, guid: 5ae57372d211d234795da86adc4601fc, type: 2}
   muzzleOffset: {x: 0, y: .200000003, z: .699999988}
   strength: 400
+  sfx_laser: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
   sfx_Volume: .800000012
 --- !u!114 &1588294324
 MonoBehaviour:
@@ -62560,6 +62606,7 @@ MonoBehaviour:
   projectile: {fileID: 100002, guid: 5ae57372d211d234795da86adc4601fc, type: 2}
   muzzleOffset: {x: 0, y: .200000003, z: .699999988}
   strength: 400
+  sfx_laser: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
   sfx_Volume: .800000012
 --- !u!114 &1912512371
 MonoBehaviour:
@@ -64472,6 +64519,7 @@ MonoBehaviour:
   projectile: {fileID: 100002, guid: 5ae57372d211d234795da86adc4601fc, type: 2}
   muzzleOffset: {x: 0, y: .200000003, z: .699999988}
   strength: 400
+  sfx_laser: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
   sfx_Volume: .800000012
 --- !u!114 &1958095077
 MonoBehaviour:
@@ -65595,6 +65643,7 @@ MonoBehaviour:
   projectile: {fileID: 100002, guid: 5ae57372d211d234795da86adc4601fc, type: 2}
   muzzleOffset: {x: 0, y: .200000003, z: .699999988}
   strength: 400
+  sfx_laser: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
   sfx_Volume: .800000012
 --- !u!114 &2002255021
 MonoBehaviour:
@@ -66079,6 +66128,7 @@ MonoBehaviour:
   projectile: {fileID: 100002, guid: 5ae57372d211d234795da86adc4601fc, type: 2}
   muzzleOffset: {x: 0, y: .200000003, z: .699999988}
   strength: 400
+  sfx_laser: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
   sfx_Volume: .800000012
 --- !u!114 &2023657138
 MonoBehaviour:
@@ -68407,6 +68457,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: e2896f43812d83541913cb02120d80ea, type: 2}
+      propertyPath: sfx_laser
+      value: 
+      objectReference: {fileID: 8300000, guid: 5e529d2d46e63fb4495731050ada8ac1, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e2896f43812d83541913cb02120d80ea, type: 2}
   m_RootGameObject: {fileID: 90555093}
