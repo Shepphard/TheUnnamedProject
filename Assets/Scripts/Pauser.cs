@@ -6,6 +6,7 @@ public class Pauser : MonoBehaviour
     public KeyCode key_pause;
     public GameObject pausePanel;
     public float musicFadeSpeed = 3f;
+    public GameObject equipmenuCanvas;
 
     private InteractionControls playerCtrl;
     private BlockCTRL blocker;
@@ -13,6 +14,7 @@ public class Pauser : MonoBehaviour
 
     private bool paused = false;
     private NewEquipMenu equipmenu;
+    private bool equipWasEnabled = false;
 
     void Awake()
     {
@@ -46,8 +48,12 @@ public class Pauser : MonoBehaviour
 
     void Pause()
     {
-        equipmenu.Disable();
-        equipmenu.enabled = false;
+        if (equipmenuCanvas.activeSelf)
+        {
+            equipWasEnabled = true;
+            equipmenu.Disable();
+            equipmenu.enabled = false;
+        }
         pausePanel.SetActive(true);
         Time.timeScale = 0;
         playerCtrl.enabled = false;
@@ -56,8 +62,12 @@ public class Pauser : MonoBehaviour
 
     void Unpause()
     {
-        equipmenu.enabled = true;
-        equipmenu.Enable();
+        if (equipWasEnabled)
+        {
+            equipmenu.enabled = true;
+            equipmenu.Enable();
+            equipWasEnabled = false;
+        }
         playerCtrl.enabled = true;
         Time.timeScale = 1;
         paused = false;
