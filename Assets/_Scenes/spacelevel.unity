@@ -14848,7 +14848,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -15995,7 +15994,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -23321,7 +23319,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -37922,6 +37919,10 @@ Prefab:
       propertyPath: sfx.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11499778, guid: 00621e4571ec5244b948f22500078ad4, type: 2}
+      propertyPath: themes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 499778, guid: 00621e4571ec5244b948f22500078ad4, type: 2}
       propertyPath: m_LocalPosition.x
       value: 205.941071
@@ -37976,6 +37977,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11499778, guid: 00621e4571ec5244b948f22500078ad4, type: 2}
       propertyPath: sfx.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0a82a1c561bbd6944a2a6871849a7d0e, type: 3}
+    - target: {fileID: 11499778, guid: 00621e4571ec5244b948f22500078ad4, type: 2}
+      propertyPath: themes.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: 0a82a1c561bbd6944a2a6871849a7d0e, type: 3}
     m_RemovedComponents: []
@@ -43398,7 +43403,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -50145,9 +50149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maintheme: {fileID: 8300000, guid: 0a82a1c561bbd6944a2a6871849a7d0e, type: 3}
   themes:
-  - {fileID: 8300000, guid: 3b3f7b596e998504489534c1d408fb37, type: 3}
-  - {fileID: 8300000, guid: e324ba0408fd913448046fbe9cd2f439, type: 3}
-  - {fileID: 8300000, guid: e91dbf7731732994a814b335a664fb92, type: 3}
+  - {fileID: 8300000, guid: 0a82a1c561bbd6944a2a6871849a7d0e, type: 3}
   sfx:
   - {fileID: 8300000, guid: 0a82a1c561bbd6944a2a6871849a7d0e, type: 3}
   fadeSpeed: 2
